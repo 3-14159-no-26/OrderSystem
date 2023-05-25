@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from "react"
 import { Link } from "react-router-dom"
 import { CSSTransition, SwitchTransition } from "react-transition-group"
 import URL from "@/url"
-import NavBar from "@/components/NavBar"
 import Container from "@/components/container"
 
 type menu = {
@@ -54,7 +53,6 @@ const Home = () => {
 
     return (
         <>
-            {/* <NavBar /> */}
             <Container>
                 <SwitchTransition mode='out-in'>
                     <CSSTransition

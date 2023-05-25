@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { MenuListProvider, useMenuListContext } from "@/context/MenuList"
+import { useMenuListContext } from "@/context/MenuList"
 import URL from "@/url"
-import NavBar from "@/components/NavBar"
 import Container from "@/components/container"
 import { IconPlus, IconMinus } from "@tabler/icons-react"
 
@@ -36,7 +35,6 @@ const Menu = () => {
 
     return (
         <>
-            {/* <NavBar /> */}
             <Container>
                 <div className='w-full'>
                     <h1>Menu</h1>

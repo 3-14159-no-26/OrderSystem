@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
-import { MenuListProvider, useMenuListContext } from "@/context/MenuList"
-import { IconShoppingCart, IconPointFilled } from "@tabler/icons-react"
+import { useMenuListContext } from "@/context/MenuList"
+import { IconShoppingCart } from "@tabler/icons-react"
 import logo from "@/assets/WHEats.png"
 
 const NavBar = () => {

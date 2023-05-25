@@ -1,13 +1,10 @@
-import { MenuListProvider, useMenuListContext } from "@/context/MenuList"
-import NavBar from "@/components/NavBar"
+import { useMenuListContext } from "@/context/MenuList"
 import Container from "@/components/container"
-import { CSSTransition, SwitchTransition } from "react-transition-group"
 
 const Cart = () => {
     const { menuList, resetToCart } = useMenuListContext()
     return (
         <>
-            {/* <NavBar /> */}
             <Container>
                 <div className='w-full'>
                     <div>Cart</div>

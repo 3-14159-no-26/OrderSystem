@@ -1,4 +1,3 @@
-import { type } from "os"
 import { useState, createContext, useContext, useEffect } from "react"
 
 type Menu = {
