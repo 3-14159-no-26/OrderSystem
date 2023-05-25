@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "main";
+    src: url("/static/fonts/筑紫A丸by\ 宁静之雨.woff2");
+}
+
+html {
+    box-sizing: border-box;
+    font-family: "main", sans-serif;
+}
+
+/* 卷軸樣式 */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+::-webkit-scrollbar-track-piece {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-corner {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-button {
+    display: none;
+}
+
+/* 切換頁面動畫 */
+
+.page-enter {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.page-enter-active {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 300ms, transform 300ms;
+}
+
+/* 页面离开动画 */
+.page-exit {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.page-exit-active {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 300ms, transform 300ms;
+}
+
+/* 菜單分類切換動畫 */
+
+.menuCategory-enter {
+    opacity: 0;
+    transform: translateX(-100%);
+}
+
+.menuCategory-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 300ms, transform 300ms;
+}
+
+.menuCategory-exit {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* 反方向 */
+.menuCategory-exit-active {
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 300ms, transform 300ms;
+}
