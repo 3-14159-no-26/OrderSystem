@@ -105,3 +105,25 @@ html {
         linear-gradient(-45deg, transparent 33%, #ffffff 33%, #ffffff 66%, transparent 66%);
     background-size: 20px 40px;
 }
+
+@media screen and (max-width: 768px) {
+    #menu-list {
+        transition: 0.3s ease-in-out;
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    #menu-list.visible {
+        max-height: 500px; /* 适当调整高度 */
+    }
+
+    /* 动画效果 */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+}
