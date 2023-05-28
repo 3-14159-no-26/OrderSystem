@@ -55,11 +55,13 @@ const MenuListProvider = ({ children }: { children: React.ReactNode }) => {
 
     const addToCart = (item: Menu, count: number) => {
         // console.log("click addToCart", item)
-        // 如果陣列裡面有此物件，就把數量加上去
-        const index = menuList.findIndex((e) => e.id === item.id)
+        // 如果陣列裡面有此物件，就把數量修改
+        const index = menuList.findIndex((e) => e.id == item.id)
         if (index !== -1) {
-            menuList[index].count += count
-            setMenuList([...menuList])
+            const newMenuList = [...menuList]
+            newMenuList[index].count = count
+            setMenuList(newMenuList)
+            // console.log("click addToCart", menuList)
         }
         // 如果陣列裡面沒有此物件，就把物件加進去
         else {
