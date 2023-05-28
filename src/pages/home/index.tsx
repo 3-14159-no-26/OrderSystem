@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import { CSSTransition, SwitchTransition } from "react-transition-group"
 import URL from "@/url"
 import Container from "@/components/container"
+import { IconList } from "@tabler/icons-react"
 
 type menu = {
     id: number
@@ -49,6 +50,11 @@ const Home = () => {
         console.log("click selectCategory", name)
 
         setMenuCategory(name)
+    }
+
+    const menutoggle = () => {
+        const menuList = document.querySelector("#menu-list")
+        menuList?.classList.toggle("max-md:hidden")
     }
 
     return (
@@ -110,8 +116,11 @@ const Home = () => {
                         </div>
                     </CSSTransition>
                 </SwitchTransition>
-                <div className='w-1/4 max-md:w-full'>
-                    <div className='m-4 rounded-lg bg-white p-2 shadow-md '>
+                <div
+                    className='w-1/4 max-md:fixed max-md:bottom-14 max-md:right-0 max-md:hidden max-md:w-1/2'
+                    id='menu-list'
+                >
+                    <div className='m-4 rounded-lg bg-white p-2 shadow-md max-md:bg-[#ffa10099]'>
                         {category.map((item: category) => (
                             <div key={item.id} className=''>
                                 <div
@@ -127,6 +136,12 @@ const Home = () => {
                     </div>
                 </div>
             </Container>
+            <div
+                className='fixed bottom-2 right-2 hidden h-14 w-14 rounded-full bg-amber-400 p-4 max-md:block'
+                onClick={menutoggle}
+            >
+                <IconList />
+            </div>
         </>
     )
 }
