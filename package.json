@@ -5,10 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build && ts-node src/server.ts",
+    "build": "tsc && vite build && ts-node api/server.ts",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "server": "ts-node src/server.ts"
+    "server": "ts-node api/server.ts"
   },
   "dependencies": {
     "@tabler/icons-react": "^2.20.0",
