@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import { useMenuListContext } from "@/context/MenuList"
+import { ToastContainer, toast } from "react-toastify"
+import { IconPlus, IconMinus } from "@tabler/icons-react"
+import "react-toastify/dist/ReactToastify.css"
 import URL from "@/url"
 import Container from "@/components/container"
-import { IconPlus, IconMinus } from "@tabler/icons-react"
 
 type menu = {
     id: number
@@ -14,9 +16,21 @@ type menu = {
 
 const Menu = () => {
     const { id } = useParams()
+    const go = useNavigate()
     const [data, setData] = useState<menu>()
     const [count, setCount] = useState(1)
     const { menuList, addToCart } = useMenuListContext()
+
+    // 讀取目前採購量
+    useEffect(() => {
+        console.log("商品ID", id, "讀取目前採購量", menuList)
+        if (id) {
+            const index = menuList.findIndex((e) => e.id == parseInt(id))
+            if (index !== -1) {
+                setCount(menuList[index].count)
+            }
+        }
+    }, [menuList])
 
     useEffect(() => {
         const fetchData = async () => {
@@ -33,14 +47,60 @@ const Menu = () => {
         }
     }, [menuList])
 
+    const addToCartAndNavigate = (data: menu, count: number) => {
+        addToCart(data, count)
+        notify()
+        // 通知完成自動跳轉
+        setTimeout(() => {
+            go("/")
+        }, 2500)
+    }
+
+    const notify = () =>
+        toast.promise(
+            new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve("加入購物車成功")
+                }, 500)
+            }),
+            {
+                pending: "加入購物車中...",
+                success: "加入購物車成功",
+                error: "加入購物車失敗",
+            },
+            {
+                position: "top-right",
+                autoClose: 1500,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            }
+        )
+
     return (
         <>
+            <ToastContainer
+                position='top-right'
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme='light'
+            />
+            <ToastContainer />
             <Container>
                 <div className='w-full'>
                     <h1>Menu</h1>
                     <div className='flex items-center justify-center'>
                         {data && (
-                            <div className=' bg-slate-300 p-2  rounded-md shadow-md'>
+                            <div className=' rounded-md bg-slate-300  p-2 shadow-md'>
                                 <div className='overflow-hidden'>
                                     <img
                                         src={"https://picsum.photos/200/100?random=" + data.id}
@@ -51,7 +111,7 @@ const Menu = () => {
                                 <div className=''>${data.price}</div>
                                 <div className='flex items-center py-2'>
                                     <button
-                                        className='bg-amber-400 p-1 rounded-lg'
+                                        className='rounded-lg bg-amber-400 p-1'
                                         onClick={() => {
                                             if (count > 1) setCount(count - 1)
                                         }}
@@ -60,7 +120,7 @@ const Menu = () => {
                                     </button>
                                     <input
                                         type='text'
-                                        className='text-center mx-1 p-1 rounded-lg w-full'
+                                        className='mx-1 w-full rounded-lg p-1 text-center'
                                         size={1}
                                         onChange={(e) => {
                                             if (e.target.value === "") setCount(1)
@@ -69,15 +129,15 @@ const Menu = () => {
                                         value={count.toString()}
                                     />
                                     <button
-                                        className='bg-amber-400 p-1 rounded-lg'
+                                        className='rounded-lg bg-amber-400 p-1'
                                         onClick={() => setCount(count + 1)}
                                     >
                                         <IconPlus />
                                     </button>
                                 </div>
                                 <button
-                                    className='bg-amber-400 p-1 rounded-lg w-full'
-                                    onClick={() => addToCart(data, count)}
+                                    className='w-full rounded-lg bg-amber-400 p-1'
+                                    onClick={() => addToCartAndNavigate(data, count)}
                                 >
                                     加入購物車
                                 </button>
