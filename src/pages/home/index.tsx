@@ -29,10 +29,11 @@ const Home = () => {
             if (menuCategory !== "") {
                 const filterData = data.filter((item: menu) => item.category === menuCategory)
                 setMenu(filterData)
+                console.log("你選擇的是", menuCategory, "數量", filterData.length, filterData)
             } else {
                 setMenu(data)
+                console.log("你選擇的是 全部", "數量", data.length, data)
             }
-            console.log(data)
         }
         fetchMenu()
     }, [menuCategory])
@@ -54,7 +55,9 @@ const Home = () => {
 
     const menutoggle = () => {
         const menuList = document.querySelector("#menu-list")
-        menuList?.classList.toggle("max-md:hidden")
+        // menuList?.classList.toggle("max-md:hidden")
+        menuList?.classList.toggle("visible")
+        menuList?.classList.toggle("fade-in")
     }
 
     return (
@@ -117,27 +120,29 @@ const Home = () => {
                     </CSSTransition>
                 </SwitchTransition>
                 <div
-                    className='w-1/4 max-md:fixed max-md:bottom-14 max-md:right-0 max-md:hidden max-md:w-1/2'
+                    className='w-1/4 max-md:fixed max-md:bottom-14 max-md:right-0 max-md:w-1/2'
                     id='menu-list'
                 >
                     <div className='m-4 rounded-lg bg-white p-2 shadow-md max-md:bg-[#ffa10099]'>
-                        {category.map((item: category) => (
-                            <div key={item.id} className=''>
+                        <div className='p-1 text-xl font-medium max-md:hidden'>分類</div>
+                        <div className='p-1'>
+                            {category.map((item: category) => (
                                 <div
-                                    className='cursor-pointer'
+                                    key={item.id}
+                                    className='cursor-pointer rounded-lg p-2 hover:bg-gray-100 max-md:hover:bg-[#ffa10099]'
                                     onClick={() =>
                                         selectCategory(item.name === "全部" ? "" : item.name)
                                     }
                                 >
                                     {item.name}
                                 </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
                 </div>
             </Container>
             <div
-                className='fixed bottom-2 right-2 hidden h-14 w-14 rounded-full bg-amber-400 p-4 max-md:block'
+                className='fixed bottom-2 right-2 hidden h-14 w-14 cursor-pointer rounded-full bg-amber-400 p-4 max-md:block'
                 onClick={menutoggle}
             >
                 <IconList />
