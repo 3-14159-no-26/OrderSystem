@@ -65,21 +65,21 @@ const Home = () => {
                         classNames='menuCategory'
                         unmountOnExit
                     >
-                        <div className='flex flex-wrap w-3/4 max-md:w-full' ref={nodeRef}>
+                        <div className='flex w-3/4 flex-wrap max-md:w-full' ref={nodeRef}>
                             {menu.map((item: menu) => (
                                 <div
                                     key={item.id}
-                                    className='group relative bg-white rounded-lg shadow-md m-4 w-[200px] overflow-hidden hover:shadow-lg hover:scale-105 transition-all duration-300  max-md:w-full max-md:h-[300px]'
+                                    className='group relative m-4 w-[200px] overflow-hidden rounded-lg bg-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg  max-md:h-[300px] max-md:w-full'
                                 >
-                                    <div className='absolute top-[-100%] left-0 bg-white opacity-0 group-hover:top-0 group-hover:opacity-100 transition-all duration-300'>
+                                    <div className='absolute left-0 top-[-100%] bg-white opacity-0 transition-all duration-300 group-hover:top-0 group-hover:opacity-100'>
                                         <img
-                                            className='w-full h-full object-cover'
+                                            className='h-full w-full object-cover'
                                             src={"https://picsum.photos/500/500?random=" + item.id}
                                             alt=''
                                         />
-                                        <div className='absolute top-0 left-0 p-4 w-full h-full'>
-                                            <div className='flex justify-center items-center w-full h-full'>
-                                                <div className=' bg-sky-600 p-1 rounded-lg'>
+                                        <div className='absolute left-0 top-0 h-full w-full p-4'>
+                                            <div className='flex h-full w-full items-center justify-center'>
+                                                <div className=' rounded-lg bg-sky-600 p-1'>
                                                     <Link to={`/menu/${item.id}`}>
                                                         點擊查看詳情
                                                     </Link>
@@ -92,7 +92,7 @@ const Home = () => {
                                         <div className='overflow-hidden'>
                                             {/* transition-all duration-300 hover:scale-105 */}
                                             <img
-                                                className='w-[500px] h-[200px] object-cover'
+                                                className='h-[200px] w-[500px] object-cover'
                                                 src={
                                                     "https://picsum.photos/500/500?random=" +
                                                     item.id
@@ -110,8 +110,8 @@ const Home = () => {
                         </div>
                     </CSSTransition>
                 </SwitchTransition>
-                <div className='w-1/4 m-4 max-md:w-full'>
-                    <div className='bg-white rounded-lg shadow-md p-2'>
+                <div className='w-1/4 max-md:w-full'>
+                    <div className='m-4 rounded-lg bg-white p-2 shadow-md '>
                         {category.map((item: category) => (
                             <div key={item.id} className=''>
                                 <div
