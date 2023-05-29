@@ -83,11 +83,10 @@ const Home = () => {
                     >
                         <div className='flex w-3/4 flex-wrap max-md:w-full' ref={nodeRef}>
                             {loading && <Loding />}
-
                             {menu.map((item: menu) => (
                                 <div
                                     key={item.id}
-                                    className='group relative m-4 w-[200px] overflow-hidden rounded-lg bg-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg  max-md:h-[300px] max-md:w-full'
+                                    className='group relative m-4 w-[200px] overflow-hidden rounded-lg bg-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg max-md:w-full'
                                 >
                                     <div className='absolute left-0 top-[-100%] bg-white opacity-0 transition-all duration-300 group-hover:top-0 group-hover:opacity-100'>
                                         <img
