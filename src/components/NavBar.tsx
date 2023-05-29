@@ -8,7 +8,7 @@ const NavBar = () => {
 
     return (
         <>
-            <div className='nav-bar flex items-center justify-between shadow-lg w-full p-4 text-xl'>
+            <div className='nav-bar flex w-full items-center justify-between p-4 text-xl shadow-lg'>
                 <div className='nav-bar__logo'>
                     <Link to='/'>
                         <img className='h-12' src={logo} alt='logo' />
@@ -16,10 +16,10 @@ const NavBar = () => {
                 </div>
                 <div className='nav-bar-menu'>
                     <div className='flex items-center'>
-                        <div className='pr-4 relative'>
+                        <div className='relative pr-4'>
                             <Link to='/cart'>
                                 {menuList.length > 0 && (
-                                    <div className='flex items-center justify-center absolute -top-1 right-2 w-4 h-4 pt-[0.15rem] bg-red-500 text-white rounded-full'>
+                                    <div className='absolute -top-1 right-2 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 pt-[0.15rem] text-white'>
                                         <div className='text-center text-xs'>{menuList.length}</div>
                                     </div>
                                 )}
