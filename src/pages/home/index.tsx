@@ -21,9 +21,11 @@ const Home = () => {
     const [menu, setMenu] = useState<menu[]>([])
     const [category, setCategory] = useState<category[]>([])
     const [menuCategory, setMenuCategory] = useState("")
+    const [loading, setLoading] = useState(false)
     const nodeRef = useRef(null)
     useEffect(() => {
         const fetchMenu = async () => {
+            setLoading(true)
             const response = await fetch(URL + "/menu")
             const data = await response.json()
             if (menuCategory !== "") {
@@ -34,6 +36,7 @@ const Home = () => {
                 setMenu(data)
                 console.log("你選擇的是 全部", "數量", data.length, data)
             }
+            setLoading(false)
         }
         fetchMenu()
     }, [menuCategory])
@@ -75,6 +78,38 @@ const Home = () => {
                         unmountOnExit
                     >
                         <div className='flex w-3/4 flex-wrap max-md:w-full' ref={nodeRef}>
+                            {loading && (
+                                <div className='flex flex animate-pulse flex-wrap ring-slate-900/5'>
+                                    <div className='m-4 rounded-xl bg-slate-900'>
+                                        <div className='h-[200px] w-[200px] rounded-lg bg-slate-200'></div>{" "}
+                                        <div className='flex flex-col justify-center p-4'>
+                                            <div className='h-4 w-10 rounded-full bg-slate-200'></div>
+                                            <div className='flex justify-end pt-4'>
+                                                <div className='h-4 w-20 rounded-full bg-slate-200 text-right'></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='m-4 rounded-xl bg-slate-900'>
+                                        <div className='h-[200px] w-[200px] rounded-lg bg-slate-200'></div>{" "}
+                                        <div className='flex flex-col justify-center p-4'>
+                                            <div className='h-4 w-10 rounded-full bg-slate-200'></div>
+                                            <div className='flex justify-end pt-4'>
+                                                <div className='h-4 w-20 rounded-full bg-slate-200 text-right'></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='m-4 rounded-xl bg-slate-900'>
+                                        <div className='h-[200px] w-[200px] rounded-lg bg-slate-200'></div>{" "}
+                                        <div className='flex flex-col justify-center p-4'>
+                                            <div className='h-4 w-10 rounded-full bg-slate-200'></div>
+                                            <div className='flex justify-end pt-4'>
+                                                <div className='h-4 w-20 rounded-full bg-slate-200 text-right'></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+
                             {menu.map((item: menu) => (
                                 <div
                                     key={item.id}
