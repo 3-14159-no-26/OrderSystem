@@ -1,4 +1,5 @@
 import { useMenuListContext } from "@/context/MenuList"
+import { ToastContainer, toast } from "react-toastify"
 import Container from "@/components/container"
 import MenuItem from "@/pages/cart/components/MenuItem"
 
@@ -6,6 +7,18 @@ const Cart = () => {
     const { menuList, resetToCart } = useMenuListContext()
     return (
         <>
+            <ToastContainer
+                position='top-right'
+                autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme='light'
+            />
             <Container>
                 <div className='w-full rounded-2xl border-2 border-black bg-[#efa987]'>
                     <div className='relative z-10 m-[-2px] h-40 border-collapse rounded-2xl border-2 border-black px-4 pb-4 shadow-xl'>
@@ -69,7 +82,10 @@ const Cart = () => {
                                         <div className='mt-4 flex'>
                                             <button
                                                 className='m-1 w-full rounded-lg bg-amber-400 p-2'
-                                                onClick={() => resetToCart()}
+                                                onClick={() => {
+                                                    resetToCart()
+                                                    toast("🛒已清空購物車")
+                                                }}
                                             >
                                                 清空購物車
                                             </button>

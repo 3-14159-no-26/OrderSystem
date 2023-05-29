@@ -83,16 +83,6 @@ const Menu = () => {
                 pending: "加入購物車中...",
                 success: "加入購物車成功",
                 error: "加入購物車失敗",
-            },
-            {
-                position: "top-right",
-                autoClose: 1500,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
             }
         )
 
@@ -100,7 +90,7 @@ const Menu = () => {
         <>
             <ToastContainer
                 position='top-right'
-                autoClose={5000}
+                autoClose={2000}
                 hideProgressBar={false}
                 newestOnTop={false}
                 closeOnClick
@@ -110,7 +100,6 @@ const Menu = () => {
                 pauseOnHover
                 theme='light'
             />
-            <ToastContainer />
             <Container>
                 <div className='w-full'>
                     <h1>Menu</h1>
