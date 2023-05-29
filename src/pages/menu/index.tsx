@@ -6,6 +6,7 @@ import { IconPlus, IconMinus } from "@tabler/icons-react"
 import "react-toastify/dist/ReactToastify.css"
 import URL from "@/url"
 import Container from "@/components/container"
+import Loding from "@/pages/menu/components/Loading"
 
 type menu = {
     id: number
@@ -20,6 +21,7 @@ const Menu = () => {
     const go = useNavigate()
     const [data, setData] = useState<menu>()
     const [count, setCount] = useState(1)
+    const [loading, setLoading] = useState(false)
     const { menuList, addToCart } = useMenuListContext()
 
     // 讀取目前採購量
@@ -34,10 +36,12 @@ const Menu = () => {
     }, [menuList])
 
     useEffect(() => {
+        setLoading(true)
         const fetchData = async () => {
             const response = await fetch(`${URL}/menu/${id}`)
             const data = await response.json()
             setData(data)
+            setLoading(false)
         }
         fetchData()
     }, [])
@@ -110,7 +114,8 @@ const Menu = () => {
             <Container>
                 <div className='w-full'>
                     <h1>Menu</h1>
-                    <div className='flex items-center justify-center'>
+                    <div className='flex flex-col items-center justify-center'>
+                        {loading && <Loding />}
                         {data && (
                             <div className=' rounded-md bg-slate-300  p-2 shadow-md'>
                                 <div className='overflow-hidden'>
