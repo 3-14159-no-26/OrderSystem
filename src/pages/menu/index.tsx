@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useParams, useNavigate } from "react-router-dom"
+import { useParams, useLocation, useNavigate } from "react-router-dom"
 import { useMenuListContext } from "@/context/MenuList"
 import { ToastContainer, toast } from "react-toastify"
 import { IconPlus, IconMinus } from "@tabler/icons-react"
@@ -16,6 +16,7 @@ type menu = {
 
 const Menu = () => {
     const { id } = useParams()
+    const location = useLocation()
     const go = useNavigate()
     const [data, setData] = useState<menu>()
     const [count, setCount] = useState(1)
@@ -51,9 +52,20 @@ const Menu = () => {
         addToCart(data, count)
         notify()
         // 通知完成自動跳轉
-        setTimeout(() => {
-            go("/")
-        }, 2500)
+        // 如果是從購物車頁面來的，就回到購物車頁面
+        console.log("上一頁", location.state?.prevPath)
+
+        if (location.state?.prevPath === "/cart") {
+            setTimeout(() => {
+                go("/cart")
+            }, 2500)
+        }
+        // 如果是從首頁來的，就回到首頁
+        else {
+            setTimeout(() => {
+                go("/")
+            }, 2500)
+        }
     }
 
     const notify = () =>

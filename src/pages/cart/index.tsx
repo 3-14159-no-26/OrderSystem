@@ -41,7 +41,11 @@ const Cart = () => {
                                             >
                                                 <div
                                                     className='flex w-full items-center justify-between rounded-2xl hover:bg-gray-100 max-md:block'
-                                                    onClick={() => go(`/menu/${item.id}`)}
+                                                    onClick={() => {
+                                                        go(`/menu/${item.id}`, {
+                                                            state: { prevPath: "/cart" },
+                                                        })
+                                                    }}
                                                 >
                                                     <div className='p-2'>
                                                         <div className='flex max-md:justify-between'>
