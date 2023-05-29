@@ -78,5 +78,85 @@
             "id": "4",
             "name": "甜點"
         }
+    ],
+    "order": [
+        {
+            "id": "1",
+            "list": [
+                {
+                    "id": "1",
+                    "name": "漢堡",
+                    "category": "主餐",
+                    "price": "100",
+                    "count": "1"
+                },
+                {
+                    "id": "4",
+                    "name": "雞塊",
+                    "category": "主餐",
+                    "price": "80",
+                    "count": "4"
+                },
+                {
+                    "id": "5",
+                    "name": "沙拉",
+                    "category": "主餐",
+                    "price": "70",
+                    "count": "5"
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "list": [
+                {
+                    "id": "2",
+                    "name": "薯條",
+                    "category": "主餐",
+                    "price": "50",
+                    "count": "2"
+                },
+                {
+                    "id": "3",
+                    "name": "可樂",
+                    "category": "飲料",
+                    "price": "30",
+                    "count": "3"
+                },
+                {
+                    "id": "9",
+                    "name": "紅茶",
+                    "category": "飲料",
+                    "price": "40",
+                    "count": "9"
+                }
+            ]
+        },
+        {
+            "id": "3",
+            "list": [
+                {
+                    "id": "6",
+                    "name": "冰淇淋",
+                    "category": "甜點",
+                    "price": "40",
+                    "count": "6"
+                },
+                {
+                    "id": "7",
+                    "name": "蛋糕",
+                    "category": "甜點",
+                    "price": "60",
+                    "count": "7"
+                },
+                {
+                    "id": "8",
+                    "name": "咖啡",
+                    "category": "飲料",
+                    "price": "50",
+                    "count": "8"
+                }
+            ]
+        }
     ]
 }
