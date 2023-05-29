@@ -23,6 +23,7 @@ const Home = () => {
     const [category, setCategory] = useState<category[]>([])
     const [menuCategory, setMenuCategory] = useState("")
     const [loading, setLoading] = useState(false)
+    const [categoryLoading, setCategoryLoading] = useState(false)
     const nodeRef = useRef(null)
     useEffect(() => {
         const fetchMenu = async () => {
@@ -42,10 +43,12 @@ const Home = () => {
         fetchMenu()
     }, [menuCategory])
     useEffect(() => {
+        setCategoryLoading(true)
         const fetchCategory = async () => {
             const response = await fetch(URL + "/category")
             const data = await response.json()
             setCategory(data)
+            setCategoryLoading(false)
             console.log(data)
         }
         fetchCategory()
@@ -129,7 +132,7 @@ const Home = () => {
                     className='w-1/4 max-md:fixed max-md:bottom-14 max-md:right-0 max-md:w-1/2'
                     id='menu-list'
                 >
-                    {loading ? (
+                    {categoryLoading ? (
                         <div className='bg-slate-200/9 m-4 animate-pulse rounded-lg p-2 shadow-md'>
                             <div className='p-1 text-xl font-medium max-md:hidden'>分類</div>
                             <div className='ml-1 mt-2 h-4 w-2/3 rounded-full bg-slate-200'></div>
