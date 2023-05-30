@@ -15,6 +15,9 @@ const Admin = () => {
         }
         fetchData()
     }, [])
+
+    console.log("data: ", data)
+
     const onDragEnd = (event: { source: any; destination: any }) => {
         const { source, destination } = event
         console.log("source: ", source)
@@ -39,37 +42,39 @@ const Admin = () => {
         setItems(newItems)
     }
     return (
-        <DragDropContext
-            onBeforeCapture={(e) => console.log("onBeforeCapture: ", e)}
-            onBeforeDragStart={(e) => console.log("onBeforeDragStart: ", e)}
-            onDragStart={(e) => console.log("onDragStart: ", e)}
-            onDragUpdate={(e) => console.log("onDragUpdate: ", e)}
-            onDragEnd={(e) => onDragEnd(e)}
-        >
-            <h1>Todo</h1>
-            <Droppable droppableId='drop-id'>
-                {(provided) => (
-                    <div ref={provided.innerRef} {...provided.droppableProps}>
-                        {items.map((item, i) => (
-                            <div key={item}>
-                                <Draggable draggableId={item} index={i}>
-                                    {(provided) => (
-                                        <div
-                                            {...provided.draggableProps}
-                                            {...provided.dragHandleProps}
-                                            ref={provided.innerRef}
-                                        >
-                                            {item}
-                                        </div>
-                                    )}
-                                </Draggable>
-                            </div>
-                        ))}
-                        {provided.placeholder}
-                    </div>
-                )}
-            </Droppable>
-        </DragDropContext>
+        <Container>
+            <DragDropContext
+                onBeforeCapture={(e) => console.log("onBeforeCapture: ", e)}
+                onBeforeDragStart={(e) => console.log("onBeforeDragStart: ", e)}
+                onDragStart={(e) => console.log("onDragStart: ", e)}
+                onDragUpdate={(e) => console.log("onDragUpdate: ", e)}
+                onDragEnd={(e) => onDragEnd(e)}
+            >
+                <h1>Todo</h1>
+                <Droppable droppableId='drop-id'>
+                    {(provided) => (
+                        <div ref={provided.innerRef} {...provided.droppableProps}>
+                            {items.map((item, i) => (
+                                <div key={item}>
+                                    <Draggable draggableId={item} index={i}>
+                                        {(provided) => (
+                                            <div
+                                                {...provided.draggableProps}
+                                                {...provided.dragHandleProps}
+                                                ref={provided.innerRef}
+                                            >
+                                                {item}
+                                            </div>
+                                        )}
+                                    </Draggable>
+                                </div>
+                            ))}
+                            {provided.placeholder}
+                        </div>
+                    )}
+                </Droppable>
+            </DragDropContext>
+        </Container>
     )
 }
 
