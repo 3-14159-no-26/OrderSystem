@@ -105,6 +105,63 @@
                             "price": "30"
                         }
                     ]
+                },
+                {
+                    "id": "2",
+                    "list": [
+                        {
+                            "id": "4",
+                            "name": "雞塊",
+                            "category": "主餐",
+                            "price": "80"
+                        },
+                        {
+                            "id": "5",
+                            "name": "沙拉",
+                            "category": "主餐",
+                            "price": "70"
+                        },
+                        {
+                            "id": "6",
+                            "name": "冰淇淋",
+                            "category": "甜點",
+                            "price": "40"
+                        }
+                    ]
+                },
+                {
+                    "id": "3",
+                    "list": [
+                        {
+                            "id": "7",
+                            "name": "蛋糕",
+                            "category": "甜點",
+                            "price": "60"
+                        },
+                        {
+                            "id": "8",
+                            "name": "咖啡",
+                            "category": "飲料",
+                            "price": "50"
+                        },
+                        {
+                            "id": "9",
+                            "name": "紅茶",
+                            "category": "飲料",
+                            "price": "40"
+                        }
+                    ]
+                },
+                {
+                    "id": "4",
+                    "list": [
+                        {
+                            "id": "10",
+                            "name": "綠茶",
+                            "category": "飲料",
+                            "price": "40"
+                        }
+                    ]
                 }
             ]
         },
