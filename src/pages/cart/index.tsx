@@ -1,7 +1,7 @@
 import { useMenuListContext } from "@/context/MenuList"
-import { v4 as uuidv4 } from "uuid"
+// import { v4 as uuidv4 } from "uuid"
 import { ToastContainer, toast } from "react-toastify"
-import URL from "@/url"
+// import URL from "@/url"
 import Container from "@/components/container"
 import MenuItem from "@/pages/cart/components/MenuItem"
 
@@ -9,25 +9,25 @@ const Cart = () => {
     const { menuList, resetToCart } = useMenuListContext()
 
     // 送出訂單 POST /order
-    const submitOrder = async () => {
-        // 送出訂單
-        console.log("送出訂單", menuList)
-        const response = await fetch(URL + "/order", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                id: uuidv4(),
-                list: menuList,
-            }),
-        })
-        const data = await response.json()
-        console.log("訂單編號", data.id)
-        // 清空購物車
-        // resetToCart()
-        // 跳轉到訂單頁面
-    }
+    // const submitOrder = async () => {
+    //     // 送出訂單
+    //     console.log("送出訂單", menuList)
+    //     const response = await fetch(URL + "/order", {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         },
+    //         body: JSON.stringify({
+    //             id: uuidv4(),
+    //             list: menuList,
+    //         }),
+    //     })
+    //     const data = await response.json()
+    //     console.log("訂單編號", data.id)
+    //     // 清空購物車
+    //     // resetToCart()
+    //     // 跳轉到訂單頁面
+    // }
 
     return (
         <>

@@ -3,11 +3,6 @@ import { DragDropContext, Droppable, Draggable, DropResult } from "react-beautif
 import URL from "@/url"
 import Container from "@/components/container"
 
-type Source = {
-    index: number
-    droppableId: string
-}
-
 type OrderItem = {
     id: number
     name: string
@@ -46,13 +41,13 @@ const Admin = () => {
         const postData = async () => {
             const arr = ["todo", "doing", "done"]
             for (let i = 0; i < arr.length; i++) {
-                const res = await fetch(URL + "/order/" + arr[i], {
+                await fetch(URL + "/order/" + arr[i], {
                     method: "DELETE",
                 })
             }
 
             for (let i = 0; i < data.length; i++) {
-                const res = await fetch(URL + "/order", {
+                await fetch(URL + "/order", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -121,7 +116,7 @@ const Admin = () => {
                                         {data[0]?.list.map((item: OrderList, i: number) => (
                                             <div key={item.id}>
                                                 <Draggable draggableId={item.id} index={i}>
-                                                    {(provided, snapshot) => (
+                                                    {(provided) => (
                                                         <div
                                                             className='mb-2 bg-white p-4'
                                                             {...provided.draggableProps}
@@ -153,7 +148,7 @@ const Admin = () => {
                                         {data[1]?.list.map((item: OrderList, i: number) => (
                                             <div key={item.id}>
                                                 <Draggable draggableId={item.id} index={i}>
-                                                    {(provided, snapshot) => (
+                                                    {(provided) => (
                                                         <div
                                                             className='mb-2 bg-white p-4'
                                                             {...provided.draggableProps}
@@ -185,7 +180,7 @@ const Admin = () => {
                                         {data[2]?.list.map((item: OrderList, i: number) => (
                                             <div key={item.id}>
                                                 <Draggable draggableId={item.id} index={i}>
-                                                    {(provided, snapshot) => (
+                                                    {(provided) => (
                                                         <div
                                                             className='mb-2 bg-white p-4'
                                                             {...provided.draggableProps}
