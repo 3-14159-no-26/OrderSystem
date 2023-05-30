@@ -5,38 +5,6 @@ import URL from "@/url"
 import Container from "@/components/container"
 import MenuItem from "@/pages/cart/components/MenuItem"
 
-// {
-//     "todo": {
-//       "items": [
-//         {
-//           "id": "853757cb-75fe-4bbe-b4b8-3de19638837e",
-//           "list": [
-//             {
-//               "id": "1",
-//               "name": "漢堡",
-//               "category": "主餐",
-//               "price": "100",
-//               "count": 1
-//             },
-//             {
-//               "id": "7",
-//               "name": "蛋糕",
-//               "category": "甜點",
-//               "price": "60",
-//               "count": 3
-//             }
-//           ]
-//         }
-//       ]
-//     },
-//     "doing": {
-//       "items": []
-//     },
-//     "done": {
-//       "items": []
-//     }
-//   }
-
 const Cart = () => {
     const { menuList, resetToCart } = useMenuListContext()
 
