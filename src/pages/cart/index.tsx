@@ -1,10 +1,66 @@
 import { useMenuListContext } from "@/context/MenuList"
+import { v4 as uuidv4 } from "uuid"
 import { ToastContainer, toast } from "react-toastify"
+import URL from "@/url"
 import Container from "@/components/container"
 import MenuItem from "@/pages/cart/components/MenuItem"
 
+// {
+//     "todo": {
+//       "items": [
+//         {
+//           "id": "853757cb-75fe-4bbe-b4b8-3de19638837e",
+//           "list": [
+//             {
+//               "id": "1",
+//               "name": "漢堡",
+//               "category": "主餐",
+//               "price": "100",
+//               "count": 1
+//             },
+//             {
+//               "id": "7",
+//               "name": "蛋糕",
+//               "category": "甜點",
+//               "price": "60",
+//               "count": 3
+//             }
+//           ]
+//         }
+//       ]
+//     },
+//     "doing": {
+//       "items": []
+//     },
+//     "done": {
+//       "items": []
+//     }
+//   }
+
 const Cart = () => {
     const { menuList, resetToCart } = useMenuListContext()
+
+    // 送出訂單 POST /order
+    const submitOrder = async () => {
+        // 送出訂單
+        console.log("送出訂單", menuList)
+        const response = await fetch(URL + "/order", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                id: uuidv4(),
+                list: menuList,
+            }),
+        })
+        const data = await response.json()
+        console.log("訂單編號", data.id)
+        // 清空購物車
+        // resetToCart()
+        // 跳轉到訂單頁面
+    }
+
     return (
         <>
             <ToastContainer
@@ -89,7 +145,13 @@ const Cart = () => {
                                             >
                                                 清空購物車
                                             </button>
-                                            <button className='m-1 w-full rounded-lg bg-amber-400 p-2'>
+                                            <button
+                                                className='m-1 w-full rounded-lg bg-amber-400 p-2'
+                                                onClick={() => {
+                                                    resetToCart()
+                                                    toast("🛒已送出訂單")
+                                                }}
+                                            >
                                                 結帳
                                             </button>
                                         </div>
