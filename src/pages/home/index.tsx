@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { CSSTransition, SwitchTransition } from "react-transition-group"
 import { IconList } from "@tabler/icons-react"
 import URL from "@/url"
-import Container from "@/components/container"
+import Container from "@/components/Container"
 import Loding from "@/pages/home/components/Loading"
 
 type menu = {
@@ -128,7 +128,7 @@ const Home = () => {
                     </CSSTransition>
                 </SwitchTransition>
                 <div
-                    className='w-1/4 max-md:fixed max-md:bottom-14 max-md:right-0 max-md:w-1/2'
+                    className='w-1/4 max-md:fixed max-md:bottom-32 max-md:right-0 max-md:w-1/2'
                     id='menu-list'
                 >
                     {categoryLoading ? (
@@ -164,7 +164,7 @@ const Home = () => {
                 </div>
             </Container>
             <div
-                className='fixed bottom-2 right-2 hidden h-14 w-14 cursor-pointer rounded-full bg-amber-400 p-4 max-md:block'
+                className='fixed bottom-20 right-2 hidden h-14 w-14 cursor-pointer rounded-full bg-amber-400 p-4 max-md:block'
                 onClick={menutoggle}
             >
                 <IconList />

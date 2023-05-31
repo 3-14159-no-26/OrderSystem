@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { DragDropContext, Droppable, Draggable, DropResult } from "react-beautiful-dnd"
 import URL from "@/url"
-import Container from "@/components/container"
+import Container from "@/components/Container"
 
 type OrderItem = {
     id: number

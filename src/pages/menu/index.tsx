@@ -5,7 +5,7 @@ import { ToastContainer, toast } from "react-toastify"
 import { IconPlus, IconMinus } from "@tabler/icons-react"
 import "react-toastify/dist/ReactToastify.css"
 import URL from "@/url"
-import Container from "@/components/container"
+import Container from "@/components/Container"
 import Loding from "@/pages/menu/components/Loading"
 
 type menu = {

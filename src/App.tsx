@@ -1,9 +1,10 @@
-import { useRoutes, useLocation } from "react-router-dom"
-import routes from "./routes"
-import { TransitionGroup, CSSTransition, SwitchTransition } from "react-transition-group"
-import NavBar from "@/components/NavBar"
 import { useRef } from "react"
+import { useRoutes, useLocation } from "react-router-dom"
+import { TransitionGroup, CSSTransition, SwitchTransition } from "react-transition-group"
 import { MenuListProvider } from "./context/MenuList"
+import routes from "./routes"
+import NavBar from "@/components/NavBar"
+import Footer from "@/components/Footer"
 
 const App: React.FC = () => {
     const location = useLocation()
@@ -28,6 +29,7 @@ const App: React.FC = () => {
                         </CSSTransition>
                     </SwitchTransition>
                 </TransitionGroup>
+                <Footer />
             </MenuListProvider>
         </>
     )

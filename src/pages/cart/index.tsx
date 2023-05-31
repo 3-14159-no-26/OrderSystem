@@ -1,33 +1,38 @@
+import { v4 as uuidv4 } from "uuid"
+import { useNavigate } from "react-router-dom"
 import { useMenuListContext } from "@/context/MenuList"
-// import { v4 as uuidv4 } from "uuid"
 import { ToastContainer, toast } from "react-toastify"
 // import URL from "@/url"
-import Container from "@/components/container"
-import MenuItem from "@/pages/cart/components/MenuItem"
+import Container from "@/components/Container"
+import MenuItem from "@/pages/cart/components/CartItem"
 
 const Cart = () => {
+    const go = useNavigate()
     const { menuList, resetToCart } = useMenuListContext()
+    const id = uuidv4()
 
     // 送出訂單 POST /order
-    // const submitOrder = async () => {
-    //     // 送出訂單
-    //     console.log("送出訂單", menuList)
-    //     const response = await fetch(URL + "/order", {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //         },
-    //         body: JSON.stringify({
-    //             id: uuidv4(),
-    //             list: menuList,
-    //         }),
-    //     })
-    //     const data = await response.json()
-    //     console.log("訂單編號", data.id)
-    //     // 清空購物車
-    //     // resetToCart()
-    //     // 跳轉到訂單頁面
-    // }
+    const submitOrder = async () => {
+        //     // 送出訂單
+        //     console.log("送出訂單", menuList)
+        //     const response = await fetch(URL + "/order", {
+        //         method: "POST",
+        //         headers: {
+        //             "Content-Type": "application/json",
+        //         },
+        //         body: JSON.stringify({
+        //             id: uuidv4(),
+        //             list: menuList,
+        //         }),
+        //     })
+        //     const data = await response.json()
+        //     console.log("訂單編號", data.id)
+        // 清空購物車
+        resetToCart()
+        toast("🛒已送出訂單")
+        // 跳轉到訂單頁面
+        go("/details/" + id)
+    }
 
     return (
         <>
@@ -68,7 +73,7 @@ const Cart = () => {
                                         {menuList.length !== 0 ? (
                                             <>
                                                 <div className='flex items-center justify-center p-4'>
-                                                    <div className='text-3xl'>單號:087</div>
+                                                    <div className='text-3xl'>單號: {id}</div>
                                                 </div>
                                                 <div className='flex items-center justify-center px-4 pb-4'>
                                                     <div className='text-2xl'>時間 2023/09/87</div>
@@ -116,8 +121,7 @@ const Cart = () => {
                                             <button
                                                 className='m-1 w-full rounded-lg bg-amber-400 p-2'
                                                 onClick={() => {
-                                                    resetToCart()
-                                                    toast("🛒已送出訂單")
+                                                    submitOrder()
                                                 }}
                                             >
                                                 結帳
