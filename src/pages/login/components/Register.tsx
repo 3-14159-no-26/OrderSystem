@@ -193,6 +193,10 @@ const Register = ({ status }: { status: (status: string) => void }) => {
                     </button>
                 </div>
             </div>
+            <div className='hidden'>
+                {errorPassword}
+                {errorPassword2}
+            </div>
         </>
     )
 }
