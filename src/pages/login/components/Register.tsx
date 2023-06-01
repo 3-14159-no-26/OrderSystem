@@ -9,8 +9,8 @@ const Register = ({ status }: { status: (status: string) => void }) => {
     const [password2, setPassword2] = useState("")
     const [errorEmail, setErrorEmail] = useState(false)
     const [errorUsername, setErrorUsername] = useState(false)
-    const [errorPassword, setErrorPassword] = useState(false)
-    const [errorPassword2, setErrorPassword2] = useState(false)
+    // const [errorPassword, setErrorPassword] = useState(false)
+    // const [errorPassword2, setErrorPassword2] = useState(false)
 
     useEffect(() => {
         const isValiEmail = () => {
