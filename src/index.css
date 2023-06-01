@@ -11,6 +11,8 @@ html {
     box-sizing: border-box;
     font-family: "main", sans-serif;
     overflow-x: hidden;
+    height: 100%;
+    background-color: #f8fafc;
 }
 
 /* 卷軸樣式 */
