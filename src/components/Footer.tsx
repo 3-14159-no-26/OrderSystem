@@ -7,6 +7,7 @@ import {
     IconClipboardCheck,
     IconUser,
 } from "@tabler/icons-react"
+import Cookies from "js-cookie"
 import clsx from "clsx"
 
 const Footer = () => {
@@ -14,6 +15,7 @@ const Footer = () => {
     const [navbarHidden, setNavbarHidden] = useState(false)
     const { menuList } = useMenuListContext()
     const go = useNavigate()
+    const token = Cookies.get("token")
 
     useEffect(() => {
         const handleScroll = () => {
@@ -35,6 +37,14 @@ const Footer = () => {
         }
     }, [prevScrollPos])
 
+    const checkGo = (path: string) => {
+        if (token) {
+            go(path)
+        } else {
+            go("/login")
+        }
+    }
+
     return (
         <div className='hidden h-20 max-md:block'>
             <div
@@ -49,7 +59,7 @@ const Footer = () => {
                 </div>
                 <div
                     className='relative flex flex-col items-center justify-center'
-                    onClick={() => go("/cart")}
+                    onClick={() => checkGo("/cart")}
                 >
                     {menuList.length > 0 && (
                         <div className='absolute -top-1 right-2 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 pt-[0.15rem] text-white'>
@@ -61,14 +71,14 @@ const Footer = () => {
                 </div>
                 <div
                     className='flex flex-col items-center justify-center'
-                    onClick={() => go("/details")}
+                    onClick={() => checkGo("/details")}
                 >
                     <IconClipboardCheck />
                     <div className='mt-1'>訂單</div>
                 </div>
                 <div
                     className='flex flex-col items-center justify-center'
-                    onClick={() => go("/user")}
+                    onClick={() => checkGo("/user")}
                 >
                     <IconUser />
                     <div className='mt-1'>會員</div>

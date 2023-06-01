@@ -1,15 +1,27 @@
-import { v4 as uuidv4 } from "uuid"
+import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { useMenuListContext } from "@/context/MenuList"
+import { v4 as uuidv4 } from "uuid"
 import { ToastContainer, toast } from "react-toastify"
 // import URL from "@/url"
+import Cookies from "js-cookie"
 import Container from "@/components/Container"
 import MenuItem from "@/pages/cart/components/CartItem"
 
 const Cart = () => {
+    const [login, setLogin] = useState(false)
     const go = useNavigate()
     const { menuList, resetToCart } = useMenuListContext()
     const id = uuidv4()
+    const token = Cookies.get("token")
+
+    useEffect(() => {
+        if (token) {
+            setLogin(true)
+        } else {
+            setLogin(false)
+        }
+    }, [])
 
     // 送出訂單 POST /order
     const submitOrder = async () => {
@@ -28,10 +40,16 @@ const Cart = () => {
         //     const data = await response.json()
         //     console.log("訂單編號", data.id)
         // 清空購物車
-        resetToCart()
-        toast("🛒已送出訂單")
-        // 跳轉到訂單頁面
-        go("/details/" + id)
+
+        if (token) {
+            // 送出訂單
+            resetToCart()
+            toast("🛒已送出訂單")
+            // 跳轉到訂單頁面
+            go("/details/" + id)
+        } else {
+            go("/login")
+        }
     }
 
     return (
@@ -124,7 +142,7 @@ const Cart = () => {
                                                     submitOrder()
                                                 }}
                                             >
-                                                結帳
+                                                {login ? "送出訂單" : "請先登入"}
                                             </button>
                                         </div>
                                     </div>
