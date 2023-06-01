@@ -75,6 +75,14 @@ const Register = ({ status }: { status: (status: string) => void }) => {
     }, [password2])
 
     useEffect(() => {
+        if (errorEmail || errorUsername || errorPassword || errorPassword2) {
+            setButtonDisabled(true)
+        } else {
+            setButtonDisabled(false)
+        }
+    }, [errorEmail, errorUsername, errorPassword, errorPassword2])
+
+    useEffect(() => {
         setErrorEmail(false)
         setErrorUsername(false)
         setErrorPassword(false)
