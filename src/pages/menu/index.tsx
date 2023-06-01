@@ -65,11 +65,11 @@ const Menu = () => {
             }, 2500)
         }
         // 如果是從首頁來的，就回到首頁
-        else {
-            setTimeout(() => {
-                go("/")
-            }, 2500)
-        }
+        // else {
+        //     setTimeout(() => {
+        //         go("/")
+        //     }, 2500)
+        // }
     }
 
     const notify = () =>
