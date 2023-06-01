@@ -14,22 +14,24 @@ const App: React.FC = () => {
     return (
         <>
             <MenuListProvider>
-                <NavBar />
-                <TransitionGroup>
-                    <SwitchTransition mode='out-in'>
-                        <CSSTransition
-                            key={location.key}
-                            nodeRef={nodeRef}
-                            classNames='page'
-                            timeout={300}
-                            // apper={true}
-                            unmountOnExit
-                        >
-                            <div ref={nodeRef}>{element}</div>
-                        </CSSTransition>
-                    </SwitchTransition>
-                </TransitionGroup>
-                <Footer />
+                <div className='bg-slate-50'>
+                    <NavBar />
+                    <TransitionGroup>
+                        <SwitchTransition mode='out-in'>
+                            <CSSTransition
+                                key={location.key}
+                                nodeRef={nodeRef}
+                                classNames='page'
+                                timeout={300}
+                                // apper={true}
+                                unmountOnExit
+                            >
+                                <div ref={nodeRef}>{element}</div>
+                            </CSSTransition>
+                        </SwitchTransition>
+                    </TransitionGroup>
+                    <Footer />
+                </div>
             </MenuListProvider>
         </>
     )
