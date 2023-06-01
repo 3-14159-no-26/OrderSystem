@@ -52,7 +52,9 @@ const NavBar = () => {
                                     <IconShoppingCart />
                                 </Link>
                             </div>
-                            <div className=''>登入</div>
+                            <Link to='/login'>
+                                <div className=''>登入</div>
+                            </Link>
                         </div>
                     </div>
                 </div>
