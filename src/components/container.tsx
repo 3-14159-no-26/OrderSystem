@@ -4,7 +4,7 @@ type ContainerProps = {
 
 const Container = (props: ContainerProps) => {
     return (
-        <main className='flex flex-col md:flex-row w-full px-1 py-5 md:px-4 md:py-10 mx-auto max-w-5xl'>
+        <main className='mx-auto flex w-full max-w-5xl flex-col px-1 py-5 md:flex-row md:px-4 md:py-10'>
             {props.children}
         </main>
     )
