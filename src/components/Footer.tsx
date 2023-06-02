@@ -15,7 +15,6 @@ const Footer = () => {
     const [navbarHidden, setNavbarHidden] = useState(false)
     const { menuList } = useMenuListContext()
     const go = useNavigate()
-    const token = Cookies.get("token")
 
     useEffect(() => {
         const handleScroll = () => {
@@ -38,6 +37,7 @@ const Footer = () => {
     }, [prevScrollPos])
 
     const checkGo = (path: string) => {
+        const token = Cookies.get("token")
         if (token) {
             go(path)
         } else {

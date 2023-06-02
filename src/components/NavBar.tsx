@@ -13,15 +13,15 @@ const NavBar = () => {
     const [login, setLogin] = useState(false)
     const { menuList } = useMenuListContext()
     const go = useNavigate()
-    const token = Cookies.get("token")
 
     useEffect(() => {
+        const token = Cookies.get("token")
         if (token) {
             setLogin(true)
         } else {
             setLogin(false)
         }
-    }, [token])
+    }, [])
 
     // useEffect(() => {
     //     const handleScroll = () => {
@@ -55,6 +55,7 @@ const NavBar = () => {
     }
 
     const checkGo = (path: string) => {
+        const token = Cookies.get("token")
         if (token) {
             go(path)
         } else {
