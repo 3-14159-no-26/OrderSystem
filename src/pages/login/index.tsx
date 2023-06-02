@@ -7,9 +7,9 @@ import Register from "@/pages/login/components/Register"
 const Index = () => {
     const [status, setStatus] = useState("login")
     const go = useNavigate()
-    const token = Cookies.get("token")
 
     useEffect(() => {
+        const token = Cookies.get("token")
         if (token) {
             go("/")
         }

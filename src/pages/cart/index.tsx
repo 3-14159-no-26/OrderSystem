@@ -13,9 +13,9 @@ const Cart = () => {
     const go = useNavigate()
     const { menuList, resetToCart } = useMenuListContext()
     const id = uuidv4()
-    const token = Cookies.get("token")
 
     useEffect(() => {
+        const token = Cookies.get("token")
         if (token) {
             setLogin(true)
         } else {
@@ -40,7 +40,7 @@ const Cart = () => {
         //     const data = await response.json()
         //     console.log("訂單編號", data.id)
         // 清空購物車
-
+        const token = Cookies.get("token")
         if (token) {
             // 送出訂單
             resetToCart()
