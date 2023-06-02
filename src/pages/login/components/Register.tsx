@@ -35,7 +35,7 @@ const Register = ({ status }: { status: (status: string) => void }) => {
         }
         if (!isValiUsername()) {
             console.log(
-                "包含至少一個字母和一個數字，且只能由字母和數字組成，長度介於 6 到 20 個字符之間。"
+                "請輸入 6 到 20 個字符的字串，必須包含至少一個英文字母。允許使用數字、連字符和下劃線作為特殊字符。"
             )
             setErrorUsername(true)
         } else {
