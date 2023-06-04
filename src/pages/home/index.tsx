@@ -8,6 +8,7 @@ import Loding from "@/pages/home/components/Loading"
 
 type menu = {
     id: number
+    cover: string
     name: string
     category: string
     price: number
@@ -21,27 +22,24 @@ type category = {
 const Home = () => {
     const [menu, setMenu] = useState<menu[]>([])
     const [category, setCategory] = useState<category[]>([])
-    const [menuCategory, setMenuCategory] = useState("")
+    const [menuCategory, setMenuCategory] = useState<menu[]>([])
+    const [categoryID, setCategoryID] = useState("")
     const [loading, setLoading] = useState(false)
     const [categoryLoading, setCategoryLoading] = useState(false)
     const nodeRef = useRef(null)
+
     useEffect(() => {
         const fetchMenu = async () => {
             setLoading(true)
             const response = await fetch(URL + "/menu")
             const data = await response.json()
-            if (menuCategory !== "") {
-                const filterData = data.filter((item: menu) => item.category === menuCategory)
-                setMenu(filterData)
-                console.log("你選擇的是", menuCategory, "數量", filterData.length, filterData)
-            } else {
-                setMenu(data)
-                console.log("你選擇的是 全部", "數量", data.length, data)
-            }
+            setMenu(data)
+            setMenuCategory(data)
             setLoading(false)
         }
         fetchMenu()
-    }, [menuCategory])
+    }, [])
+
     useEffect(() => {
         setCategoryLoading(true)
         const fetchCategory = async () => {
@@ -56,8 +54,15 @@ const Home = () => {
 
     const selectCategory = (name: string) => {
         console.log("click selectCategory", name)
-
-        setMenuCategory(name)
+        if (name !== "") {
+            const filterData = menu.filter((item: menu) => item.category === name)
+            setMenuCategory(filterData)
+            console.log("你選擇的是", name, "數量", filterData.length, filterData)
+        } else {
+            setMenuCategory(menu)
+            console.log("你選擇的是 全部", "數量", menu.length, menu)
+        }
+        setCategoryID(name)
     }
 
     const menutoggle = () => {
@@ -72,7 +77,7 @@ const Home = () => {
             <Container>
                 <SwitchTransition mode='out-in'>
                     <CSSTransition
-                        key={menuCategory}
+                        key={categoryID}
                         nodeRef={nodeRef}
                         // addEndListener={(node, done) => {
                         //     node.addEventListener("transitionend", done, false)
@@ -83,37 +88,18 @@ const Home = () => {
                     >
                         <div className='flex w-3/4 flex-wrap max-md:w-full' ref={nodeRef}>
                             {loading && <Loding />}
-                            {menu.map((item: menu) => (
+                            {menuCategory.map((item: menu) => (
                                 <div
                                     key={item.id}
                                     className='group relative m-4 w-[200px] overflow-hidden rounded-lg bg-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg max-md:w-full'
                                 >
-                                    <div className='absolute left-0 top-[-100%] bg-white opacity-0 transition-all duration-300 group-hover:top-0 group-hover:opacity-100'>
-                                        <img
-                                            className='h-full w-full bg-cover object-cover'
-                                            src={"https://picsum.photos/500/500?random=" + item.id}
-                                            alt=''
-                                        />
-                                        <div className='absolute left-0 top-0 h-full w-full p-4'>
-                                            <div className='flex h-full w-full items-center justify-center'>
-                                                <div className=' rounded-lg bg-sky-600 p-1'>
-                                                    <Link to={`/menu/${item.id}`}>
-                                                        點擊查看詳情
-                                                    </Link>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                     {/* <div className='absolute w-full h-full top-0 left-0 opacity-0 hover:opacity-100 transition-all duration-300'></div> */}
                                     <Link to={`/menu/${item.id}`}>
-                                        <div className='h-[200px] overflow-hidden'>
+                                        <div className='overflow-hidden transition-all duration-300 hover:scale-105'>
                                             {/* transition-all duration-300 hover:scale-105 */}
                                             <img
                                                 className='h-full w-full bg-cover object-cover'
-                                                src={
-                                                    "https://picsum.photos/500/500?random=" +
-                                                    item.id
-                                                }
+                                                src={"/static/img/meals/" + item.cover + ".png"}
                                                 alt=''
                                             />
                                         </div>
