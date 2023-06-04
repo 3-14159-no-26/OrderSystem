@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom"
 
 type MenuItemProps = {
     id: number
+    cover: string
     name: string
     price: number
     count: number
@@ -25,8 +26,8 @@ const MenuItem = ({ menuList }: { menuList: MenuItemProps[] }) => {
                             <div className='flex max-md:justify-between'>
                                 <div className='max-md:order-2'>
                                     <img
-                                        className='h-20 w-20 rounded-lg object-cover'
-                                        src={"https://picsum.photos/200/100?random=" + item.id}
+                                        className='h-20 w-24 rounded-lg bg-cover object-cover'
+                                        src={"/static/img/meals/" + item.cover + ".png"}
                                         alt=''
                                     />
                                 </div>
