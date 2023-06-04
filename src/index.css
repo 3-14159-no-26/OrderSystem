@@ -15,6 +15,12 @@ html {
     background-color: #f8fafc;
 }
 
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
 /* 卷軸樣式 */
 ::-webkit-scrollbar {
     width: 8px;
@@ -127,5 +133,26 @@ html {
         to {
             opacity: 1;
         }
+    }
+}
+
+/* 向右箭頭動畫 */
+#icon-arrow-right {
+    animation: arrow-right 1s infinite;
+}
+
+#order-history:hover #icon-arrow-right {
+    animation-play-state: paused;
+}
+
+@keyframes arrow-right {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(10px);
+    }
+    100% {
+        transform: translateX(0);
     }
 }

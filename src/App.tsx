@@ -14,7 +14,7 @@ const App: React.FC = () => {
     return (
         <>
             <MenuListProvider>
-                <div className='h-screen bg-slate-50'>
+                <div className='bg-slate-50'>
                     <NavBar />
                     <TransitionGroup>
                         <SwitchTransition mode='out-in'>
