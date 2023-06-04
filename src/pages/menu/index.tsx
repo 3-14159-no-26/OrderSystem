@@ -10,6 +10,7 @@ import Loding from "@/pages/menu/components/Loading"
 
 type menu = {
     id: number
+    cover: string
     name: string
     category: string
     price: number
@@ -101,18 +102,18 @@ const Menu = () => {
                 theme='light'
             />
             <Container>
-                <div className='w-full'>
-                    <h1>Menu</h1>
-                    <div className='flex flex-col items-center justify-center'>
-                        {loading && <Loding />}
-                        {data && (
-                            <div className=' rounded-md bg-slate-300  p-2 shadow-md'>
-                                <div className='overflow-hidden'>
-                                    <img
-                                        src={"https://picsum.photos/200/100?random=" + data.id}
-                                        alt=''
-                                    />
-                                </div>
+                <div className='flex w-full flex-col items-center justify-center pt-20'>
+                    {loading && <Loding />}
+                    {data && (
+                        <div className='relative flex h-64 w-64 flex-col justify-end rounded-md bg-[rgba(255,255,255,0.5)] p-2 shadow-md'>
+                            <div className='absolute -top-10'>
+                                <img
+                                    className='h-full w-full bg-cover object-cover'
+                                    src={`/static/img/meals/${data.cover}.png`}
+                                    alt=''
+                                />
+                            </div>
+                            <div className=''>
                                 <div className=''>{data.name}</div>
                                 <div className=''>${data.price}</div>
                                 <div className='flex items-center py-2'>
@@ -148,8 +149,8 @@ const Menu = () => {
                                     加入購物車
                                 </button>
                             </div>
-                        )}
-                    </div>
+                        </div>
+                    )}
                 </div>
             </Container>
         </>
