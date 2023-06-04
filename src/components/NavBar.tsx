@@ -5,6 +5,7 @@ import { IconShoppingCart } from "@tabler/icons-react"
 // import clsx from "clsx"
 import { v4 as uuidv4 } from "uuid"
 import Cookies from "js-cookie"
+import gravatar from "gravatar"
 
 const NavBar = () => {
     // const [prevScrollPos, setPrevScrollPos] = useState(0)
@@ -12,6 +13,7 @@ const NavBar = () => {
     const [login, setLogin] = useState(false)
     const { menuList } = useMenuListContext()
     const go = useNavigate()
+    const avatar = gravatar.url("only@sao-x.com")
 
     useEffect(() => {
         const token = Cookies.get("token")
@@ -70,7 +72,7 @@ const NavBar = () => {
     return (
         <>
             <div className='h-20 max-md:h-12'>
-                <div className='nav-bar fixed z-10 z-20 flex w-full items-center justify-between bg-white p-4 text-xl shadow-lg transition-all duration-300 max-md:h-12  max-md:justify-center'>
+                <div className='nav-bar fixed z-20 flex w-full items-center justify-between bg-white p-4 text-xl shadow-lg transition-all duration-300 max-md:h-12  max-md:justify-center'>
                     <div className='nav-bar__logo'>
                         <div className='cursor-pointer' onClick={() => go("/")}>
                             <img className='h-12' src='/static/img/logo/WHEats.png' alt='' />
@@ -97,7 +99,7 @@ const NavBar = () => {
                                         onClick={() => checkGo("/user")}
                                     >
                                         <img
-                                            src='https://picsum.photos/500/500?random'
+                                            src={avatar}
                                             alt=''
                                             className='h-full w-full bg-cover object-cover'
                                         />
