@@ -2,6 +2,7 @@ import { useState, createContext, useContext, useEffect } from "react"
 
 type Menu = {
     id: number
+    cover: string
     name: string
     category: string
     price: number
@@ -9,6 +10,7 @@ type Menu = {
 
 type MenuItem = {
     id: number
+    cover: string
     name: string
     category: string
     price: number
