@@ -2,63 +2,87 @@
     "menu": [
         {
             "id": "1",
-            "name": "漢堡",
+            "cover": "大麥克",
+            "name": "大麥克",
             "category": "主餐",
             "price": "100"
         },
         {
             "id": "2",
-            "name": "薯條",
-            "category": "主餐",
-            "price": "50"
-        },
-        {
-            "id": "3",
-            "name": "可樂",
-            "category": "飲料",
-            "price": "30"
-        },
-        {
-            "id": "4",
-            "name": "雞塊",
+            "cover": "勁辣鷄腿堡",
+            "name": "勁辣鷄腿堡",
             "category": "主餐",
             "price": "80"
         },
         {
-            "id": "5",
-            "name": "沙拉",
+            "id": "3",
+            "cover": "麥香鷄",
+            "name": "麥香鷄",
             "category": "主餐",
             "price": "70"
         },
         {
+            "id": "4",
+            "cover": "雙層牛肉吉事堡",
+            "name": "雙層牛肉吉事堡",
+            "category": "主餐",
+            "price": "90"
+        },
+        {
+            "id": "5",
+            "cover": "雙層麥香鷄",
+            "name": "雙層麥香鷄",
+            "category": "主餐",
+            "price": "80"
+        },
+        {
             "id": "6",
-            "name": "冰淇淋",
-            "category": "甜點",
-            "price": "40"
+            "cover": "可口可樂",
+            "name": "可口可樂",
+            "category": "飲料",
+            "price": "30"
         },
         {
             "id": "7",
-            "name": "蛋糕",
-            "category": "甜點",
-            "price": "60"
+            "cover": "雪碧",
+            "name": "雪碧",
+            "category": "飲料",
+            "price": "30"
         },
         {
             "id": "8",
-            "name": "咖啡",
+            "cover": "熱奶茶",
+            "name": "熱奶茶",
             "category": "飲料",
-            "price": "50"
+            "price": "35"
         },
         {
             "id": "9",
-            "name": "紅茶",
+            "cover": "熱紅茶",
+            "name": "熱紅茶",
             "category": "飲料",
-            "price": "40"
+            "price": "35"
         },
         {
             "id": "10",
-            "name": "綠茶",
-            "category": "飲料",
+            "cover": "蛋捲冰淇淋",
+            "name": "蛋捲冰淇淋",
+            "category": "甜點",
             "price": "40"
+        },
+        {
+            "id": "11",
+            "cover": "蘋果派",
+            "name": "蘋果派",
+            "category": "甜點",
+            "price": "45"
+        },
+        {
+            "id": "12",
+            "cover": "OREO冰炫風",
+            "name": "OREO冰炫風",
+            "category": "甜點",
+            "price": "50"
         }
     ],
     "category": [
