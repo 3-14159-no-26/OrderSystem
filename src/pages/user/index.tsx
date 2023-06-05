@@ -1,9 +1,17 @@
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-import { IconUser, IconHistory, IconArrowRight } from "@tabler/icons-react"
+import {
+    IconUser,
+    IconHistory,
+    IconArrowRight,
+    IconPhone,
+    IconMail,
+    IconApi,
+} from "@tabler/icons-react"
 import Cookies from "js-cookie"
 import gravatar from "gravatar"
 import Container from "@/components/Container"
+import EditUser from "./components/edituser"
 
 const User = () => {
     const go = useNavigate()
@@ -28,11 +36,18 @@ const User = () => {
                                 className='h-full w-full bg-cover object-cover'
                             />
                         </div>
-                        <div className='text-4xl'>only</div>
+                        <div className=''>
+                            <div className='text-center text-4xl'>only</div>
+                            <div className='pt-3 text-center'>
+                                <EditUser />
+                            </div>
+                        </div>
                     </div>
+
                     <div
                         id='order-history'
-                        className='group my-2 flex w-full cursor-pointer items-center justify-between rounded-2xl p-2 hover:bg-gray-100'
+                        className='my-2 flex w-full cursor-pointer items-center justify-between rounded-2xl p-2 hover:bg-gray-100'
+                        onClick={() => go("/order")}
                     >
                         <div className='flex items-center'>
                             <IconHistory size={24} />
@@ -41,8 +56,7 @@ const User = () => {
                         <div className='relative h-6 w-6'>
                             <IconArrowRight
                                 size={24}
-                                id='icon-arrow-right'
-                                className='absolute top-0 transform cursor-pointer'
+                                className='icon-arrow-right absolute top-0 transform cursor-pointer'
                             />
                         </div>
                     </div>
@@ -55,6 +69,38 @@ const User = () => {
                         <div className='text-2xl'>XXX</div>
                     </div>
                     <div className='border-b-2'></div>
+                    <div className='my-2 flex w-full items-center justify-between rounded-2xl p-2 hover:bg-gray-100'>
+                        <div className='flex items-center'>
+                            <IconMail size={24} />
+                            <div className='pl-2 text-2xl'>Email</div>
+                        </div>
+                        <div className='text-2xl'>XXX</div>
+                    </div>
+                    <div className='border-b-2'></div>
+                    <div className='my-2 flex w-full items-center justify-between rounded-2xl p-2 hover:bg-gray-100'>
+                        <div className='flex items-center'>
+                            <IconPhone size={24} />
+                            <div className='pl-2 text-2xl'>電話</div>
+                        </div>
+                        <div className='text-2xl'>XXX</div>
+                    </div>
+                    <div className='border-b-2'></div>
+                    <div
+                        id='order-api'
+                        className='my-2 flex w-full cursor-pointer items-center justify-between rounded-2xl p-2 hover:bg-gray-100'
+                        onClick={() => go("/api")}
+                    >
+                        <div className='flex items-center'>
+                            <IconApi size={24} />
+                            <div className='pl-2 text-2xl'>API文件</div>
+                        </div>
+                        <div className='relative h-6 w-6'>
+                            <IconArrowRight
+                                size={24}
+                                className='icon-arrow-right absolute top-0 transform cursor-pointer'
+                            />
+                        </div>
+                    </div>
                 </div>
             </div>
         </Container>
