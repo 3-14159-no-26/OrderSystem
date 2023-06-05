@@ -6,6 +6,7 @@ import Details from "@/pages/details"
 import User from "@/pages/user"
 import Login from "@/pages/login"
 import Admin from "@/pages/admin"
+import API from "@/pages/api"
 import NotFound from "@/pages/notFound"
 
 const routes: RouteObject[] = [
@@ -42,6 +43,11 @@ const routes: RouteObject[] = [
     {
         path: "/admin",
         element: <Admin />,
+        children: [],
+    },
+    {
+        path: "/api",
+        element: <API />,
         children: [],
     },
     {
