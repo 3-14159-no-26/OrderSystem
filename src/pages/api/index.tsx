@@ -1,5 +1,3 @@
-import { useState } from "react"
-import { IconChevronDown } from "@tabler/icons-react"
 import * as Accordion from "@radix-ui/react-accordion"
 import Container from "@/components/Container"
 import POST from "./components/post"
