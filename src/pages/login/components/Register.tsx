@@ -136,6 +136,7 @@ const Register = ({ status }: { status: (status: string) => void }) => {
         setErrorUsername(false)
         setErrorPassword(false)
         setErrorPassword2(false)
+        setButtonDisabled(true)
     }, [])
 
     const register = async () => {
