@@ -1,17 +1,39 @@
 import { useState, useEffect } from "react"
-import { IconMail, IconUserCircle, IconLock, IconExclamationCircle } from "@tabler/icons-react"
+import {
+    IconPhone,
+    IconMail,
+    IconUserCircle,
+    IconLock,
+    IconExclamationCircle,
+} from "@tabler/icons-react"
 import clsx from "clsx"
 
 const Register = ({ status }: { status: (status: string) => void }) => {
+    const [phone, setPhone] = useState("")
     const [email, setEmail] = useState("")
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [password2, setPassword2] = useState("")
+    const [errorPhone, setErrorPhone] = useState(false)
     const [errorEmail, setErrorEmail] = useState(false)
     const [errorUsername, setErrorUsername] = useState(false)
     const [errorPassword, setErrorPassword] = useState(false)
     const [errorPassword2, setErrorPassword2] = useState(false)
     const [buttonDisabled, setButtonDisabled] = useState(true)
+
+    useEffect(() => {
+        const isValiPhone = () => {
+            const reg = /^09[0-9]{8}$/
+            return reg.test(phone)
+        }
+        if (!isValiPhone()) {
+            console.log("請輸入有效的電話號碼")
+            setErrorPhone(true)
+        } else {
+            console.log("phone is valid")
+            setErrorPhone(false)
+        }
+    }, [phone])
 
     useEffect(() => {
         const isValiEmail = () => {
@@ -75,14 +97,15 @@ const Register = ({ status }: { status: (status: string) => void }) => {
     }, [password2])
 
     useEffect(() => {
-        if (errorEmail || errorUsername || errorPassword || errorPassword2) {
+        if (errorPhone || errorEmail || errorUsername || errorPassword || errorPassword2) {
             setButtonDisabled(true)
         } else {
             setButtonDisabled(false)
         }
-    }, [errorEmail, errorUsername, errorPassword, errorPassword2])
+    }, [errorPhone, errorEmail, errorUsername, errorPassword, errorPassword2])
 
     useEffect(() => {
+        setErrorPhone(false)
         setErrorEmail(false)
         setErrorUsername(false)
         setErrorPassword(false)
@@ -90,10 +113,16 @@ const Register = ({ status }: { status: (status: string) => void }) => {
     }, [])
 
     const register = () => {
-        if (errorEmail || errorUsername || errorPassword || errorPassword2) {
+        if (errorPhone || errorEmail || errorUsername || errorPassword || errorPassword2) {
             return
         }
-        if (email === "" || username === "" || password === "" || password2 === "") {
+        if (
+            phone === "" ||
+            email === "" ||
+            username === "" ||
+            password === "" ||
+            password2 === ""
+        ) {
             return
         }
         console.log("register")
@@ -116,6 +145,35 @@ const Register = ({ status }: { status: (status: string) => void }) => {
                 </div>
             </div>
             <div className='w-96 rounded-xl bg-slate-300 p-4 max-md:min-w-full max-md:bg-transparent'>
+                <div className='m-4 '>
+                    <div
+                        className={clsx(
+                            "flex items-center rounded-full border bg-white p-1 text-xl max-md:mx-0",
+                            errorEmail
+                                ? "border-2 border-red-500"
+                                : "border-gray-400 hover:border-gray-600"
+                        )}
+                    >
+                        <IconPhone className='px-2' size={40} />
+                        <input
+                            type='tel'
+                            className='box-border w-full rounded-r-full p-1 focus-visible:outline-none'
+                            onChange={(e) => {
+                                setPhone(e.target.value)
+                            }}
+                            value={phone}
+                            placeholder='電話號碼'
+                        />
+                        <IconExclamationCircle
+                            className={clsx("text-red-500", errorPhone ? "" : "hidden")}
+                            size={40}
+                            stroke={2}
+                        />
+                    </div>
+                    {errorPhone && (
+                        <div className='text-right text-sm text-red-500'>請輸入有效的電話號碼</div>
+                    )}
+                </div>
                 <div className='m-4 '>
                     <div
                         className={clsx(
