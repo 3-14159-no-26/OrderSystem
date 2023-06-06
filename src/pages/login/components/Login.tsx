@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { IconUserCircle, IconLock, IconExclamationCircle } from "@tabler/icons-react"
 import clsx from "clsx"
+import URL from "@/url"
 
 const Login = ({ status }: { status: (status: string) => void }) => {
     const [username, setUsername] = useState("")
@@ -29,9 +30,27 @@ const Login = ({ status }: { status: (status: string) => void }) => {
         setErrorPassword(false)
     }, [])
 
-    const login = () => {
+    const login = async () => {
         if (username.length > 0 && password.length > 0) {
             console.log("login")
+            const res = await fetch(URL + "/user", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    username,
+                    password,
+                }),
+            })
+            const data = await res.json()
+            console.log(data)
+            if (data.status === "success") {
+                // 登入成功
+                // 1. 設定 cookie
+                // 2. 跳轉頁面
+                // 3. 關閉登入視窗
+            }
         } else {
             if (username.length === 0) {
                 setErrorUsername(true)
