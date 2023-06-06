@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { IconUserCircle, IconLock, IconExclamationCircle } from "@tabler/icons-react"
+import Cookies from "js-cookie"
 import clsx from "clsx"
 import URL from "@/url"
 
@@ -39,8 +40,8 @@ const Login = ({ status }: { status: (status: string) => void }) => {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    username,
-                    password,
+                    username: username,
+                    userpwd: password,
                 }),
             })
             const data = await res.json()
@@ -48,7 +49,9 @@ const Login = ({ status }: { status: (status: string) => void }) => {
             if (data.status === "success") {
                 // 登入成功
                 // 1. 設定 cookie
+                Cookies.set("token", data.token)
                 // 2. 跳轉頁面
+                window.location.href = "/"
                 // 3. 關閉登入視窗
             }
         } else {
