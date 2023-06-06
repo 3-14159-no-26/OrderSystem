@@ -75,6 +75,7 @@ const Login = ({ status }: { status: (status: string) => void }) => {
                             onChange={(e) => {
                                 setUsername(e.target.value)
                             }}
+                            placeholder='使用者名稱'
                         />
                         <IconExclamationCircle
                             className={clsx("text-red-500", errorUsername ? "" : "hidden")}
@@ -100,6 +101,7 @@ const Login = ({ status }: { status: (status: string) => void }) => {
                             onChange={(e) => {
                                 setPassword(e.target.value)
                             }}
+                            placeholder='使用者密碼'
                         />
                         <IconExclamationCircle
                             className={clsx("text-red-500", errorPassword ? "" : "hidden")}
