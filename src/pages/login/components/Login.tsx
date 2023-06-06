@@ -84,7 +84,7 @@ const Login = ({ status }: { status: (status: string) => void }) => {
                 <div className='m-4'>
                     <div
                         className={clsx(
-                            "flex items-center rounded-full border border-gray-400 bg-white p-1 text-xl hover:border-gray-600",
+                            "flex items-center rounded-full border border-gray-400 bg-white px-1 text-xl hover:border-gray-600",
                             errorUsername
                                 ? "border-2 border-red-500"
                                 : "border-gray-400 hover:border-gray-600"
@@ -112,7 +112,7 @@ const Login = ({ status }: { status: (status: string) => void }) => {
                 <div className='m-4'>
                     <div
                         className={clsx(
-                            "flex items-center rounded-full border border-gray-400 bg-white p-1 text-xl",
+                            "flex items-center rounded-full border border-gray-400 bg-white px-1 text-xl",
                             errorPassword ? "border-2 border-red-500" : "border-gray-400"
                         )}
                     >

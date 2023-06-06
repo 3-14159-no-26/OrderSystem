@@ -226,7 +226,7 @@ const Register = ({ status }: { status: (status: string) => void }) => {
                 <div className='m-4 '>
                     <div
                         className={clsx(
-                            "flex items-center rounded-full border bg-white p-1 text-xl max-md:mx-0",
+                            "flex items-center rounded-full border bg-white px-1 text-xl",
                             errorEmail
                                 ? "border-2 border-red-500"
                                 : "border-gray-400 hover:border-gray-600"
@@ -255,7 +255,7 @@ const Register = ({ status }: { status: (status: string) => void }) => {
                 <div className='m-4 '>
                     <div
                         className={clsx(
-                            "flex items-center rounded-full border bg-white p-1 text-xl max-md:mx-0",
+                            "flex items-center rounded-full border bg-white px-1 text-xl",
                             errorEmail
                                 ? "border-2 border-red-500"
                                 : "border-gray-400 hover:border-gray-600"
@@ -284,7 +284,7 @@ const Register = ({ status }: { status: (status: string) => void }) => {
                 <div className='m-4'>
                     <div
                         className={clsx(
-                            "flex items-center rounded-full border bg-white p-1 text-xl max-md:mx-0",
+                            "flex items-center rounded-full border bg-white px-1 text-xl",
                             errorName
                                 ? "border-2 border-red-500"
                                 : "border-gray-400 hover:border-gray-600"
@@ -345,7 +345,7 @@ const Register = ({ status }: { status: (status: string) => void }) => {
                 <div className='m-4'>
                     <div
                         className={clsx(
-                            "flex items-center rounded-full border bg-white p-1 text-xl max-md:mx-0",
+                            "flex items-center rounded-full border bg-white px-1 text-xl",
                             errorPassword
                                 ? "border-2 border-red-500"
                                 : "border-gray-400 hover:border-gray-600"
@@ -377,7 +377,7 @@ const Register = ({ status }: { status: (status: string) => void }) => {
                 <div className='m-4'>
                     <div
                         className={clsx(
-                            "flex items-center rounded-full border bg-white p-1 text-xl max-md:mx-0",
+                            "flex items-center rounded-full border bg-white px-1 text-xl",
                             errorPassword2
                                 ? "border-2 border-red-500"
                                 : "border-gray-400 hover:border-gray-600"
@@ -403,7 +403,7 @@ const Register = ({ status }: { status: (status: string) => void }) => {
                         <div className='text-right text-sm text-red-500'>兩次輸入的密碼不一致</div>
                     )}
                 </div>
-                <div className='m-4 max-md:mx-0'>
+                <div className='m-4'>
                     <button
                         type='submit'
                         className='w-full rounded-lg bg-amber-400 p-2 disabled:cursor-not-allowed disabled:opacity-50'
