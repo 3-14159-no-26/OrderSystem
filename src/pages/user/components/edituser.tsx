@@ -5,10 +5,10 @@ import * as Dialog from "@radix-ui/react-dialog"
 const EditUser = () => {
     const [open, setOpen] = useState(false)
     const [name, setName] = useState("")
-    // const [email, setEmail] = useState('')
+    const [email, setEmail] = useState("")
     const [phone, setPhone] = useState("")
     // const [errorName, setErrorName] = useState(false)
-    const [errorPhone, setErrorPhone] = useState(false)
+    // const [errorPhone, setErrorPhone] = useState(false)
 
     useEffect(() => {
         // 打開清空資料
@@ -17,7 +17,7 @@ const EditUser = () => {
             // setEmail('')
             setPhone("")
             // setErrorName(false)
-            setErrorPhone(false)
+            // setErrorPhone(false)
         }
     }, [open])
 
@@ -33,18 +33,18 @@ const EditUser = () => {
         }
     }, [name])
 
-    useEffect(() => {
-        // 判斷台灣電話號碼是否正確()
-        const isValiPhone = () => {
-            const reg = /^09[0-9]{8}$/
-            return reg.test(phone)
-        }
-        if (!isValiPhone()) {
-            setErrorPhone(true)
-        } else {
-            setErrorPhone(false)
-        }
-    }, [phone])
+    // useEffect(() => {
+    //     // 判斷台灣電話號碼是否正確()
+    //     const isValiPhone = () => {
+    //         const reg = /^09[0-9]{8}$/
+    //         return reg.test(phone)
+    //     }
+    //     if (!isValiPhone()) {
+    //         setErrorPhone(true)
+    //     } else {
+    //         setErrorPhone(false)
+    //     }
+    // }, [phone])
 
     return (
         <>
@@ -91,10 +91,10 @@ const EditUser = () => {
                                         <input
                                             type='email'
                                             className='box-border w-2/3 rounded-full p-1 focus-visible:outline-none'
-                                            // onChange={(e) => {
-                                            //     setEmail(e.target.value)
-                                            // }}
-                                            // value={email}
+                                            onChange={(e) => {
+                                                setEmail(e.target.value)
+                                            }}
+                                            value={email}
                                             placeholder='電子郵件'
                                             disabled
                                         />
@@ -113,13 +113,14 @@ const EditUser = () => {
                                                 }}
                                                 value={phone}
                                                 placeholder='電話'
+                                                disabled
                                             />
                                         </div>
-                                        {errorPhone && (
+                                        {/* {errorPhone && (
                                             <div className='text-right text-red-500'>
                                                 電話號碼格式錯誤
                                             </div>
-                                        )}
+                                        )} */}
                                     </div>
                                 </div>
                             </Dialog.Description>
