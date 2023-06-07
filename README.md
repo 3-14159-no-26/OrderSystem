@@ -4,5 +4,4 @@
 - 後端: ASP.NET Framework
 - 資料庫: SQL
 - 部屬: Vercel
-- 分析: Vercel
 - CSS框架: Tailwindcss
