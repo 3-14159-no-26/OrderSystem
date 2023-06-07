@@ -1,14 +1,4 @@
-<<<<<<< HEAD
 - 花費總時數: [![wakatime](https://wakatime.com/badge/user/b8addc47-7f5d-4cb6-a922-388b0c6785e9/project/08edcf4d-7789-4102-9145-677662483da0.svg)](https://wakatime.com/badge/user/b8addc47-7f5d-4cb6-a922-388b0c6785e9/project/08edcf4d-7789-4102-9145-677662483da0)
-=======
-<div style="display: flex; justify-content: flex-end;">
-<div>花費總時數:</div>
-<a href="https://wakatime.com/badge/user/b8addc47-7f5d-4cb6-a922-388b0c6785e9/project/08edcf4d-7789-4102-9145-677662483da0">
-<img src="https://wakatime.com/badge/user/b8addc47-7f5d-4cb6-a922-388b0c6785e9/project/08edcf4d-7789-4102-9145-677662483da0.svg" alt="wakatime">
-</a>
-</div>
-
->>>>>>> 967808e94327287edfe12af498abf51d4ea83403
 # 🌍 [點餐系統](https://order-system-git-main-sao-coding.vercel.app/)
 - 框架: React
 - 後端: ASP.NET Framework
