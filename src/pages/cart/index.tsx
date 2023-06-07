@@ -3,15 +3,15 @@ import { useNavigate } from "react-router-dom"
 import { useMenuListContext } from "@/context/MenuList"
 import { v4 as uuidv4 } from "uuid"
 import { ToastContainer, toast } from "react-toastify"
-// import URL from "@/url"
+import URL from "@/url"
 import Cookies from "js-cookie"
 import Container from "@/components/Container"
 import MenuItem from "@/pages/cart/components/CartItem"
 
 const Cart = () => {
     const [login, setLogin] = useState(false)
-    const go = useNavigate()
     const { menuList, resetToCart } = useMenuListContext()
+    const go = useNavigate()
     const id = uuidv4()
 
     useEffect(() => {
@@ -25,24 +25,43 @@ const Cart = () => {
 
     // 送出訂單 POST /order
     const submitOrder = async () => {
-        //     // 送出訂單
-        //     console.log("送出訂單", menuList)
-        //     const response = await fetch(URL + "/order", {
-        //         method: "POST",
-        //         headers: {
-        //             "Content-Type": "application/json",
-        //         },
-        //         body: JSON.stringify({
-        //             id: uuidv4(),
-        //             list: menuList,
-        //         }),
-        //     })
-        //     const data = await response.json()
-        //     console.log("訂單編號", data.id)
-        // 清空購物車
         const token = Cookies.get("token")
         if (token) {
             // 送出訂單
+            console.log("送出訂單", menuList)
+            const response = await fetch(URL + "/order", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    orderID: id,
+                    status: "A",
+                    customerID: token,
+                    // 格式化目前台灣時間 yyyy/MM/dd hh:mm:ss (24小時制)
+                    Bdate: new Date().toLocaleString("zh-TW", {
+                        timeZone: "Asia/Taipei",
+                        year: "numeric",
+                        month: "2-digit",
+                        day: "2-digit",
+                        hour12: false,
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        second: "2-digit",
+                    }),
+                    Details: menuList.map((item) => {
+                        return {
+                            detailID: uuidv4(),
+                            orderID: id,
+                            dishID: item.id,
+                            dishCount: item.count,
+                        }
+                    }),
+                }),
+            })
+            const data = await response.json()
+            console.log("訂單編號", data.id)
+            // 清空購物車
             resetToCart()
             toast("🛒已送出訂單")
             // 跳轉到訂單頁面
