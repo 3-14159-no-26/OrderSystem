@@ -160,7 +160,9 @@ const Register = ({ status }: { status: (status: string) => void }) => {
         ) {
             return
         }
+
         console.log("register")
+
         try {
             const res = await fetch(`${URL}/user/register`, {
                 method: "POST",
