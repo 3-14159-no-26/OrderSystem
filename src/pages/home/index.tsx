@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef } from "react"
 import { Link } from "react-router-dom"
 import { CSSTransition, SwitchTransition } from "react-transition-group"
+import { LazyLoadImage } from "react-lazy-load-image-component"
 import { IconList } from "@tabler/icons-react"
+import "react-lazy-load-image-component/src/effects/blur.css"
 import URL from "@/url"
 import Container from "@/components/Container"
 import Loding from "@/pages/home/components/Loading"
@@ -95,13 +97,22 @@ const Home = () => {
                                 >
                                     {/* <div className='absolute w-full h-full top-0 left-0 opacity-0 hover:opacity-100 transition-all duration-300'></div> */}
                                     <Link to={`/menu/${item.id}`}>
-                                        <div className='overflow-hidden transition-all duration-300 hover:scale-105'>
+                                        <div className='h-[115px] w-[200px] overflow-hidden transition-all duration-300 hover:scale-105'>
                                             {/* transition-all duration-300 hover:scale-105 */}
-                                            <img
+                                            <LazyLoadImage
+                                                className='h-full w-full bg-cover object-cover'
+                                                src={"/static/img/meals/" + item.cover + ".webp"}
+                                                placeholderSrc={
+                                                    "/static/img/lazymeals/" + item.cover + ".webp"
+                                                }
+                                                effect='blur'
+                                                alt=''
+                                            />
+                                            {/* <img
                                                 className='h-full w-full bg-cover object-cover'
                                                 src={"/static/img/meals/" + item.cover + ".webp"}
                                                 alt=''
-                                            />
+                                            /> */}
                                         </div>
                                         <div className='p-4'>
                                             <div className=''>{item.name}</div>
