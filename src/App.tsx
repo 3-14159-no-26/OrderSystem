@@ -2,11 +2,14 @@ import { useRef } from "react"
 import { useRoutes, useLocation } from "react-router-dom"
 import { TransitionGroup, CSSTransition, SwitchTransition } from "react-transition-group"
 import { MenuListProvider } from "./context/MenuList"
+import { inject } from "@vercel/analytics"
 import routes from "./routes"
 import NavBar from "@/components/NavBar"
 import Footer from "@/components/Footer"
 
-const App: React.FC = () => {
+inject()
+
+const App = () => {
     const location = useLocation()
     const element = useRoutes(routes)
     const nodeRef = useRef(null)
