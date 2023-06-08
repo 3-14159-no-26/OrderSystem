@@ -5,3 +5,6 @@
 - 資料庫: SQL
 - 部屬: Vercel
 - CSS框架: Tailwindcss
+
+# LightHouse
+![](https://upload.cc/i1/2023/06/08/h48EfA.png)
