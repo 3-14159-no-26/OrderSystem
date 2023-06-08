@@ -93,11 +93,11 @@ const Home = () => {
                             {menuCategory.map((item: menu) => (
                                 <div
                                     key={item.id}
-                                    className='group relative m-4 w-[200px] overflow-hidden rounded-lg bg-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg max-md:w-full'
+                                    className='group relative m-4 flex w-[200px] flex-col overflow-hidden rounded-lg bg-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg max-md:w-full'
                                 >
                                     {/* <div className='absolute w-full h-full top-0 left-0 opacity-0 hover:opacity-100 transition-all duration-300'></div> */}
                                     <Link to={`/menu/${item.id}`}>
-                                        <div className='h-[115px] w-[200px] overflow-hidden transition-all duration-300 hover:scale-105'>
+                                        <div className=' flex h-[115px] w-[200px] justify-center overflow-hidden transition-all duration-300 hover:scale-105 max-md:h-40 max-md:w-full'>
                                             {/* transition-all duration-300 hover:scale-105 */}
                                             <LazyLoadImage
                                                 className='h-full w-full bg-cover object-cover'

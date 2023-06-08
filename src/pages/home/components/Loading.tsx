@@ -10,7 +10,7 @@ const Loding = () => {
                     key={i}
                 >
                     <div className='m-4 rounded-xl bg-slate-900 max-md:w-full'>
-                        <div className='h-[115px] w-[200px] rounded-lg bg-slate-200 max-md:h-[280px] max-md:w-full'>
+                        <div className='h-[115px] w-[200px] rounded-lg bg-slate-200 max-md:h-40 max-md:w-full'>
                             <div className='flex h-full items-center justify-center'>
                                 <IconPhoto size={48} />
                                 <div className='text-2xl'>圖片</div>
