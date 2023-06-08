@@ -75,7 +75,7 @@ const NavBar = () => {
                 <div className='nav-bar fixed z-20 flex w-full items-center justify-between bg-white p-4 text-xl shadow-lg transition-all duration-300 max-md:h-12  max-md:justify-center'>
                     <div className='nav-bar__logo'>
                         <div className='cursor-pointer' onClick={() => go("/")}>
-                            <img className='h-12' src='/static/img/logo/WHEats.png' alt='' />
+                            <img className='h-12 w-full' src='/static/img/logo/WHEats.png' alt='' />
                         </div>
                     </div>
                     <div className='nav-bar-menu max-md:hidden'>

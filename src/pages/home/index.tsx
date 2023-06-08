@@ -99,7 +99,7 @@ const Home = () => {
                                             {/* transition-all duration-300 hover:scale-105 */}
                                             <img
                                                 className='h-full w-full bg-cover object-cover'
-                                                src={"/static/img/meals/" + item.cover + ".png"}
+                                                src={"/static/img/meals/" + item.cover + ".webp"}
                                                 alt=''
                                             />
                                         </div>

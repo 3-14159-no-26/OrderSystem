@@ -27,7 +27,7 @@ const MenuItem = ({ menuList }: { menuList: MenuItemProps[] }) => {
                                 <div className='max-md:order-2'>
                                     <img
                                         className='h-20 w-24 rounded-lg bg-cover object-cover'
-                                        src={"/static/img/meals/" + item.cover + ".png"}
+                                        src={"/static/img/meals/" + item.cover + ".webp"}
                                         alt=''
                                     />
                                 </div>

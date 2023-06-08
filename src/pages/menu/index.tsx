@@ -109,7 +109,7 @@ const Menu = () => {
                             <div className='absolute -top-10'>
                                 <img
                                     className='h-full w-full bg-cover object-cover'
-                                    src={`/static/img/meals/${data.cover}.png`}
+                                    src={`/static/img/meals/${data.cover}.webp`}
                                     alt=''
                                 />
                             </div>
