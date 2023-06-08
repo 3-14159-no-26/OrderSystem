@@ -83,7 +83,8 @@ const NavBar = () => {
                             <div className='relative pr-4'>
                                 <div className='cursor-pointer' onClick={() => checkGo("/cart")}>
                                     {menuList.length > 0 && (
-                                        <div className='absolute -top-1 right-2 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 pt-[0.15rem] text-white'>
+                                        <div className='absolute -top-1 right-2 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-white'>
+                                            {/* pt-[0.15rem] */}
                                             <div className='text-center text-xs'>
                                                 {menuList.length}
                                             </div>
