@@ -119,7 +119,8 @@ const Home = () => {
                 >
                     {categoryLoading ? (
                         <div className='bg-slate-200/9 m-4 animate-pulse rounded-lg p-2 shadow-md'>
-                            <div className='p-1 text-xl font-medium max-md:hidden'>分類</div>
+                            <div className='p-1 text-xl max-md:hidden'>分類</div>{" "}
+                            {/* font-medium */}
                             <div className='ml-1 mt-2 h-4 w-2/3 rounded-full bg-slate-200'></div>
                             <div className='flex justify-end'>
                                 <div className='ml-1 mt-2 h-4 w-2/3 rounded-full bg-slate-200'></div>
@@ -131,7 +132,8 @@ const Home = () => {
                         </div>
                     ) : (
                         <div className='m-4 rounded-lg bg-white p-2 shadow-md max-md:bg-[#ffa10099]'>
-                            <div className='p-1 text-xl font-medium max-md:hidden'>分類</div>
+                            <div className='p-1 text-xl max-md:hidden'>分類</div>{" "}
+                            {/* font-medium */}
                             <div className='p-1'>
                                 {category.map((item: category) => (
                                     <div

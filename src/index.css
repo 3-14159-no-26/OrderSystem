@@ -5,7 +5,8 @@
 
 html {
     box-sizing: border-box;
-    font-family: "main", sans-serif;
+    font-family: "微軟正黑體", "Microsoft JhengHei", "Segoe UI Semibold", "Segoe UI",
+        "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
     overflow-x: hidden;
     height: 100%;
     background-color: #f8fafc;
@@ -15,6 +16,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100%;
+    font-weight: 600;
 }
 
 /* 卷軸樣式 */
