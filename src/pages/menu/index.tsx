@@ -63,7 +63,7 @@ const Menu = () => {
         if (location.state?.prevPath === "/cart") {
             setTimeout(() => {
                 go("/cart")
-            }, 2500)
+            }, 1000)
         }
         // 如果是從首頁來的，就回到首頁
         // else {
@@ -78,7 +78,7 @@ const Menu = () => {
             new Promise((resolve) => {
                 setTimeout(() => {
                     resolve("加入購物車成功")
-                }, 500)
+                }, 200)
             }),
             {
                 pending: "加入購物車中...",
@@ -91,7 +91,7 @@ const Menu = () => {
         <>
             <ToastContainer
                 position='top-right'
-                autoClose={2000}
+                autoClose={400}
                 hideProgressBar={false}
                 newestOnTop={false}
                 closeOnClick
