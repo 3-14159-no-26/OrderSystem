@@ -1,7 +1,21 @@
-@font-face {
+@media (prefers-color-scheme: light) {
+    /* 明亮模式下的样式 */
+    :root {
+        --theme-color: #ffffff; /* 设置明亮模式的主题色为白色 */
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    /* 暗黑模式下的样式 */
+    :root {
+        --theme-color: #000000; /* 设置暗黑模式的主题色为黑色 */
+    }
+}
+
+/* @font-face {
     font-family: "main";
     src: url("/static/fonts/筑紫A丸by\ 宁静之雨.woff2");
-}
+} */
 
 html {
     box-sizing: border-box;

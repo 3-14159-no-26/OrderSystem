@@ -13,7 +13,7 @@ export default defineConfig({
             manifest: {
                 name: "點餐系統",
                 short_name: "點餐系統",
-                theme_color: "#f9bf3e",
+                theme_color: "var(--theme-color)",
                 icons: [
                     {
                         src: "pwa-192x192.png",
