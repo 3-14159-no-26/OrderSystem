@@ -135,6 +135,7 @@ const Menu = () => {
                                             else setCount(parseInt(e.target.value))
                                         }}
                                         value={count.toString()}
+                                        title='輸入數量'
                                     />
                                     <button
                                         className='rounded-lg bg-amber-400 p-1'
