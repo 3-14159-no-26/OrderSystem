@@ -122,6 +122,7 @@ const Menu = () => {
                                         onClick={() => {
                                             if (count > 1) setCount(count - 1)
                                         }}
+                                        title='減少數量'
                                     >
                                         <IconMinus />
                                     </button>
@@ -138,6 +139,7 @@ const Menu = () => {
                                     <button
                                         className='rounded-lg bg-amber-400 p-1'
                                         onClick={() => setCount(count + 1)}
+                                        title='增加數量'
                                     >
                                         <IconPlus />
                                     </button>
