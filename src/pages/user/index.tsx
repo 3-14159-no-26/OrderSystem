@@ -8,6 +8,7 @@ import {
     IconMail,
     IconApi,
 } from "@tabler/icons-react"
+import { LazyLoadImage } from "react-lazy-load-image-component"
 import Cookies from "js-cookie"
 import gravatar from "gravatar"
 import Container from "@/components/Container"
@@ -30,7 +31,7 @@ const User = () => {
                 <div className='w-2/3 rounded-lg bg-white p-8 shadow-md max-md:w-full max-md:bg-transparent max-md:shadow-none'>
                     <div className='flex items-center justify-around border-b-2 p-4'>
                         <div className='h-[100px] w-[100px] cursor-pointer overflow-hidden rounded-full'>
-                            <img
+                            <LazyLoadImage
                                 src={avatar}
                                 alt=''
                                 className='h-full w-full bg-cover object-cover'
