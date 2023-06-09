@@ -9,7 +9,7 @@ export default defineConfig({
         react(),
         VitePWA({
             registerType: "autoUpdate",
-            includeAssets: ["favicon.ico", "robots.txt", "apple-touch-icon.png"],
+            includeAssets: ["favicon.ico", "robots.txt", "apple-touch-icon.png", "WHEats.png"],
             manifest: {
                 name: "點餐系統",
                 short_name: "點餐系統",
@@ -30,6 +30,11 @@ export default defineConfig({
                         sizes: "512x512",
                         type: "image/png",
                         purpose: "any maskable",
+                    },
+                    {
+                        src: "static/img/logo/WHEats.png",
+                        sizes: "316x87",
+                        type: "image/png",
                     },
                 ],
             },
