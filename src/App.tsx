@@ -15,12 +15,14 @@ const App = () => {
     const nodeRef = useRef(null)
 
     useEffect(() => {
-        if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-            // 系统处于黑暗模式
-            document.querySelector('meta[name="theme-color"]')?.setAttribute("content", "#1f2937")
+        const root = document.documentElement
+        const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+
+        // 初始设置主题
+        if (localStorage.theme === "dark" || (!("theme" in localStorage) && prefersDarkScheme)) {
+            root.classList.add("dark")
         } else {
-            // 系统处于一般模式
-            document.querySelector('meta[name="theme-color"]')?.setAttribute("content", "#ffffff")
+            root.classList.remove("dark")
         }
     }, [])
 
