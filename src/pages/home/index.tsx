@@ -88,12 +88,15 @@ const Home = () => {
                         classNames='menuCategory'
                         unmountOnExit
                     >
-                        <div className='flex w-3/4 flex-wrap max-md:w-full' ref={nodeRef}>
+                        <div
+                            className='grid w-3/4 grid-cols-3 gap-4 p-4 max-lg:grid-cols-2 max-md:w-full max-md:grid-cols-1'
+                            ref={nodeRef}
+                        >
                             {loading && <Loding />}
                             {menuCategory.map((item: menu) => (
                                 <div
                                     key={item.id}
-                                    className='group relative m-4 flex w-[200px] flex-col overflow-hidden rounded-lg bg-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg max-md:w-full'
+                                    className='group relative flex flex-col overflow-hidden rounded-lg bg-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg max-lg:w-full max-md:w-full'
                                 >
                                     {/* <div className='absolute w-full h-full top-0 left-0 opacity-0 hover:opacity-100 transition-all duration-300'></div> */}
                                     <Link to={`/menu/${item.id}`}>
