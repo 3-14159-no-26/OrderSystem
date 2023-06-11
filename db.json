@@ -4,103 +4,114 @@
 			"id": "1",
 			"cover": "大麥克",
 			"name": "大麥克",
-			"category": "主餐",
+			"category": "MM",
 			"price": "100"
 		},
 		{
 			"id": "2",
 			"cover": "勁辣鷄腿堡",
 			"name": "勁辣鷄腿堡",
-			"category": "主餐",
+			"category": "MM",
 			"price": "80"
 		},
 		{
 			"id": "3",
 			"cover": "麥香鷄",
 			"name": "麥香鷄",
-			"category": "主餐",
+			"category": "MM",
 			"price": "70"
 		},
 		{
 			"id": "4",
 			"cover": "雙層牛肉吉事堡",
 			"name": "雙層牛肉吉事堡",
-			"category": "主餐",
+			"category": "MM",
 			"price": "90"
 		},
 		{
 			"id": "5",
 			"cover": "雙層麥香鷄",
 			"name": "雙層麥香鷄",
-			"category": "主餐",
+			"category": "MM",
 			"price": "80"
 		},
 		{
 			"id": "6",
 			"cover": "可口可樂",
 			"name": "可口可樂",
-			"category": "飲料",
+			"category": "DR",
 			"price": "30"
 		},
 		{
 			"id": "7",
 			"cover": "雪碧",
 			"name": "雪碧",
-			"category": "飲料",
+			"category": "DR",
 			"price": "30"
 		},
 		{
 			"id": "8",
 			"cover": "熱奶茶",
 			"name": "熱奶茶",
-			"category": "飲料",
+			"category": "DR",
 			"price": "35"
 		},
 		{
 			"id": "9",
 			"cover": "熱紅茶",
 			"name": "熱紅茶",
-			"category": "飲料",
+			"category": "DR",
 			"price": "35"
 		},
 		{
 			"id": "10",
 			"cover": "蛋捲冰淇淋",
 			"name": "蛋捲冰淇淋",
-			"category": "甜點",
+			"category": "SN",
 			"price": "40"
 		},
 		{
 			"id": "11",
 			"cover": "蘋果派",
 			"name": "蘋果派",
-			"category": "甜點",
+			"category": "SN",
 			"price": "45"
 		},
 		{
 			"id": "12",
 			"cover": "OREO冰炫風",
 			"name": "OREO冰炫風",
-			"category": "甜點",
+			"category": "SN",
+			"price": "50"
+		},
+		{
+			"id": "13",
+			"cover": "薯條",
+			"name": "薯條",
+			"category": "SM",
 			"price": "50"
 		}
 	],
 	"category": [
 		{
 			"id": "1",
-			"name": "全部"
+			"name": "AL"
 		},
 		{
 			"id": "2",
-			"name": "主餐"
+			"name": "MM"
 		},
 		{
 			"id": "3",
-			"name": "飲料"
+			"name": "SM"
 		},
 		{
 			"id": "4",
-			"name": "甜點"
+			"name": "DR"
+		},
+		{
+			"id": "5",
+			"name": "SN"
 		}
 	],
 	"order": [
@@ -113,19 +124,19 @@
 						{
 							"id": "1",
 							"name": "漢堡",
-							"category": "主餐",
+							"category": "MM",
 							"price": "100"
 						},
 						{
 							"id": "2",
 							"name": "薯條",
-							"category": "主餐",
+							"category": "MM",
 							"price": "50"
 						},
 						{
 							"id": "3",
 							"name": "可樂",
-							"category": "飲料",
+							"category": "DR",
 							"price": "30"
 						}
 					]
@@ -136,19 +147,19 @@
 						{
 							"id": "4",
 							"name": "雞塊",
-							"category": "主餐",
+							"category": "MM",
 							"price": "80"
 						},
 						{
 							"id": "5",
 							"name": "沙拉",
-							"category": "主餐",
+							"category": "MM",
 							"price": "70"
 						},
 						{
 							"id": "6",
 							"name": "冰淇淋",
-							"category": "甜點",
+							"category": "SN",
 							"price": "40"
 						}
 					]
@@ -159,19 +170,19 @@
 						{
 							"id": "7",
 							"name": "蛋糕",
-							"category": "甜點",
+							"category": "SN",
 							"price": "60"
 						},
 						{
 							"id": "8",
 							"name": "咖啡",
-							"category": "飲料",
+							"category": "DR",
 							"price": "50"
 						},
 						{
 							"id": "9",
 							"name": "紅茶",
-							"category": "飲料",
+							"category": "DR",
 							"price": "40"
 						}
 					]
@@ -182,7 +193,7 @@
 						{
 							"id": "10",
 							"name": "綠茶",
-							"category": "飲料",
+							"category": "DR",
 							"price": "40"
 						}
 					]
