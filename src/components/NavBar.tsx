@@ -147,13 +147,13 @@ const NavBar = () => {
                                 </div>
                             )}
                             <div
-                                className='mx-1 cursor-pointer rounded-md bg-slate-400 px-2'
+                                className='mx-1 cursor-pointer rounded-md bg-slate-400 px-2 dark:bg-neutral-700'
                                 onClick={setCookie}
                             >
                                 設定cookie
                             </div>
                             <div
-                                className='mx-1 cursor-pointer rounded-md bg-slate-400 px-2'
+                                className='mx-1 cursor-pointer rounded-md bg-slate-400 px-2 dark:bg-neutral-700'
                                 onClick={removeCookie}
                             >
                                 清除cookie
@@ -162,7 +162,7 @@ const NavBar = () => {
                         <div className='flex items-center max-md:absolute max-md:right-8'>
                             <div className='flex items-center px-1'>
                                 <DropdownMenu.Root modal={false}>
-                                    <DropdownMenu.Trigger>
+                                    <DropdownMenu.Trigger title='主題'>
                                         <IconSun className='block h-6 w-6 text-yellow-500 dark:hidden' />
                                         <IconMoonStars className='hidden h-6 w-6 text-yellow-500 dark:block' />
                                     </DropdownMenu.Trigger>
