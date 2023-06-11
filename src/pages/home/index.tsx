@@ -100,7 +100,7 @@ const Home = () => {
                                 >
                                     {/* <div className='absolute w-full h-full top-0 left-0 opacity-0 hover:opacity-100 transition-all duration-300'></div> */}
                                     <Link to={`/menu/${item.id}`}>
-                                        <div className=' flex h-[115px] w-[200px] justify-center overflow-hidden transition-all duration-300 hover:scale-105 max-md:h-40 max-md:w-full'>
+                                        <div className=' flex h-[115px] w-full justify-center overflow-hidden transition-all duration-300 hover:scale-105 max-md:h-40'>
                                             {/* transition-all duration-300 hover:scale-105 */}
                                             <LazyLoadImage
                                                 className='h-full w-full bg-cover object-cover'
