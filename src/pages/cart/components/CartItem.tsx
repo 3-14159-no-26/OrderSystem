@@ -1,14 +1,7 @@
 import { useNavigate } from "react-router-dom"
+import { MenuItemType } from "@/types"
 
-type MenuItemProps = {
-    id: number
-    cover: string
-    name: string
-    price: number
-    count: number
-}
-
-const MenuItem = ({ menuList }: { menuList: MenuItemProps[] }) => {
+const MenuItem = ({ menuList }: { menuList: MenuItemType[] }) => {
     const go = useNavigate()
     return (
         <>

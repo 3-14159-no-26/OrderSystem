@@ -3,24 +3,17 @@ import { useParams, useLocation, useNavigate } from "react-router-dom"
 import { useMenuListContext } from "@/context/MenuList"
 import { ToastContainer, toast } from "react-toastify"
 import { IconPlus, IconMinus } from "@tabler/icons-react"
+import { MenuType } from "@/types"
 import "react-toastify/dist/ReactToastify.css"
 import URL from "@/url"
 import Container from "@/components/Container"
 import Loding from "@/pages/menu/components/Loading"
 
-type menu = {
-    id: number
-    cover: string
-    name: string
-    category: string
-    price: number
-}
-
 const Menu = () => {
     const { id } = useParams()
     const location = useLocation()
     const go = useNavigate()
-    const [data, setData] = useState<menu>()
+    const [data, setData] = useState<MenuType>()
     const [count, setCount] = useState(1)
     const [loading, setLoading] = useState(false)
     const { menuList, addToCart } = useMenuListContext()
@@ -53,7 +46,7 @@ const Menu = () => {
         }
     }, [menuList])
 
-    const addToCartAndNavigate = (data: menu, count: number) => {
+    const addToCartAndNavigate = (data: MenuType, count: number) => {
         addToCart(data, count)
         notify()
         // 通知完成自動跳轉

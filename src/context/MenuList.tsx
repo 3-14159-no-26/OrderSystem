@@ -1,27 +1,11 @@
 import { useState, createContext, useContext, useEffect } from "react"
+import { MenuType, MenuItemType } from "@/types"
 
-type Menu = {
-    id: number
-    cover: string
-    name: string
-    category: string
-    price: number
-}
-
-type MenuItem = {
-    id: number
-    cover: string
-    name: string
-    category: string
-    price: number
-    count: number
-}
-
-type MenuList = MenuItem[]
+type MenuListType = MenuItemType[]
 
 const defaultValue: {
-    menuList: MenuList
-    addToCart: (item: Menu, count: number) => void
+    menuList: MenuListType
+    addToCart: (item: MenuType, count: number) => void
     resetToCart: () => void
 } = {
     menuList: [],
@@ -32,7 +16,7 @@ const defaultValue: {
 const MenuListContext = createContext(defaultValue)
 
 const MenuListProvider = ({ children }: { children: React.ReactNode }) => {
-    const [menuList, setMenuList] = useState<MenuList>([])
+    const [menuList, setMenuList] = useState<MenuListType>([])
 
     // 從本地儲存中讀取 menuList 的值
     useEffect(() => {
@@ -55,7 +39,7 @@ const MenuListProvider = ({ children }: { children: React.ReactNode }) => {
         }
     }, [menuList])
 
-    const addToCart = (item: Menu, count: number) => {
+    const addToCart = (item: MenuType, count: number) => {
         // console.log("click addToCart", item)
         // 如果陣列裡面有此物件，就把數量修改
         const index = menuList.findIndex((e) => e.id == item.id)

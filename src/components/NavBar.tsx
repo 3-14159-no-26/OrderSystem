@@ -72,10 +72,19 @@ const NavBar = () => {
     return (
         <>
             <div className='h-20 max-md:h-12'>
-                <div className='nav-bar fixed z-20 flex w-full items-center justify-between bg-white p-4 text-xl shadow-lg transition-all duration-300 max-md:h-12  max-md:justify-center'>
+                <div className='nav-bar fixed z-20 flex w-full items-center justify-between bg-white p-4 text-xl shadow-lg transition-all duration-300 dark:bg-neutral-900  dark:text-white max-md:h-12 max-md:justify-center'>
                     <div className='nav-bar__logo'>
                         <div className='cursor-pointer' onClick={() => go("/")}>
-                            <img className='h-12 w-full' src='/static/img/logo/WHEats.png' alt='' />
+                            <img
+                                className='block h-12 w-full dark:hidden'
+                                src='/static/img/logo/WHEats.png'
+                                alt=''
+                            />
+                            <img
+                                className='hidden h-12 w-full dark:block'
+                                src='/static/img/logo/WHEats_dark.png'
+                                alt=''
+                            />
                         </div>
                     </div>
                     <div className='nav-bar-menu max-md:hidden'>

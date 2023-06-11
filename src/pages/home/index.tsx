@@ -3,28 +3,33 @@ import { Link } from "react-router-dom"
 import { CSSTransition, SwitchTransition } from "react-transition-group"
 import { LazyLoadImage } from "react-lazy-load-image-component"
 import { IconList } from "@tabler/icons-react"
-import "react-lazy-load-image-component/src/effects/blur.css"
+import { MenuType } from "@/types"
 import URL from "@/url"
 import Container from "@/components/Container"
 import Loding from "@/pages/home/components/Loading"
-
-type menu = {
-    id: number
-    cover: string
-    name: string
-    category: string
-    price: number
-}
+import "react-lazy-load-image-component/src/effects/blur.css"
 
 type category = {
     id: number
     name: string
 }
 
+type CategoryListType = {
+    [key: string]: string
+}
+
+const CategoryList: CategoryListType = {
+    AL: "全部",
+    MM: "主餐",
+    SM: "副餐",
+    DR: "飲料",
+    SN: "甜點",
+}
+
 const Home = () => {
-    const [menu, setMenu] = useState<menu[]>([])
+    const [menu, setMenu] = useState<MenuType[]>([])
     const [category, setCategory] = useState<category[]>([])
-    const [menuCategory, setMenuCategory] = useState<menu[]>([])
+    const [menuCategory, setMenuCategory] = useState<MenuType[]>([])
     const [categoryID, setCategoryID] = useState("")
     const [loading, setLoading] = useState(false)
     const [categoryLoading, setCategoryLoading] = useState(false)
@@ -57,7 +62,7 @@ const Home = () => {
     const selectCategory = (name: string) => {
         console.log("click selectCategory", name)
         if (name !== "") {
-            const filterData = menu.filter((item: menu) => item.category === name)
+            const filterData = menu.filter((item: MenuType) => item.category === name)
             setMenuCategory(filterData)
             console.log("你選擇的是", name, "數量", filterData.length, filterData)
         } else {
@@ -93,10 +98,10 @@ const Home = () => {
                             ref={nodeRef}
                         >
                             {loading && <Loding />}
-                            {menuCategory.map((item: menu) => (
+                            {menuCategory.map((item: MenuType) => (
                                 <div
                                     key={item.id}
-                                    className='group relative flex flex-col overflow-hidden rounded-lg bg-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg max-lg:w-full max-md:w-full'
+                                    className='group relative flex flex-col overflow-hidden rounded-lg bg-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg'
                                 >
                                     {/* <div className='absolute w-full h-full top-0 left-0 opacity-0 hover:opacity-100 transition-all duration-300'></div> */}
                                     <Link to={`/menu/${item.id}`}>
@@ -133,7 +138,7 @@ const Home = () => {
                 >
                     {categoryLoading ? (
                         <div className='bg-slate-200/9 m-4 animate-pulse rounded-lg p-2 shadow-md'>
-                            <div className='p-1 text-xl max-md:hidden'>分類</div>{" "}
+                            <div className='p-1 text-xl max-md:hidden'>分類</div>
                             {/* font-medium */}
                             <div className='ml-1 mt-2 h-4 w-2/3 rounded-full bg-slate-200'></div>
                             <div className='flex justify-end'>
@@ -146,7 +151,7 @@ const Home = () => {
                         </div>
                     ) : (
                         <div className='m-4 rounded-lg bg-white p-2 shadow-md max-md:bg-[#ffa10099]'>
-                            <div className='p-1 text-xl max-md:hidden'>分類</div>{" "}
+                            <div className='p-1 text-xl max-md:hidden'>分類</div>
                             {/* font-medium */}
                             <div className='p-1'>
                                 {category.map((item: category) => (
@@ -154,10 +159,10 @@ const Home = () => {
                                         key={item.id}
                                         className='cursor-pointer rounded-lg p-2 hover:bg-gray-100 max-md:hover:bg-[#ffa10099]'
                                         onClick={() =>
-                                            selectCategory(item.name === "全部" ? "" : item.name)
+                                            selectCategory(item.name === "AL" ? "" : item.name)
                                         }
                                     >
-                                        {item.name}
+                                        {CategoryList[item.name]}
                                     </div>
                                 ))}
                             </div>
