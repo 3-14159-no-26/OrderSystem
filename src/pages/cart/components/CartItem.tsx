@@ -6,9 +6,12 @@ const MenuItem = ({ menuList }: { menuList: MenuItemType[] }) => {
     return (
         <>
             {menuList.map((item) => (
-                <div key={item.id} className='cursor-pointer border-b-2 border-gray-200 p-1'>
+                <div
+                    key={item.id}
+                    className='cursor-pointer border-b-2 border-gray-200 p-1 dark:border-gray-700'
+                >
                     <div
-                        className='flex w-full items-center justify-between rounded-2xl hover:bg-gray-100 max-md:block'
+                        className='flex w-full items-center justify-between rounded-2xl hover:bg-gray-100 dark:hover:bg-neutral-800 max-md:block'
                         onClick={() => {
                             go(`/menu/${item.id}`, {
                                 state: { prevPath: "/cart" },

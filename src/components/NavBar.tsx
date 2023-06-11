@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { useMenuListContext } from "@/context/MenuList"
-import { IconShoppingCart } from "@tabler/icons-react"
+import { IconShoppingCart, IconSun, IconMoonStars, IconDeviceDesktop } from "@tabler/icons-react"
 // import clsx from "clsx"
 import { v4 as uuidv4 } from "uuid"
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu"
 import Cookies from "js-cookie"
 import gravatar from "gravatar"
 
@@ -69,8 +70,30 @@ const NavBar = () => {
         setLogin(false)
     }
 
+    const toggleDarkMode = (mode: string) => {
+        const root = document.documentElement
+        if (mode === "light") {
+            root.classList.remove("dark")
+            localStorage.setItem("theme", "light")
+        }
+        if (mode === "dark") {
+            root.classList.add("dark")
+            localStorage.setItem("theme", "dark")
+        }
+        if (mode === "system") {
+            if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                root.classList.add("dark")
+                localStorage.setItem("theme", "dark")
+            } else {
+                root.classList.remove("dark")
+                localStorage.setItem("theme", "light")
+            }
+        }
+    }
+
     return (
         <>
+            {/* <div className='relative z-30 flex w-full justify-center bg-black text-blue-700'></div> */}
             <div className='h-20 max-md:h-12'>
                 <div className='nav-bar fixed z-20 flex w-full items-center justify-between bg-white p-4 text-xl shadow-lg transition-all duration-300 dark:bg-neutral-900  dark:text-white max-md:h-12 max-md:justify-center'>
                     <div className='nav-bar__logo'>
@@ -87,8 +110,8 @@ const NavBar = () => {
                             />
                         </div>
                     </div>
-                    <div className='nav-bar-menu max-md:hidden'>
-                        <div className='flex items-center'>
+                    <div className='nav-bar-menu flex items-center pr-5 max-md:pr-0'>
+                        <div className='flex items-center max-md:hidden'>
                             <div className='relative pr-4'>
                                 <div className='cursor-pointer' onClick={() => checkGo("/cart")}>
                                     {menuList.length > 0 && (
@@ -134,6 +157,44 @@ const NavBar = () => {
                                 onClick={removeCookie}
                             >
                                 清除cookie
+                            </div>
+                        </div>
+                        <div className='flex items-center max-md:absolute max-md:right-8'>
+                            <div className='flex items-center px-1'>
+                                <DropdownMenu.Root modal={false}>
+                                    <DropdownMenu.Trigger>
+                                        <IconSun className='block h-6 w-6 text-yellow-500 dark:hidden' />
+                                        <IconMoonStars className='hidden h-6 w-6 text-yellow-500 dark:block' />
+                                    </DropdownMenu.Trigger>
+                                    <DropdownMenu.Content
+                                        className='w-20 rounded-md bg-white p-2 text-black shadow dark:bg-neutral-900 dark:text-white'
+                                        sideOffset={35}
+                                    >
+                                        <DropdownMenu.Group>
+                                            <DropdownMenu.Item
+                                                className='flex cursor-pointer items-center'
+                                                onSelect={() => toggleDarkMode("light")}
+                                            >
+                                                <IconSun className='h-6 w-6 text-yellow-500' />
+                                                <span className=''>亮色</span>
+                                            </DropdownMenu.Item>
+                                            <DropdownMenu.Item
+                                                className='flex cursor-pointer items-center'
+                                                onSelect={() => toggleDarkMode("dark")}
+                                            >
+                                                <IconMoonStars className='h-6 w-6 text-yellow-500' />
+                                                <span className=''>深色</span>
+                                            </DropdownMenu.Item>
+                                            <DropdownMenu.Item
+                                                className='flex cursor-pointer items-center'
+                                                onSelect={() => toggleDarkMode("system")}
+                                            >
+                                                <IconDeviceDesktop className='h-6 w-6 text-yellow-500' />
+                                                <span className=''>系統</span>
+                                            </DropdownMenu.Item>
+                                        </DropdownMenu.Group>
+                                    </DropdownMenu.Content>
+                                </DropdownMenu.Root>
                             </div>
                         </div>
                     </div>

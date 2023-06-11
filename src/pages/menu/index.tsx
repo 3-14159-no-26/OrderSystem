@@ -98,7 +98,7 @@ const Menu = () => {
                 <div className='flex w-full flex-col items-center justify-center pt-20'>
                     {loading && <Loding />}
                     {data && (
-                        <div className='relative flex h-64 w-64 flex-col justify-end rounded-md bg-[rgba(255,255,255,0.5)] p-2 shadow-md'>
+                        <div className='relative flex h-64 w-64 flex-col justify-end rounded-md bg-white p-2 shadow-md dark:bg-neutral-900 dark:dark:text-white/60'>
                             <div className='absolute -top-10'>
                                 <img
                                     className='h-full w-full bg-cover object-cover'
@@ -111,7 +111,7 @@ const Menu = () => {
                                 <div className=''>${data.price}</div>
                                 <div className='flex items-center py-2'>
                                     <button
-                                        className='rounded-lg bg-amber-400 p-1'
+                                        className='rounded-lg bg-amber-400 p-1 transition-all duration-300 hover:bg-amber-500 dark:text-neutral-900'
                                         onClick={() => {
                                             if (count > 1) setCount(count - 1)
                                         }}
@@ -121,7 +121,7 @@ const Menu = () => {
                                     </button>
                                     <input
                                         type='text'
-                                        className='mx-1 w-full rounded-lg p-1 text-center'
+                                        className='mx-1 w-full rounded-lg p-1 text-center text-black dark:bg-neutral-800 dark:text-white'
                                         size={1}
                                         onChange={(e) => {
                                             if (e.target.value === "") setCount(1)
@@ -131,7 +131,7 @@ const Menu = () => {
                                         title='輸入數量'
                                     />
                                     <button
-                                        className='rounded-lg bg-amber-400 p-1'
+                                        className='rounded-lg bg-amber-400 p-1 transition-all duration-300 hover:bg-amber-500 dark:text-neutral-900'
                                         onClick={() => setCount(count + 1)}
                                         title='增加數量'
                                     >
@@ -139,7 +139,7 @@ const Menu = () => {
                                     </button>
                                 </div>
                                 <button
-                                    className='w-full rounded-lg bg-amber-400 p-1'
+                                    className='w-full rounded-lg bg-amber-400 p-1 transition-all duration-300 hover:bg-amber-500 dark:text-neutral-900'
                                     onClick={() => addToCartAndNavigate(data, count)}
                                 >
                                     加入購物車

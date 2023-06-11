@@ -1,7 +1,7 @@
-/* @font-face {
+@font-face {
     font-family: "main";
     src: url("/static/fonts/筑紫A丸by\ 宁静之雨.woff2");
-} */
+}
 
 html {
     box-sizing: border-box;
@@ -10,6 +10,10 @@ html {
     overflow-x: hidden;
     height: 100%;
     background-color: #f8fafc;
+}
+
+html.dark {
+    background-color: #121212;
 }
 
 body {
@@ -109,6 +113,12 @@ body {
     transform: rotate(180deg);
     background: linear-gradient(45deg, transparent 33%, #ffffff 33%, #ffffff 66%, transparent 66%),
         linear-gradient(-45deg, transparent 33%, #ffffff 33%, #ffffff 66%, transparent 66%);
+    background-size: 20px 40px;
+}
+
+.dark .details-list::after {
+    background: linear-gradient(45deg, transparent 33%, #171717 33%, #171717 66%, transparent 66%),
+        linear-gradient(-45deg, transparent 33%, #171717 33%, #171717 66%, transparent 66%);
     background-size: 20px 40px;
 }
 

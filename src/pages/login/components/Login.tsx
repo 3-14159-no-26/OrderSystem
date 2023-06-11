@@ -66,7 +66,7 @@ const Login = ({ status }: { status: (status: string) => void }) => {
 
     return (
         <>
-            <div className='m-2 flex flex-col items-center justify-center rounded-lg bg-white p-2 shadow'>
+            <div className='m-2 flex flex-col items-center justify-center rounded-lg bg-white p-2 shadow dark:bg-neutral-800 dark:text-white/60'>
                 <div className='p-2 text-xl font-semibold'>歡迎使用！線上點餐系統</div>
                 <div className='p-2'>請選擇登入/註冊方式，註冊後即可使用</div>
                 <div className=''>
@@ -80,7 +80,7 @@ const Login = ({ status }: { status: (status: string) => void }) => {
                     </button>
                 </div>
             </div>
-            <div className='rounded-xl bg-slate-300 p-4 shadow max-md:min-w-full max-md:bg-transparent max-md:shadow-none'>
+            <div className='rounded-xl bg-slate-300 p-4 shadow dark:bg-neutral-800 max-md:min-w-full max-md:bg-transparent max-md:shadow-none'>
                 <div className='m-4'>
                     <div
                         className={clsx(

@@ -105,7 +105,7 @@ const Cart = () => {
                         <div className='rounded-b-xl border-x-2 border-b-2 border-dashed border-[#ae7252] px-4 pb-4'>
                             <div className='relative'>
                                 <div className='details-list '>
-                                    <div className='w-full bg-white p-4'>
+                                    <div className='w-full bg-white p-4 dark:bg-neutral-900 dark:dark:text-white/60'>
                                         {/* 如果 menuList 是空的就顯示 尚未加入購物車, 否則就顯示總計 */}
                                         {menuList.length !== 0 ? (
                                             <>
@@ -116,7 +116,7 @@ const Cart = () => {
                                                     <div className='text-2xl'>時間 2023/09/87</div>
                                                 </div>
                                                 <MenuItem menuList={menuList} />
-                                                <div className='border-b-2 border-gray-200'>
+                                                <div className='border-b-2 border-gray-200 dark:border-gray-700'>
                                                     <div className='flex justify-between text-2xl'>
                                                         <div className='p-2'>總計</div>
                                                         <div className='p-2'>
@@ -139,7 +139,7 @@ const Cart = () => {
                                                 </div>
                                             </>
                                         ) : (
-                                            <div className='border-b-2 border-gray-200'>
+                                            <div className='border-b-2 border-gray-200 dark:border-gray-700'>
                                                 <div className='flex justify-center text-2xl'>
                                                     <div className='p-2'>尚未加入購物車</div>
                                                 </div>
@@ -147,7 +147,7 @@ const Cart = () => {
                                         )}
                                         <div className='mt-4 flex'>
                                             <button
-                                                className='m-1 w-full rounded-lg bg-amber-400 p-2'
+                                                className='m-1 w-full rounded-lg bg-amber-400 p-2 hover:bg-amber-500 dark:bg-neutral-800 dark:hover:bg-neutral-700'
                                                 onClick={() => {
                                                     resetToCart()
                                                     toast("🛒已清空購物車")
@@ -156,7 +156,7 @@ const Cart = () => {
                                                 清空購物車
                                             </button>
                                             <button
-                                                className='m-1 w-full rounded-lg bg-amber-400 p-2'
+                                                className='m-1 w-full rounded-lg bg-amber-400 p-2 hover:bg-amber-500 dark:bg-neutral-800 dark:hover:bg-neutral-700'
                                                 onClick={() => {
                                                     submitOrder()
                                                 }}

@@ -50,14 +50,14 @@ const EditUser = () => {
         <>
             <Dialog.Root open={open} onOpenChange={setOpen}>
                 <Dialog.Trigger asChild>
-                    <button className='rounded-lg bg-amber-400 px-2 py-1 text-center'>
+                    <button className='rounded-lg bg-amber-400 px-2 py-1 text-center hover:bg-amber-500 dark:text-neutral-900'>
                         編輯個人資料
                     </button>
                 </Dialog.Trigger>
                 <Dialog.Portal>
                     <Dialog.Overlay className='data-[state=open]:animate-overlayShow fixed inset-0 bg-[rgba(0,0,0,.5)] backdrop-blur-sm' />
                     <Dialog.Content asChild>
-                        <div className='fixed left-[50%] top-[50%] max-h-[85vh] w-[90vw] max-w-[450px] translate-x-[-50%] translate-y-[-50%] rounded-lg bg-white p-4 shadow-lg'>
+                        <div className='fixed left-[50%] top-[50%] max-h-[85vh] w-[90vw] max-w-[450px] translate-x-[-50%] translate-y-[-50%] rounded-lg bg-white p-4 shadow-lg dark:bg-neutral-900 dark:dark:text-white/60'>
                             <Dialog.Title asChild>
                                 <div className='flex items-center justify-between'>
                                     <div className=''>編輯個人資料</div>
@@ -68,7 +68,7 @@ const EditUser = () => {
                             </Dialog.Title>
                             <Dialog.Description asChild>
                                 <div className=''>
-                                    <div className='my-2 flex w-full items-center justify-between rounded-2xl p-2 hover:bg-gray-100'>
+                                    <div className='my-2 flex w-full items-center justify-between rounded-2xl p-2 hover:bg-gray-100 dark:hover:bg-neutral-800'>
                                         <div className='flex w-1/3 items-center'>
                                             <IconUser size={24} />
                                             <div className='pl-2 text-2xl'>姓名</div>
@@ -83,7 +83,7 @@ const EditUser = () => {
                                             placeholder='使用者名稱'
                                         />
                                     </div>
-                                    <div className='my-2 flex w-full items-center justify-between rounded-2xl p-2 hover:bg-gray-100'>
+                                    <div className='my-2 flex w-full items-center justify-between rounded-2xl p-2 hover:bg-gray-100 dark:hover:bg-neutral-800'>
                                         <div className='flex w-1/3 items-center'>
                                             <IconMail size={24} />
                                             <div className='pl-2 text-2xl'>Email</div>
@@ -100,7 +100,7 @@ const EditUser = () => {
                                         />
                                     </div>
                                     <div className=''>
-                                        <div className='my-2 flex w-full items-center justify-between rounded-2xl p-2 hover:bg-gray-100'>
+                                        <div className='my-2 flex w-full items-center justify-between rounded-2xl p-2 hover:bg-gray-100 dark:hover:bg-neutral-800'>
                                             <div className='flex w-1/3 items-center'>
                                                 <IconPhone size={24} />
                                                 <div className='pl-2 text-2xl'>電話</div>
@@ -124,7 +124,7 @@ const EditUser = () => {
                                     </div>
                                 </div>
                             </Dialog.Description>
-                            <button className='w-full rounded-lg bg-amber-400 px-2 py-1 text-center hover:bg-amber-500'>
+                            <button className='w-full rounded-lg bg-amber-400 px-2 py-1 text-center hover:bg-amber-500 dark:text-neutral-900'>
                                 確認
                             </button>
                         </div>

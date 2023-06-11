@@ -211,7 +211,7 @@ const Register = ({ status }: { status: (status: string) => void }) => {
                 pauseOnHover
                 theme='light'
             />
-            <div className='m-2 flex flex-col items-center justify-center rounded-lg bg-white p-2 shadow'>
+            <div className='m-2 flex flex-col items-center justify-center rounded-lg bg-white p-2 shadow dark:bg-neutral-800 dark:text-white/60'>
                 <div className='p-2 text-xl font-semibold'>歡迎使用！線上點餐系統</div>
                 <div className='p-2'>請選擇登入/註冊方式，註冊後即可使用</div>
                 <div className=''>
@@ -225,7 +225,7 @@ const Register = ({ status }: { status: (status: string) => void }) => {
                     </button>
                 </div>
             </div>
-            <div className='w-96 rounded-xl bg-slate-300 p-4 max-md:min-w-full max-md:bg-transparent'>
+            <div className='w-96 rounded-xl bg-slate-300 p-4 dark:bg-neutral-800 max-md:min-w-full max-md:bg-transparent'>
                 <div className='m-4 '>
                     <div
                         className={clsx(
