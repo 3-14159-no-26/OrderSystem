@@ -75,7 +75,7 @@ const EditUser = () => {
                                         </div>
                                         <input
                                             type='text'
-                                            className='box-border w-2/3 rounded-full p-1 focus-visible:outline-none'
+                                            className='box-border w-2/3 rounded-full px-2 py-1 focus-visible:outline-none'
                                             onChange={(e) => {
                                                 setName(e.target.value)
                                             }}
@@ -90,7 +90,7 @@ const EditUser = () => {
                                         </div>
                                         <input
                                             type='email'
-                                            className='box-border w-2/3 rounded-full p-1 focus-visible:outline-none'
+                                            className='box-border w-2/3 rounded-full px-2 py-1 focus-visible:outline-none'
                                             onChange={(e) => {
                                                 setEmail(e.target.value)
                                             }}
@@ -107,7 +107,7 @@ const EditUser = () => {
                                             </div>
                                             <input
                                                 type='tel'
-                                                className='box-border w-2/3 rounded-full p-1 focus-visible:outline-none'
+                                                className='box-border w-2/3 rounded-full px-2 py-1 focus-visible:outline-none'
                                                 onChange={(e) => {
                                                     setPhone(e.target.value)
                                                 }}
