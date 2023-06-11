@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 - 花費總時數: [![wakatime](https://wakatime.com/badge/user/b8addc47-7f5d-4cb6-a922-388b0c6785e9/project/08edcf4d-7789-4102-9145-677662483da0.svg?style=for-the-badge)](https://wakatime.com/@b8addc47-7f5d-4cb6-a922-388b0c6785e9/projects/gecwzapwyr)
-=======
 - 花費總時數: [![wakatime](https://wakatime.com/badge/user/b8addc47-7f5d-4cb6-a922-388b0c6785e9/project/08edcf4d-7789-4102-9145-677662483da0.svg)](https://wakatime.com/@b8addc47-7f5d-4cb6-a922-388b0c6785e9/projects/gecwzapwyr)
->>>>>>> 78da7762f202179cf53d60d8b8d831b072740085
 # 🌍 [點餐系統](https://order-system-git-main-sao-coding.vercel.app/)
 # 📚 使用技術
 - 框架: React
