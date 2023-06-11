@@ -28,7 +28,7 @@ const User = () => {
     return (
         <Container>
             <div className='flex h-[80vh] w-full justify-center'>
-                <div className='w-2/3 rounded-lg bg-white p-8 shadow-md dark:bg-neutral-900 dark:dark:text-white/60 max-md:w-full max-md:bg-transparent max-md:shadow-none max-md:dark:bg-transparent'>
+                <div className='w-2/3 rounded-lg bg-white p-8 shadow-md dark:bg-neutral-900 dark:text-white/60 max-md:w-full max-md:bg-transparent max-md:shadow-none max-md:dark:bg-transparent'>
                     <div className='flex items-center justify-around border-b-2 p-4'>
                         <div className='h-[100px] w-[100px] cursor-pointer overflow-hidden rounded-full'>
                             <LazyLoadImage
