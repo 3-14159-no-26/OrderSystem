@@ -96,7 +96,7 @@ const NavBar = () => {
             {/* <div className='relative z-30 flex w-full justify-center bg-black text-blue-700'></div> */}
             <div className='h-20 max-md:h-12'>
                 <div className='nav-bar fixed z-20 flex w-full items-center justify-between bg-white p-4 text-xl shadow-lg transition-all duration-300 dark:bg-neutral-900  dark:text-white max-md:h-12 max-md:justify-center'>
-                    <div className='cursor-pointer' onClick={() => go("/")}>
+                    <div className='w-auto cursor-pointer' onClick={() => go("/")}>
                         <img
                             className='block h-12 w-full bg-cover object-cover dark:hidden'
                             src='/static/img/logo/WHEats.png'
