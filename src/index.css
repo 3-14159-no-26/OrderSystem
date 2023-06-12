@@ -21,6 +21,10 @@ body {
     padding: 0;
     height: 100%;
     font-weight: 600;
+    padding-top: constant(safe-area-inset-top);
+    padding-right: constant(safe-area-inset-right);
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-left: constant(safe-area-inset-left);
 }
 
 /* 卷軸樣式 */
