@@ -23,7 +23,7 @@ const Index = () => {
     return (
         <>
             <div className='relative h-[91.7vh] w-full'>
-                <div className='absolute left-0 top-0 h-full w-full bg-slate-50 dark:bg-[#121212]'>
+                <div className='absolute left-0 top-0 h-full w-full bg-slate-50 dark:bg-[#0f0f0f]'>
                     <div className='flex h-full w-full flex-grow flex-col items-center justify-center'>
                         {status === "login" ? (
                             <Suspense fallback={<div>載入中...</div>}>

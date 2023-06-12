@@ -29,7 +29,7 @@ const App = () => {
     return (
         <>
             <MenuListProvider>
-                <div className='bg-slate-50 dark:bg-[#121212]'>
+                <div className='bg-slate-50 dark:bg-[#0f0f0f]'>
                     <NavBar />
                     <TransitionGroup>
                         <SwitchTransition mode='out-in'>
