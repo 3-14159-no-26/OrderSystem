@@ -99,14 +99,14 @@ const NavBar = () => {
                     <div className='nav-bar__logo'>
                         <div className='cursor-pointer' onClick={() => go("/")}>
                             <img
-                                className='block h-12 w-full dark:hidden'
+                                className='block h-12 w-full bg-cover object-cover dark:hidden'
                                 src='/static/img/logo/WHEats.png'
-                                alt=''
+                                alt='logo'
                             />
                             <img
-                                className='hidden h-12 w-full dark:block'
+                                className='hidden h-12 w-full bg-cover object-cover dark:block'
                                 src='/static/img/logo/WHEats_dark.png'
-                                alt=''
+                                alt='logo'
                             />
                         </div>
                     </div>
