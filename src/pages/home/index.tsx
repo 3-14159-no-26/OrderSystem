@@ -108,7 +108,7 @@ const Home = () => {
                                         <div className=' flex h-[115px] w-full justify-center overflow-hidden transition-all duration-300 hover:scale-105 max-md:h-40'>
                                             {/* transition-all duration-300 hover:scale-105 */}
                                             <LazyLoadImage
-                                                className='h-full w-full bg-cover object-cover'
+                                                className='m-auto h-full w-auto'
                                                 src={"/static/img/meals/" + item.cover + ".webp"}
                                                 placeholderSrc={
                                                     "/static/img/lazymeals/" + item.cover + ".webp"
