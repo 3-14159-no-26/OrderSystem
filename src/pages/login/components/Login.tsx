@@ -80,7 +80,7 @@ const Login = ({ status }: { status: (status: string) => void }) => {
                     </button>
                 </div>
             </div>
-            <div className='rounded-xl bg-slate-300 p-4 shadow dark:bg-neutral-800 max-md:min-w-full max-md:bg-transparent max-md:shadow-none'>
+            <div className='rounded-xl bg-slate-300 p-4 shadow dark:bg-neutral-800 max-md:min-w-full max-md:bg-transparent max-md:shadow-none max-md:dark:bg-transparent'>
                 <div className='m-4'>
                     <div
                         className={clsx(

@@ -225,7 +225,7 @@ const Register = ({ status }: { status: (status: string) => void }) => {
                     </button>
                 </div>
             </div>
-            <div className='w-96 rounded-xl bg-slate-300 p-4 dark:bg-neutral-800 max-md:min-w-full max-md:bg-transparent'>
+            <div className='w-96 rounded-xl bg-slate-300 p-4 dark:bg-neutral-800 max-md:min-w-full max-md:bg-transparent max-md:dark:bg-transparent'>
                 <div className='m-4 '>
                     <div
                         className={clsx(
