@@ -49,7 +49,7 @@ const Footer = () => {
         <div className='hidden h-20 max-md:block'>
             <div
                 className={clsx(
-                    "fixed bottom-0 z-10 flex w-full items-center justify-around bg-slate-300 py-2",
+                    "fixed bottom-0 z-10 flex w-full items-center justify-around bg-slate-300 py-2 transition-all duration-300 dark:bg-neutral-800 dark:text-white/90",
                     { hidden: navbarHidden }
                 )}
             >
