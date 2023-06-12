@@ -96,17 +96,19 @@ const NavBar = () => {
             {/* <div className='relative z-30 flex w-full justify-center bg-black text-blue-700'></div> */}
             <div className='h-20 max-md:h-12'>
                 <div className='nav-bar fixed z-20 flex w-full items-center justify-between bg-white p-4 text-xl shadow-lg transition-all duration-300 dark:bg-neutral-900  dark:text-white max-md:h-12 max-md:justify-center'>
-                    <div className='w-auto cursor-pointer' onClick={() => go("/")}>
-                        <img
-                            className='block h-12 w-full bg-cover object-cover dark:hidden'
-                            src='/static/img/logo/WHEats.png'
-                            alt='logo'
-                        />
-                        <img
-                            className='hidden h-12 w-full bg-cover object-cover dark:block'
-                            src='/static/img/logo/WHEats_dark.png'
-                            alt='logo'
-                        />
+                    <div className='nav-bar-logo'>
+                        <div className='w-auto cursor-pointer' onClick={() => go("/")}>
+                            <img
+                                className='block h-12 w-full bg-cover object-cover dark:hidden'
+                                src='/static/img/logo/WHEats.png'
+                                alt='logo'
+                            />
+                            <img
+                                className='hidden h-12 w-full bg-cover object-cover dark:block'
+                                src='/static/img/logo/WHEats_dark.png'
+                                alt=''
+                            />
+                        </div>
                     </div>
                     <div className='nav-bar-menu flex items-center pr-5 max-md:pr-0'>
                         <div className='flex items-center max-md:hidden'>
