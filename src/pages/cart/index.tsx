@@ -13,6 +13,16 @@ const Cart = () => {
     const { menuList, resetToCart } = useMenuListContext()
     const go = useNavigate()
     const id = uuidv4()
+    const createTime = new Date().toLocaleString("zh-TW", {
+        timeZone: "Asia/Taipei",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour12: false,
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+    })
 
     useEffect(() => {
         const token = Cookies.get("token")
@@ -39,16 +49,7 @@ const Cart = () => {
                     status: "A",
                     customerID: token,
                     // 格式化目前台灣時間 yyyy/MM/dd hh:mm:ss (24小時制)
-                    Bdate: new Date().toLocaleString("zh-TW", {
-                        timeZone: "Asia/Taipei",
-                        year: "numeric",
-                        month: "2-digit",
-                        day: "2-digit",
-                        hour12: false,
-                        hour: "2-digit",
-                        minute: "2-digit",
-                        second: "2-digit",
-                    }),
+                    Bdate: createTime,
                     Details: menuList.map((item) => {
                         return {
                             detailID: uuidv4(),
@@ -110,10 +111,14 @@ const Cart = () => {
                                         {menuList.length !== 0 ? (
                                             <>
                                                 <div className='flex items-center justify-center p-4'>
-                                                    <div className='text-3xl'>單號: {id}</div>
+                                                    <div className='pr-1 text-3xl'>單號:</div>
+                                                    <div className='font-mono text-3xl'>{id}</div>
                                                 </div>
                                                 <div className='flex items-center justify-center px-4 pb-4'>
-                                                    <div className='text-2xl'>時間 2023/09/87</div>
+                                                    <div className='pr-1 text-2xl'>時間 :</div>
+                                                    <div className='font-mono text-2xl'>
+                                                        {createTime}
+                                                    </div>
                                                 </div>
                                                 <MenuItem menuList={menuList} />
                                                 <div className='border-b-2 border-gray-200 dark:border-gray-700'>
