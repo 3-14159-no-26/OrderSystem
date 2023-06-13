@@ -75,7 +75,7 @@ const EditUser = () => {
                                         </div>
                                         <input
                                             type='text'
-                                            className='box-border w-2/3 rounded-full px-2 py-1 focus-visible:outline-none'
+                                            className='box-border w-2/3 rounded-full px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 dark:bg-neutral-800'
                                             onChange={(e) => {
                                                 setName(e.target.value)
                                             }}
