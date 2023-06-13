@@ -1,7 +1,13 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { useMenuListContext } from "@/context/MenuList"
-import { IconShoppingCart, IconSun, IconMoonStars, IconDeviceDesktop } from "@tabler/icons-react"
+import {
+    IconShoppingCart,
+    IconClipboardCheck,
+    IconSun,
+    IconMoonStars,
+    IconDeviceDesktop,
+} from "@tabler/icons-react"
 // import clsx from "clsx"
 import { v4 as uuidv4 } from "uuid"
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu"
@@ -112,23 +118,28 @@ const NavBar = () => {
                     </div>
                     <div className='nav-bar-menu flex items-center pr-5 max-md:pr-0'>
                         <div className='flex items-center max-md:hidden'>
-                            <div className='relative pr-4'>
-                                <div className='cursor-pointer' onClick={() => checkGo("/cart")}>
-                                    {menuList.length > 0 && (
-                                        <div className='absolute -top-1 right-2 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-white'>
-                                            {/* pt-[0.15rem] */}
-                                            <div className='text-center text-xs'>
-                                                {menuList.length}
-                                            </div>
-                                        </div>
-                                    )}
-                                    <IconShoppingCart />
-                                </div>
+                            <div
+                                className='relative cursor-pointer px-2'
+                                onClick={() => checkGo("/cart")}
+                            >
+                                {menuList.length > 0 && (
+                                    <div className='absolute -top-1 right-0 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-white'>
+                                        {/* pt-[0.15rem] */}
+                                        <div className='text-center text-xs'>{menuList.length}</div>
+                                    </div>
+                                )}
+                                <IconShoppingCart />
+                            </div>
+                            <div
+                                className='cursor-pointer px-2'
+                                onClick={() => checkGo("/details")}
+                            >
+                                <IconClipboardCheck />
                             </div>
                             {login ? (
                                 <>
                                     <div
-                                        className='h-8 w-8 cursor-pointer overflow-hidden rounded-full'
+                                        className='mx-2 h-8 w-8 cursor-pointer overflow-hidden rounded-full'
                                         onClick={() => checkGo("/user")}
                                     >
                                         <img
