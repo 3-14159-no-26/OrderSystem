@@ -193,7 +193,7 @@ const NavBar = () => {
                                                 className='flex cursor-pointer items-center'
                                                 onSelect={() => toggleDarkMode("dark")}
                                             >
-                                                <IconMoonStars className='h-6 w-6 text-yellow-500' />
+                                                <IconMoonStars className='my-2 h-6 w-6 text-yellow-500' />
                                                 <span className=''>深色</span>
                                             </DropdownMenu.Item>
                                             <DropdownMenu.Item
