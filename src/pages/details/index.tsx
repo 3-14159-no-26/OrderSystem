@@ -2,14 +2,23 @@ import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import URL from "@/url"
 import Container from "@/components/Container"
+<<<<<<< HEAD
 import { MenuItemType } from "@/types"
+=======
+import { MenuType, MenuItemType } from "@/types"
+>>>>>>> b5cf09eb98334b7acf444d8db09edaf0f7c38ee8
 import Cookies from "js-cookie"
 // import MenuItem from "@/pages/cart/components/CartItem"
 
 type MenuListType = MenuItemType[]
 
 const Details = () => {
+<<<<<<< HEAD
     const { id } = useParams()
+=======
+    // const { id } = useParams()
+    const id = 1
+>>>>>>> b5cf09eb98334b7acf444d8db09edaf0f7c38ee8
     const [data, setData] = useState<MenuListType>([])
 
     useEffect(() => {
