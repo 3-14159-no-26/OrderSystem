@@ -55,9 +55,9 @@ const EditUser = () => {
                     </button>
                 </Dialog.Trigger>
                 <Dialog.Portal>
-                    <Dialog.Overlay className='data-[state=open]:animate-overlayShow fixed inset-0 bg-[rgba(0,0,0,.5)] backdrop-blur-sm' />
+                    <Dialog.Overlay className='fixed inset-0 bg-[rgba(0,0,0,.5)] backdrop-blur-sm data-[state=open]:animate-overlayShow' />
                     <Dialog.Content asChild>
-                        <div className='fixed left-[50%] top-[50%] max-h-[85vh] w-[90vw] max-w-[450px] translate-x-[-50%] translate-y-[-50%] rounded-lg bg-white p-4 shadow-lg dark:bg-neutral-900 dark:dark:text-white/60'>
+                        <div className='fixed left-[50%] top-[50%] max-h-[85vh] w-[90vw] max-w-[450px] translate-x-[-50%] translate-y-[-50%] rounded-lg bg-white p-4 shadow-lg focus:outline-none data-[state=open]:animate-contentShow dark:bg-neutral-900 dark:dark:text-white/60'>
                             <Dialog.Title asChild>
                                 <div className='flex items-center justify-between'>
                                     <div className=''>編輯個人資料</div>

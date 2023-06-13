@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react"
-import { Link } from "react-router-dom"
+// import { Link } from "react-router-dom"
 import { CSSTransition, SwitchTransition } from "react-transition-group"
 import { LazyLoadImage } from "react-lazy-load-image-component"
 import { IconList } from "@tabler/icons-react"
@@ -7,7 +7,9 @@ import { MenuType } from "@/types"
 import URL from "@/url"
 import Container from "@/components/Container"
 import Loding from "@/pages/home/components/Loading"
-import "react-lazy-load-image-component/src/effects/blur.css"
+import * as Dialog from "@radix-ui/react-dialog"
+import Order from "./components/Order"
+import { ToastContainer, toast } from "react-toastify"
 
 type category = {
     id: number
@@ -79,8 +81,34 @@ const Home = () => {
         menuList?.classList.toggle("fade-in")
     }
 
+    const notify = () =>
+        toast.promise(
+            new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve("加入購物車成功")
+                }, 200)
+            }),
+            {
+                pending: "加入購物車中...",
+                success: "加入購物車成功",
+                error: "加入購物車失敗",
+            }
+        )
+
     return (
         <>
+            <ToastContainer
+                position='top-right'
+                autoClose={400}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme='light'
+            />
             <Container>
                 <SwitchTransition mode='out-in'>
                     <CSSTransition
@@ -99,34 +127,37 @@ const Home = () => {
                         >
                             {loading && <Loding />}
                             {menuCategory.map((item: MenuType) => (
-                                <div
-                                    key={item.id}
-                                    className='group relative flex flex-col overflow-hidden rounded-lg bg-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg dark:bg-[rgba(30,30,30,0.9)] dark:dark:text-white/60'
-                                >
+                                <div key={item.id}>
                                     {/* <div className='absolute w-full h-full top-0 left-0 opacity-0 hover:opacity-100 transition-all duration-300'></div> */}
-                                    <Link to={`/menu/${item.id}`}>
-                                        <div className=' flex h-[115px] w-full justify-center overflow-hidden transition-all duration-300 hover:scale-105 max-md:h-40'>
-                                            {/* transition-all duration-300 hover:scale-105 */}
-                                            <LazyLoadImage
-                                                className='m-auto h-full w-auto'
-                                                src={"/static/img/meals/" + item.cover + ".webp"}
-                                                placeholderSrc={
-                                                    "/static/img/lazymeals/" + item.cover + ".webp"
-                                                }
-                                                effect='blur'
-                                                alt=''
-                                            />
-                                            {/* <img
-                                                className='h-full w-full bg-cover object-cover'
-                                                src={"/static/img/meals/" + item.cover + ".webp"}
-                                                alt=''
-                                            /> */}
-                                        </div>
-                                        <div className='p-4'>
-                                            <div className=''>{item.name}</div>
-                                            <div className='text-right'>${item.price}</div>
-                                        </div>
-                                    </Link>
+                                    <Dialog.Root>
+                                        <Dialog.Trigger asChild>
+                                            <div className='group relative flex flex-col overflow-hidden rounded-lg bg-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg dark:bg-[rgba(30,30,30,0.9)] dark:dark:text-white/60'>
+                                                <div className='flex h-[115px] w-full justify-center overflow-hidden transition-all duration-300 group-hover:scale-105 max-md:h-40'>
+                                                    {/* transition-all duration-300 hover:scale-105 */}
+                                                    <LazyLoadImage
+                                                        className='m-auto h-full w-auto'
+                                                        src={
+                                                            "/static/img/meals/" +
+                                                            item.cover +
+                                                            ".webp"
+                                                        }
+                                                        placeholderSrc={
+                                                            "/static/img/lazymeals/" +
+                                                            item.cover +
+                                                            ".webp"
+                                                        }
+                                                        effect='blur'
+                                                        alt=''
+                                                    />
+                                                </div>
+                                                <div className='p-4'>
+                                                    <div className=''>{item.name}</div>
+                                                    <div className='text-right'>${item.price}</div>
+                                                </div>
+                                            </div>
+                                        </Dialog.Trigger>
+                                        <Order menu={item} notify={notify} />
+                                    </Dialog.Root>
                                 </div>
                             ))}
                         </div>
