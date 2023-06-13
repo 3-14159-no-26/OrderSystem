@@ -1,18 +1,9 @@
-import { useEffect } from "react"
 import "@/assets/css/404.css"
 
 const NotFound: React.FC = () => {
-    useEffect(() => {
-        const html = document.querySelector("html")
-        const notFound = document.querySelector(".NotFound")
-        if (notFound && html) {
-            html.style.overflow = "hidden"
-        }
-    }, [])
-
     return (
         <>
-            <div className='NotFound'>
+            <div className='NotFound absolute z-30 max-h-[85vh] w-screen'>
                 <div className='error'>
                     <div className='wrap'>
                         <div className='404'>

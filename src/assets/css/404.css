@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Gilda+Display);
 
 .NotFound {
-    background-color: black;
+    background-color: #0f0f0f;
     color: white;
     overflow: hidden;
     height: 100vh;
