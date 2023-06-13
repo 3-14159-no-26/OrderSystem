@@ -123,7 +123,7 @@ const NavBar = () => {
                                 onClick={() => checkGo("/cart")}
                             >
                                 {menuList.length > 0 && (
-                                    <div className='absolute -top-1 right-0 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-white'>
+                                    <div className='absolute -top-1 right-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-white'>
                                         {/* pt-[0.15rem] */}
                                         <div className='text-center text-xs'>{menuList.length}</div>
                                     </div>
