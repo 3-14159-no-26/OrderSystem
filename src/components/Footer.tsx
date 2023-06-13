@@ -18,7 +18,7 @@ const Footer = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            const currentScrollPos = window.pageYOffset
+            const currentScrollPos = window.scrollY
 
             if (prevScrollPos > currentScrollPos) {
                 setNavbarHidden(false) // 往上滾動，顯示導覽列
@@ -29,7 +29,7 @@ const Footer = () => {
             setPrevScrollPos(currentScrollPos)
         }
 
-        window.addEventListener("scroll", handleScroll)
+        window.addEventListener("scroll", handleScroll, { passive: true })
 
         return () => {
             window.removeEventListener("scroll", handleScroll)
