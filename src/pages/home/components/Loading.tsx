@@ -6,7 +6,7 @@ const Loding = () => {
         for (let i = 0; i < 12; i++) {
             item.push(
                 <div className='flex w-full animate-pulse flex-wrap' key={i}>
-                    <div className='w-full rounded-xl bg-white shadow-md dark:bg-neutral-900 dark:dark:text-white/60'>
+                    <div className='w-full rounded-xl bg-white shadow-md dark:bg-[rgba(30,30,30,0.9)] dark:dark:text-white/60'>
                         <div className='h-[115px] w-full rounded-lg bg-slate-200 dark:bg-neutral-800 max-md:h-40'>
                             <div className='flex h-full items-center justify-center'>
                                 <IconPhoto size={48} />
