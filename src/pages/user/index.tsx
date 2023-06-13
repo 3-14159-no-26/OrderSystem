@@ -48,7 +48,11 @@ const User = () => {
                     <div
                         id='order-history'
                         className='my-2 flex w-full cursor-pointer items-center justify-between rounded-2xl p-2 hover:bg-gray-100 dark:hover:bg-neutral-800'
-                        onClick={() => go("/order")}
+                        onClick={() =>
+                            go("/details", {
+                                state: { orderStatus: "C" },
+                            })
+                        }
                     >
                         <div className='flex items-center'>
                             <IconHistory size={24} />

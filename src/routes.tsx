@@ -26,7 +26,7 @@ const routes: RouteObject[] = [
         children: [],
     },
     {
-        path: "/details/:id",
+        path: "/details/:id?",
         element: <Details />,
         children: [],
     },
