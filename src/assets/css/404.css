@@ -1,8 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Gilda+Display);
 
 .NotFound {
-    background-color: #0f0f0f;
-    color: white;
     overflow: hidden;
     height: 100vh;
     -webkit-user-select: none;
@@ -57,10 +55,15 @@
     left: 0;
     right: 35%;
     opacity: 0;
-    color: white;
+    color: black;
     -webkit-animation: noise-1 0.2s linear infinite;
     animation: noise-1 0.2s linear infinite;
 }
+
+.dark .NotFound:after {
+    color: white;
+}
+
 .NotFound:before {
     content: "error 404";
     font-family: OCR-A;
@@ -78,6 +81,10 @@
     color: white;
     -webkit-animation: noise-2 0.2s linear infinite;
     animation: noise-2 0.2s linear infinite;
+}
+
+.dark .NotFound:before {
+    color: black;
 }
 
 @media screen and (max-width: 768px) {
@@ -116,9 +123,13 @@
     left: 40px;
     right: 100px;
     opacity: 0;
-    color: white;
+    color: black;
     -webkit-animation: noise-2 0.2s linear infinite;
     animation: noise-2 0.2s linear infinite;
+}
+
+.dark .info:before {
+    color: white;
 }
 
 .info:after {
@@ -134,9 +145,13 @@
     left: 40px;
     right: 0;
     opacity: 0;
-    color: white;
+    color: black;
     -webkit-animation: noise-1 0.2s linear infinite;
     animation: noise-1 0.2s linear infinite;
+}
+
+.dark .info:after {
+    color: white;
 }
 
 @media screen and (max-width: 768px) {
