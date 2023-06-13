@@ -121,42 +121,42 @@ const Details = () => {
     useEffect(() => {
         const fetchOneData = async () => {
             setOneDataLoading(true)
-            // const token = Cookies.get("token")
-            // const res = await fetch(`${URL}/details`, {
-            //     method: "POST",
-            //     headers: {
-            //         "Content-Type": "application/json",
-            //     },
-            //     body: JSON.stringify({
-            //         customerID: token,
-            //         orderID: id,
-            //     }),
-            // })
-            // const responseData = await res.json()
-            // setOneData(responseData.message)
+            const token = Cookies.get("token")
+            const res = await fetch(`${URL}/details`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    customerID: token,
+                    orderID: id,
+                }),
+            })
+            const responseData = await res.json()
+            setOneData(responseData.message)
             setOneData(detailsOneData)
             setOneDataLoading(false)
         }
 
         const fetchAllData = async () => {
             setAllDataLoading(true)
-            // let status = "AB"
-            // if (location.state?.orderStatus === "C") {
-            //     status = "C"
-            // }
-            // const token = Cookies.get("token")
-            // const res = await fetch(`${URL}/details`, {
-            //     method: "POST",
-            //     headers: {
-            //         "Content-Type": "application/json",
-            //     },
-            //     body: JSON.stringify({
-            //         customerID: token,
-            //         status: status,
-            //     }),
-            // })
-            // const responseData = await res.json()
-            // setAllData(responseData.message)
+            let status = "AB"
+            if (location.state?.orderStatus === "C") {
+                status = "C"
+            }
+            const token = Cookies.get("token")
+            const res = await fetch(`${URL}/details`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    customerID: token,
+                    status: status,
+                }),
+            })
+            const responseData = await res.json()
+            setAllData(responseData.message)
             setAllData(detailsAllData)
             setAllDataLoading(false)
         }
