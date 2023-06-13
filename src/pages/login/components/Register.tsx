@@ -173,6 +173,7 @@ const Register = ({ status }: { status: (status: string) => void }) => {
                     customerID: uuidv4(),
                     username: username,
                     userpwd: password,
+                    name: name,
                     email: email,
                     phone: phone,
                     // 目前台灣時間格式化 yyyy-mm-dd

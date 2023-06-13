@@ -208,5 +208,30 @@
 			"id": "done",
 			"list": []
 		}
+	],
+	"details": [
+		{
+			"id": "1",
+			"list": [
+				{
+					"id": "1",
+					"name": "漢堡",
+					"category": "MM",
+					"price": "100"
+				},
+				{
+					"id": "2",
+					"name": "薯條",
+					"category": "MM",
+					"price": "50"
+				},
+				{
+					"id": "3",
+					"name": "可樂",
+					"category": "DR",
+					"price": "30"
+				}
+			]
+		}
 	]
 }
