@@ -5,7 +5,17 @@ import { IconPlus, IconMinus, IconX } from "@tabler/icons-react"
 import { MenuType } from "@/types"
 import { useLocation, useNavigate } from "react-router-dom"
 
-const Order = ({ menu, notify }: { menu: MenuType; notify: () => void }) => {
+const Order = ({
+    menu,
+    isOpen,
+    setIsOpen,
+    notify,
+}: {
+    menu: MenuType
+    isOpen: boolean
+    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
+    notify: any
+}) => {
     const go = useNavigate()
     const location = useLocation()
     const [count, setCount] = useState(1)
@@ -13,14 +23,17 @@ const Order = ({ menu, notify }: { menu: MenuType; notify: () => void }) => {
 
     // 讀取目前採購量
     useEffect(() => {
-        console.log("商品ID", menu.id, "讀取目前採購量", menuList)
+        console.log("open商品ID", menu.id, "讀取目前採購量", menuList)
         if (menu.id) {
             const index = menuList.findIndex((e) => e.id == menu.id)
             if (index !== -1) {
                 setCount(menuList[index].count)
+                setIsOpen(false)
+            } else {
+                setCount(1)
             }
         }
-    }, [menuList])
+    }, [isOpen])
 
     const addToCartAndNavigate = (data: MenuType, count: number) => {
         addToCart(data, count)
@@ -98,9 +111,10 @@ const Order = ({ menu, notify }: { menu: MenuType; notify: () => void }) => {
                                             <Dialog.Close asChild>
                                                 <button
                                                     className='w-full rounded-lg bg-amber-400 p-1 transition-all duration-300 hover:bg-amber-500 dark:text-neutral-900'
-                                                    onClick={() =>
+                                                    onClick={() => {
                                                         addToCartAndNavigate(menu, count)
-                                                    }
+                                                        setCount(1)
+                                                    }}
                                                 >
                                                     加入購物車
                                                 </button>

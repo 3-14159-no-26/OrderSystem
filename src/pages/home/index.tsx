@@ -1,12 +1,11 @@
 import { useState, useEffect, useRef } from "react"
-// import { Link } from "react-router-dom"
 import { CSSTransition, SwitchTransition } from "react-transition-group"
 import { LazyLoadImage } from "react-lazy-load-image-component"
 import { IconList } from "@tabler/icons-react"
 import { MenuType } from "@/types"
 import URL from "@/url"
 import Container from "@/components/Container"
-import Loding from "@/pages/home/components/Loading"
+import Loading from "@/pages/home/components/Loading"
 import * as Dialog from "@radix-ui/react-dialog"
 import Order from "@/components/Order"
 import { ToastContainer, toast } from "react-toastify"
@@ -36,6 +35,7 @@ const Home = () => {
     const [loading, setLoading] = useState(false)
     const [categoryLoading, setCategoryLoading] = useState(false)
     const nodeRef = useRef(null)
+    const [isOpen, setIsOpen] = useState(false)
 
     useEffect(() => {
         const fetchMenu = async () => {
@@ -125,11 +125,11 @@ const Home = () => {
                             className='grid w-3/4 grid-cols-3 gap-4 p-4 max-lg:grid-cols-2 max-md:w-full max-md:grid-cols-1'
                             ref={nodeRef}
                         >
-                            {loading && <Loding />}
+                            {loading && <Loading />}
                             {menuCategory.map((item: MenuType) => (
                                 <div key={item.id}>
                                     {/* <div className='absolute w-full h-full top-0 left-0 opacity-0 hover:opacity-100 transition-all duration-300'></div> */}
-                                    <Dialog.Root>
+                                    <Dialog.Root onOpenChange={(open) => setIsOpen(open)}>
                                         <Dialog.Trigger asChild>
                                             <div className='group relative flex flex-col overflow-hidden rounded-lg bg-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg dark:bg-[rgba(30,30,30,0.9)] dark:dark:text-white/60'>
                                                 <div className='flex h-[115px] w-full justify-center overflow-hidden transition-all duration-300 group-hover:scale-105 max-md:h-40'>
@@ -156,7 +156,12 @@ const Home = () => {
                                                 </div>
                                             </div>
                                         </Dialog.Trigger>
-                                        <Order menu={item} notify={notify} />
+                                        <Order
+                                            menu={item}
+                                            isOpen={isOpen}
+                                            setIsOpen={setIsOpen}
+                                            notify={notify}
+                                        />
                                     </Dialog.Root>
                                 </div>
                             ))}

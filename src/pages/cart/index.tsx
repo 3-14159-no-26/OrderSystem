@@ -10,6 +10,7 @@ import MenuItem from "@/pages/cart/components/CartItem"
 
 const Cart = () => {
     const [login, setLogin] = useState(false)
+    const [isOpen, setIsOpen] = useState(false)
     const { menuList, resetToCart } = useMenuListContext()
     const go = useNavigate()
     const id = uuidv4()
@@ -134,7 +135,12 @@ const Cart = () => {
                                                         {createTime}
                                                     </div>
                                                 </div>
-                                                <MenuItem menuList={menuList} notify={notify} />
+                                                <MenuItem
+                                                    menuList={menuList}
+                                                    isOpen={isOpen}
+                                                    setIsOpen={setIsOpen}
+                                                    notify={notify}
+                                                />
                                                 <div className='border-b-2 border-gray-200 dark:border-gray-700'>
                                                     <div className='flex justify-between text-2xl'>
                                                         <div className='p-2'>總計</div>

@@ -2,7 +2,17 @@ import { MenuItemType } from "@/types"
 import * as Dialog from "@radix-ui/react-dialog"
 import Order from "@/components/Order"
 
-const MenuItem = ({ menuList, notify }: { menuList: MenuItemType[]; notify: () => void }) => {
+const MenuItem = ({
+    menuList,
+    isOpen,
+    setIsOpen,
+    notify,
+}: {
+    menuList: MenuItemType[]
+    isOpen: boolean
+    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
+    notify: any
+}) => {
     return (
         <>
             {menuList.map((item) => (
@@ -10,7 +20,7 @@ const MenuItem = ({ menuList, notify }: { menuList: MenuItemType[]; notify: () =
                     key={item.id}
                     className='cursor-pointer border-b-2 border-gray-200 p-1 dark:border-gray-700'
                 >
-                    <Dialog.Root>
+                    <Dialog.Root onOpenChange={(open) => setIsOpen(open)}>
                         <Dialog.Trigger asChild>
                             <div
                                 className='flex w-full items-center justify-between rounded-2xl hover:bg-gray-100 dark:hover:bg-neutral-800 max-md:block'
@@ -53,7 +63,7 @@ const MenuItem = ({ menuList, notify }: { menuList: MenuItemType[]; notify: () =
                                 </div>
                             </div>
                         </Dialog.Trigger>
-                        <Order menu={item} notify={notify} />
+                        <Order menu={item} isOpen={isOpen} setIsOpen={setIsOpen} notify={notify} />
                     </Dialog.Root>
                 </div>
             ))}
