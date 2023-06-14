@@ -10,7 +10,6 @@
 html {
     font-family: "微軟正黑體", "Microsoft JhengHei", "Segoe UI Semibold", "Segoe UI",
         "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
-    /* overflow-x: hidden; */
     height: 100%;
     background-color: #f8fafc;
 }
@@ -20,6 +19,7 @@ html.dark {
 }
 
 body {
+    overflow-x: hidden;
     margin: 0;
     padding: 0;
     height: 100%;
