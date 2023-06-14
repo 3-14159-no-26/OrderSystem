@@ -6,7 +6,6 @@ import { MenuType } from "@/types"
 import URL from "@/url"
 import Container from "@/components/Container"
 import Loading from "@/pages/home/components/Loading"
-import * as Dialog from "@radix-ui/react-dialog"
 import Order from "@/components/Order"
 import { ToastContainer, toast } from "react-toastify"
 
@@ -35,7 +34,6 @@ const Home = () => {
     const [loading, setLoading] = useState(false)
     const [categoryLoading, setCategoryLoading] = useState(false)
     const nodeRef = useRef(null)
-    const [isOpen, setIsOpen] = useState(false)
 
     useEffect(() => {
         const fetchMenu = async () => {
@@ -129,8 +127,10 @@ const Home = () => {
                             {menuCategory.map((item: MenuType) => (
                                 <div key={item.id}>
                                     {/* <div className='absolute w-full h-full top-0 left-0 opacity-0 hover:opacity-100 transition-all duration-300'></div> */}
-                                    <Dialog.Root onOpenChange={(open) => setIsOpen(open)}>
-                                        <Dialog.Trigger asChild>
+                                    <Order
+                                        menu={item}
+                                        notify={notify}
+                                        trigger={
                                             <div className='group relative flex flex-col overflow-hidden rounded-lg bg-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg dark:bg-[rgba(30,30,30,0.9)] dark:dark:text-white/60'>
                                                 <div className='flex h-[115px] w-full justify-center overflow-hidden transition-all duration-300 group-hover:scale-105 max-md:h-40'>
                                                     {/* transition-all duration-300 hover:scale-105 */}
@@ -155,14 +155,8 @@ const Home = () => {
                                                     <div className='text-right'>${item.price}</div>
                                                 </div>
                                             </div>
-                                        </Dialog.Trigger>
-                                        <Order
-                                            menu={item}
-                                            isOpen={isOpen}
-                                            setIsOpen={setIsOpen}
-                                            notify={notify}
-                                        />
-                                    </Dialog.Root>
+                                        }
+                                    />
                                 </div>
                             ))}
                         </div>

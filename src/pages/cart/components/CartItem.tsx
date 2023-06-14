@@ -1,35 +1,24 @@
 import { MenuItemType } from "@/types"
-import * as Dialog from "@radix-ui/react-dialog"
 import Order from "@/components/Order"
 
-const MenuItem = ({
-    menuList,
-    isOpen,
-    setIsOpen,
-    notify,
-}: {
-    menuList: MenuItemType[]
-    isOpen: boolean
-    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
-    notify: any
-}) => {
+const MenuItem = ({ menuList, notify }: { menuList: MenuItemType[]; notify: () => void }) => {
     return (
         <>
             {menuList.map((item) => (
                 <div
                     key={item.id}
                     className='cursor-pointer border-b-2 border-gray-200 p-1 dark:border-gray-700'
+                    // onClick={() => {
+                    //     go(`/menu/${item.id}`, {
+                    //         state: { prevPath: "/cart" },
+                    //     })
+                    // }}
                 >
-                    <Dialog.Root onOpenChange={(open) => setIsOpen(open)}>
-                        <Dialog.Trigger asChild>
-                            <div
-                                className='flex w-full items-center justify-between rounded-2xl hover:bg-gray-100 dark:hover:bg-neutral-800 max-md:block'
-                                // onClick={() => {
-                                //     go(`/menu/${item.id}`, {
-                                //         state: { prevPath: "/cart" },
-                                //     })
-                                // }}
-                            >
+                    <Order
+                        menu={item}
+                        notify={notify}
+                        trigger={
+                            <div className='flex w-full items-center justify-between rounded-2xl hover:bg-gray-100 dark:hover:bg-neutral-800 max-md:block'>
                                 <div className='p-2'>
                                     <div className='flex max-md:justify-between'>
                                         <div className='max-md:order-2'>
@@ -62,9 +51,8 @@ const MenuItem = ({
                                     </div>
                                 </div>
                             </div>
-                        </Dialog.Trigger>
-                        <Order menu={item} isOpen={isOpen} setIsOpen={setIsOpen} notify={notify} />
-                    </Dialog.Root>
+                        }
+                    />
                 </div>
             ))}
         </>
