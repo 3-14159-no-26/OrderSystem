@@ -10,7 +10,6 @@ import MenuItem from "@/pages/cart/components/CartItem"
 
 const Cart = () => {
     const [login, setLogin] = useState(false)
-    const [isOpen, setIsOpen] = useState(false)
     const { menuList, resetToCart } = useMenuListContext()
     const go = useNavigate()
     const id = uuidv4()
@@ -125,22 +124,17 @@ const Cart = () => {
                                         {/* 如果 menuList 是空的就顯示 尚未加入購物車, 否則就顯示總計 */}
                                         {menuList.length !== 0 ? (
                                             <>
-                                                <div className='flex items-center justify-center p-4'>
-                                                    <div className='pr-1 text-3xl'>單號:</div>
-                                                    <div className='font-mono text-3xl'>{id}</div>
-                                                </div>
-                                                <div className='flex items-center justify-center px-4 pb-4'>
-                                                    <div className='pr-1 text-2xl'>時間 :</div>
-                                                    <div className='font-mono text-2xl'>
-                                                        {createTime}
+                                                <div className='flex items-center justify-center p-4 text-3xl max-md:flex-col max-md:text-xl'>
+                                                    <div className='pr-1'>單號:</div>
+                                                    <div className='text-center font-mono'>
+                                                        {id}
                                                     </div>
                                                 </div>
-                                                <MenuItem
-                                                    menuList={menuList}
-                                                    isOpen={isOpen}
-                                                    setIsOpen={setIsOpen}
-                                                    notify={notify}
-                                                />
+                                                <div className='flex items-center justify-center px-4 pb-4 text-2xl max-md:flex-col max-md:text-xl'>
+                                                    <div className='pr-1'>時間 :</div>
+                                                    <div className='font-mono'>{createTime}</div>
+                                                </div>
+                                                <MenuItem menuList={menuList} notify={notify} />
                                                 <div className='border-b-2 border-gray-200 dark:border-gray-700'>
                                                     <div className='flex justify-between text-2xl'>
                                                         <div className='p-2'>總計</div>
@@ -148,7 +142,7 @@ const Cart = () => {
                                                             {menuList.reduce((total, item) => {
                                                                 console.log(
                                                                     "目前加總",
-                                                                    total,
+                                                                    total + item.price * item.count,
                                                                     "目前項目 =>",
                                                                     "單價",
                                                                     item.price,
