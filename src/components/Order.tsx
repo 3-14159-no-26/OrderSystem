@@ -37,34 +37,8 @@ const Order = ({ menu, notify }: { menu: MenuType; notify: () => void }) => {
         // 如果是從首頁來的，就回到首頁
     }
 
-    // const notify = () =>
-    //     toast.promise(
-    //         new Promise((resolve) => {
-    //             setTimeout(() => {
-    //                 resolve("加入購物車成功")
-    //             }, 200)
-    //         }),
-    //         {
-    //             pending: "加入購物車中...",
-    //             success: "加入購物車成功",
-    //             error: "加入購物車失敗",
-    //         }
-    //     )
-
     return (
         <>
-            {/* <ToastContainer
-                position='top-right'
-                autoClose={400}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme='light'
-            /> */}
             <Dialog.Portal>
                 <Dialog.Overlay className='fixed inset-0 bg-[rgba(0,0,0,.5)] backdrop-blur-sm data-[state=open]:animate-overlayShow' />
                 <Dialog.Content asChild>

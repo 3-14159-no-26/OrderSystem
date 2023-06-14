@@ -72,11 +72,25 @@ const Cart = () => {
         }
     }
 
+    const notify = () =>
+        toast.promise(
+            new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve("加入購物車成功")
+                }, 200)
+            }),
+            {
+                pending: "加入購物車中...",
+                success: "加入購物車成功",
+                error: "加入購物車失敗",
+            }
+        )
+
     return (
         <>
             <ToastContainer
                 position='top-right'
-                autoClose={2000}
+                autoClose={1000}
                 hideProgressBar={false}
                 newestOnTop={false}
                 closeOnClick
@@ -120,7 +134,7 @@ const Cart = () => {
                                                         {createTime}
                                                     </div>
                                                 </div>
-                                                <MenuItem menuList={menuList} />
+                                                <MenuItem menuList={menuList} notify={notify} />
                                                 <div className='border-b-2 border-gray-200 dark:border-gray-700'>
                                                     <div className='flex justify-between text-2xl'>
                                                         <div className='p-2'>總計</div>

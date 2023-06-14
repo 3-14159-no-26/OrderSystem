@@ -8,7 +8,7 @@ import URL from "@/url"
 import Container from "@/components/Container"
 import Loding from "@/pages/home/components/Loading"
 import * as Dialog from "@radix-ui/react-dialog"
-import Order from "./components/Order"
+import Order from "@/components/Order"
 import { ToastContainer, toast } from "react-toastify"
 
 type category = {
