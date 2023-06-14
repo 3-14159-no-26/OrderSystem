@@ -58,7 +58,7 @@ const Order = ({
                     <div className='fixed left-[50%] top-[50%] max-h-[85vh] w-[90vw] max-w-[450px] translate-x-[-50%] translate-y-[-50%] rounded-lg bg-white p-4 shadow-lg focus:outline-none data-[state=open]:animate-contentShow dark:bg-neutral-900 dark:dark:text-white/60'>
                         <Dialog.Title asChild>
                             <div className='flex items-center justify-between'>
-                                <div className=''>編輯個人資料</div>
+                                <div className=''>商品資料</div>
                                 <Dialog.Close>
                                     <IconX size={24} />
                                 </Dialog.Close>
