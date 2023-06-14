@@ -1,6 +1,6 @@
 import { IconPhoto } from "@tabler/icons-react"
 
-const Loding = () => {
+const Loading = () => {
     const item = () => {
         const item = []
         for (let i = 0; i < 12; i++) {
@@ -29,4 +29,4 @@ const Loding = () => {
     return <>{item()}</>
 }
 
-export default Loding
+export default Loading
