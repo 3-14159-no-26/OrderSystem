@@ -10,6 +10,7 @@ import {
 import { v4 as uuidv4 } from "uuid"
 import { ToastContainer, toast } from "react-toastify"
 import clsx from "clsx"
+import URL from "@/url"
 
 const Register = ({ status }: { status: (status: string) => void }) => {
     const [phone, setPhone] = useState("")
@@ -69,7 +70,7 @@ const Register = ({ status }: { status: (status: string) => void }) => {
 
     useEffect(() => {
         const isValiUsername = () => {
-            // 必須是6-20位字符且要包含一個英文其他的都是數字能用 - _
+            // 必須是6-20位字符且要包含一個英文，允許使用數字、連字符和下劃線作為特殊字符。
             const re = /^(?=.*[a-zA-Z])[a-zA-Z\d_-]{4,20}$/
             return re.test(username)
         }
@@ -86,7 +87,7 @@ const Register = ({ status }: { status: (status: string) => void }) => {
 
     useEffect(() => {
         const isValiPassword = () => {
-            // 必須是6-20位字符且要包含一個英文其他的都是數字
+            // 必須是6-20位字符且要包含一個英文，允許使用數字、連字符和下劃線作為特殊字符。
             const re = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,20}$/
             return re.test(password)
         }
