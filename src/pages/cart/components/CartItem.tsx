@@ -18,7 +18,10 @@ const MenuItem = ({ menuList, notify }: { menuList: MenuItemType[]; notify: () =
                         menu={item}
                         notify={notify}
                         trigger={
-                            <div className='flex w-full items-center justify-between rounded-2xl hover:bg-gray-100 dark:hover:bg-neutral-800 max-md:block'>
+                            <div
+                                className='flex w-full items-center justify-between rounded-2xl hover:bg-gray-100 dark:hover:bg-neutral-800 max-md:block'
+                                role='menuitem'
+                            >
                                 <div className='p-2'>
                                     <div className='flex max-md:justify-between'>
                                         <div className='max-md:order-2'>

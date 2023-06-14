@@ -122,7 +122,12 @@ const Cart = () => {
                                                     <div className='pr-1'>時間 :</div>
                                                     <div className='font-mono'>{createTime}</div>
                                                 </div>
-                                                <MenuItem menuList={menuList} notify={notify} />
+                                                <div
+                                                    role='menu'
+                                                    className='md:max-h-[50vh] md:overflow-y-auto'
+                                                >
+                                                    <MenuItem menuList={menuList} notify={notify} />
+                                                </div>
                                                 <div className='border-b-2 border-gray-200 dark:border-gray-700'>
                                                     <div className='flex justify-between text-2xl'>
                                                         <div className='p-2'>總計</div>

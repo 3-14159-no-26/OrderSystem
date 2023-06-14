@@ -131,6 +131,7 @@ const Home = () => {
                         <div
                             className='grid w-3/4 grid-cols-3 gap-4 p-4 max-lg:grid-cols-2 max-md:w-full max-md:grid-cols-1'
                             ref={nodeRef}
+                            role='menu'
                         >
                             {loading && <Loading />}
                             {menuCategory.map((item: MenuType) => (
@@ -140,7 +141,10 @@ const Home = () => {
                                         menu={item}
                                         notify={notify}
                                         trigger={
-                                            <div className='group relative flex flex-col overflow-hidden rounded-lg bg-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg dark:bg-[rgba(30,30,30,0.9)] dark:dark:text-white/60'>
+                                            <div
+                                                className='group relative flex flex-col overflow-hidden rounded-lg bg-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg dark:bg-[rgba(30,30,30,0.9)] dark:dark:text-white/60'
+                                                role='menuitem'
+                                            >
                                                 <div className='flex h-[115px] w-full justify-center overflow-hidden transition-all duration-300 group-hover:scale-105 max-md:h-40'>
                                                     {/* transition-all duration-300 hover:scale-105 */}
                                                     <LazyLoadImage
