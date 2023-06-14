@@ -7,7 +7,7 @@ import URL from "@/url"
 import Container from "@/components/Container"
 import Loading from "@/pages/home/components/Loading"
 import Order from "@/components/Order"
-import { ToastContainer, toast } from "react-toastify"
+import { ToastContainer, toast, ToastContentProps } from "react-toastify"
 
 type category = {
     id: number
@@ -38,12 +38,33 @@ const Home = () => {
     useEffect(() => {
         const fetchMenu = async () => {
             setLoading(true)
-            const response = await fetch(URL + "/menu")
-            const data = await response.json()
-            setMenu(data)
-            setMenuCategory(data)
-            setLoading(false)
+            const fetchData = fetch(URL + "/menu")
+                .then((response) => response.json())
+                .then((data) => {
+                    setMenu(data)
+                    setMenuCategory(data)
+                    setLoading(false)
+                })
+                .catch((error) => {
+                    throw error
+                })
+
+            toast.promise(fetchData, {
+                pending: "載入中...",
+                success: "載入成功",
+                error: {
+                    render({ data }: ToastContentProps<{ message: string }>) {
+                        return (
+                            <div>
+                                載入失敗
+                                <div>{data?.message}</div>
+                            </div>
+                        )
+                    },
+                },
+            })
         }
+
         fetchMenu()
     }, [])
 
@@ -79,25 +100,13 @@ const Home = () => {
         menuList?.classList.toggle("fade-in")
     }
 
-    const notify = () =>
-        toast.promise(
-            new Promise((resolve) => {
-                setTimeout(() => {
-                    resolve("加入購物車成功")
-                }, 200)
-            }),
-            {
-                pending: "加入購物車中...",
-                success: "加入購物車成功",
-                error: "加入購物車失敗",
-            }
-        )
+    const notify = () => toast.success("🛒加入購物車成功")
 
     return (
         <>
             <ToastContainer
                 position='top-right'
-                autoClose={400}
+                autoClose={1000}
                 hideProgressBar={false}
                 newestOnTop={false}
                 closeOnClick

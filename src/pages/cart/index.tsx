@@ -72,19 +72,7 @@ const Cart = () => {
         }
     }
 
-    const notify = () =>
-        toast.promise(
-            new Promise((resolve) => {
-                setTimeout(() => {
-                    resolve("加入購物車成功")
-                }, 200)
-            }),
-            {
-                pending: "加入購物車中...",
-                success: "加入購物車成功",
-                error: "加入購物車失敗",
-            }
-        )
+    const notify = () => toast.success("🛒已加入購物車")
 
     return (
         <>

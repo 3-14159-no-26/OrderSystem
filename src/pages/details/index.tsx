@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react"
 import { useParams, useLocation, useNavigate } from "react-router-dom"
+import { ToastContainer, toast, ToastContentProps } from "react-toastify"
+import { IconLoader2 } from "@tabler/icons-react"
 import { MenuItemType } from "@/types"
 import Cookies from "js-cookie"
 import clsx from "clsx"
@@ -120,9 +122,27 @@ const Details = () => {
 
     useEffect(() => {
         const fetchOneData = async () => {
-            setOneDataLoading(true)
+            // setOneDataLoading(true)
+            // const token = Cookies.get("token")
+            // const res = await fetch(`${URL}/details`, {
+            //     method: "POST",
+            //     headers: {
+            //         "Content-Type": "application/json",
+            //     },
+            //     body: JSON.stringify({
+            //         customerID: token,
+            //         orderID: id,
+            //     }),
+            // })
+            // const responseData = await res.json()
+            // setOneData(responseData.message)
+            // setOneData(detailsOneData)
+            // setOneDataLoading(false)
+            setTimeout(() => {
+                setOneDataLoading(false)
+            }, 500)
             const token = Cookies.get("token")
-            const res = await fetch(`${URL}/details`, {
+            const fetchData = fetch(`${URL}/details`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -132,20 +152,62 @@ const Details = () => {
                     orderID: id,
                 }),
             })
-            const responseData = await res.json()
-            setOneData(responseData.message)
-            setOneData(detailsOneData)
-            setOneDataLoading(false)
+                .then((res) => res.json())
+                .then((data) => {
+                    setOneData(data.message)
+                    setOneData(detailsOneData)
+                    setOneDataLoading(false)
+                })
+                .catch((err) => {
+                    throw err
+                })
+
+            toast.promise(fetchData, {
+                pending: "資料載入中...",
+                success: "資料載入成功",
+                error: {
+                    render({ data }: ToastContentProps<{ message: string }>) {
+                        return (
+                            <div>
+                                資料載入失敗
+                                <div>{data?.message}</div>
+                            </div>
+                        )
+                    },
+                },
+            })
         }
 
         const fetchAllData = async () => {
-            setAllDataLoading(true)
+            // setAllDataLoading(true)
+            // let status = "AB"
+            // if (location.state?.orderStatus === "C") {
+            //     status = "C"
+            // }
+            // const token = Cookies.get("token")
+            // const res = await fetch(`${URL}/details`, {
+            //     method: "POST",
+            //     headers: {
+            //         "Content-Type": "application/json",
+            //     },
+            //     body: JSON.stringify({
+            //         customerID: token,
+            //         status: status,
+            //     }),
+            // })
+            // const responseData = await res.json()
+            // setAllData(responseData.message)
+            // setAllData(detailsAllData)
+            // setAllDataLoading(false)
+            setTimeout(() => {
+                setAllDataLoading(true)
+            }, 500)
             let status = "AB"
             if (location.state?.orderStatus === "C") {
                 status = "C"
             }
             const token = Cookies.get("token")
-            const res = await fetch(`${URL}/details`, {
+            const fetchData = fetch(`${URL}/details`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -155,10 +217,30 @@ const Details = () => {
                     status: status,
                 }),
             })
-            const responseData = await res.json()
-            setAllData(responseData.message)
-            setAllData(detailsAllData)
-            setAllDataLoading(false)
+                .then((res) => res.json())
+                .then((data) => {
+                    setAllData(data.message)
+                    setAllData(detailsAllData)
+                    setAllDataLoading(false)
+                })
+                .catch((err) => {
+                    throw err
+                })
+
+            toast.promise(fetchData, {
+                pending: "資料載入中...",
+                success: "資料載入成功",
+                error: {
+                    render({ data }: ToastContentProps<{ message: string }>) {
+                        return (
+                            <div>
+                                資料載入失敗
+                                <div>{data?.message}</div>
+                            </div>
+                        )
+                    },
+                },
+            })
         }
 
         if (id) {
@@ -170,9 +252,34 @@ const Details = () => {
 
     return (
         <>
+            <ToastContainer
+                position='top-right'
+                autoClose={1000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme='light'
+            />
             <Container>
                 <div className='w-full p-2'>
-                    {OneDataLoading && <div>資料載入中...</div>}
+                    {OneDataLoading && (
+                        <>
+                            <div className='absolute inset-0 flex items-center justify-center'>
+                                <div className='h-28 w-28 rounded-full bg-slate-200'></div>
+                            </div>
+                            <div className='absolute inset-0 flex items-center justify-center'>
+                                <div className='h-20 w-20 rounded-full bg-slate-50'></div>
+                            </div>
+                            <div className='absolute inset-0 flex items-center justify-center'>
+                                {/* <div className='h-32 w-32 animate-spin rounded-full border-b-2 border-gray-900'></div> */}
+                                <IconLoader2 className='h-32 w-32 animate-spin text-gray-900' />
+                            </div>
+                        </>
+                    )}
                     {OneData && (
                         <div className='rounded-md bg-white p-2 shadow-md dark:bg-neutral-900 dark:text-white/60'>
                             <div className='mb-4 rounded-md border border-dashed border-gray-500 p-1'>
@@ -225,7 +332,21 @@ const Details = () => {
                             ))}
                         </div>
                     )}
-                    {AllDataLoading && <div>資料載入中...</div>}
+                    {AllDataLoading && (
+                        // absolute 置中
+                        <>
+                            <div className='absolute inset-0 flex items-center justify-center'>
+                                <div className='h-28 w-28 rounded-full bg-slate-200'></div>
+                            </div>
+                            <div className='absolute inset-0 flex items-center justify-center'>
+                                <div className='h-20 w-20 rounded-full bg-slate-50'></div>
+                            </div>
+                            <div className='absolute inset-0 flex items-center justify-center'>
+                                {/* <div className='h-32 w-32 animate-spin rounded-full border-b-2 border-gray-900'></div> */}
+                                <IconLoader2 className='h-32 w-32 animate-spin text-gray-900' />
+                            </div>
+                        </>
+                    )}
                     {AllData && (
                         <div>
                             {AllData.map((item, index) => (
