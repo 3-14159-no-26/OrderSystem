@@ -152,7 +152,13 @@ const Details = () => {
                     orderID: id,
                 }),
             })
-                .then((res) => res.json())
+                .then((res) => {
+                    if (res.ok) {
+                        return res.json()
+                    } else {
+                        throw new Error(`請求失敗${res.status}`)
+                    }
+                })
                 .then((data) => {
                     setOneData(data.message)
                     setOneData(detailsOneData)
@@ -217,14 +223,19 @@ const Details = () => {
                     status: status,
                 }),
             })
-                .then((res) => res.json())
+                .then((res) => {
+                    if (res.ok) {
+                        return res.json()
+                    } else {
+                        throw new Error(`請求失敗${res.status}`)
+                    }
+                })
                 .then((data) => {
                     setAllData(data.message)
                     setAllData(detailsAllData)
                     setAllDataLoading(false)
                 })
                 .catch((err) => {
-                    console.log(err)
                     throw err
                 })
 
