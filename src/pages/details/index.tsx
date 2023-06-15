@@ -224,6 +224,7 @@ const Details = () => {
                     setAllDataLoading(false)
                 })
                 .catch((err) => {
+                    console.log(err)
                     throw err
                 })
 
