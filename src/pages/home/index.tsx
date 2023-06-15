@@ -39,7 +39,13 @@ const Home = () => {
         const fetchMenu = async () => {
             setLoading(true)
             const fetchData = fetch(URL + "/menu")
-                .then((response) => response.json())
+                .then((res) => {
+                    if (res.ok) {
+                        return res.json()
+                    } else {
+                        throw new Error(`請求失敗${res.status}`)
+                    }
+                })
                 .then((data) => {
                     setMenu(data)
                     setMenuCategory(data)
