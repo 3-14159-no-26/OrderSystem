@@ -230,7 +230,15 @@ const Details = () => {
                     }
                 })
                 .then((data) => {
-                    setAllData(data.message)
+                    if (data.status === "fail") {
+                        if (data.message === "查無此訂單") {
+                            throw new Error(`查無此訂單`)
+                        } else {
+                            setAllData([])
+                        }
+                    } else {
+                        setAllData(data.message)
+                    }
                     setAllData(detailsAllData)
                     setAllDataLoading(false)
                 })
@@ -358,7 +366,14 @@ const Details = () => {
                             </div>
                         </>
                     )}
-                    {AllData && (
+                    {/* 如果是空值就顯示沒有訂單 */}
+                    {AllData && AllData.length === 0 && (
+                        <div className='rounded-md bg-white p-2 shadow-md dark:bg-neutral-900 dark:text-white/60'>
+                            <div className='text-center'>沒有訂單</div>
+                        </div>
+                    )}
+
+                    {AllData && AllData.length > 0 && (
                         <div>
                             {AllData.map((item, index) => (
                                 <div
