@@ -1,3 +1,4 @@
+import { Suspense, lazy } from "react"
 import type { RouteObject } from "react-router-dom"
 import Home from "@/pages/home"
 // import Menu from "@/pages/menu"
@@ -6,7 +7,7 @@ import Details from "@/pages/details"
 import User from "@/pages/user"
 import Login from "@/pages/login"
 import AdminLogin from "@/pages/admin/components/Login"
-import Admin from "@/pages/admin"
+const Admin = lazy(() => import("@/pages/admin"))
 import API from "@/pages/api"
 import NotFound from "@/pages/notFound"
 
@@ -48,7 +49,11 @@ const routes: RouteObject[] = [
     },
     {
         path: "/admin",
-        element: <Admin />,
+        element: (
+            <Suspense fallback={<div>載入中...</div>}>
+                <Admin />
+            </Suspense>
+        ),
         children: [],
     },
     {
