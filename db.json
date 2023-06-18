@@ -1,466 +1,222 @@
 {
-  "menu": [
-    {
-      "id": "1",
-      "cover": "大麥克",
-      "name": "大麥克",
-      "category": "MM",
-      "price": "100"
-    },
-    {
-      "id": "2",
-      "cover": "勁辣鷄腿堡",
-      "name": "勁辣鷄腿堡",
-      "category": "MM",
-      "price": "80"
-    },
-    {
-      "id": "3",
-      "cover": "麥香鷄",
-      "name": "麥香鷄",
-      "category": "MM",
-      "price": "70"
-    },
-    {
-      "id": "4",
-      "cover": "雙層牛肉吉士堡",
-      "name": "雙層牛肉吉士堡",
-      "category": "MM",
-      "price": "90"
-    },
-    {
-      "id": "5",
-      "cover": "雙層麥香鷄",
-      "name": "雙層麥香鷄",
-      "category": "MM",
-      "price": "80"
-    },
-    {
-      "id": "6",
-      "cover": "可口可樂",
-      "name": "可口可樂",
-      "category": "DR",
-      "price": "30"
-    },
-    {
-      "id": "7",
-      "cover": "雪碧",
-      "name": "雪碧",
-      "category": "DR",
-      "price": "30"
-    },
-    {
-      "id": "8",
-      "cover": "熱奶茶",
-      "name": "熱奶茶",
-      "category": "DR",
-      "price": "35"
-    },
-    {
-      "id": "9",
-      "cover": "熱紅茶",
-      "name": "熱紅茶",
-      "category": "DR",
-      "price": "35"
-    },
-    {
-      "id": "10",
-      "cover": "蛋捲冰淇淋",
-      "name": "蛋捲冰淇淋",
-      "category": "SN",
-      "price": "40"
-    },
-    {
-      "id": "11",
-      "cover": "蘋果派",
-      "name": "蘋果派",
-      "category": "SN",
-      "price": "45"
-    },
-    {
-      "id": "12",
-      "cover": "OREO冰炫風",
-      "name": "OREO冰炫風",
-      "category": "SN",
-      "price": "50"
-    },
-    {
-      "id": "13",
-      "cover": "薯條",
-      "name": "薯條",
-      "category": "SM",
-      "price": "50"
-    }
-  ],
-  "category": [
-    {
-      "id": "1",
-      "name": "AL"
-    },
-    {
-      "id": "2",
-      "name": "MM"
-    },
-    {
-      "id": "3",
-      "name": "SM"
-    },
-    {
-      "id": "4",
-      "name": "DR"
-    },
-    {
-      "id": "5",
-      "name": "SN"
-    }
-  ],
-  "order": [
-    {
-      "orderID": "7abf4586-5c6d-4609-b451-6c8870a856dd",
-      "customerID": "02bc95a5-2656-41d2-b917-6eb5e1a372c5",
-      "status": "B",
-      "Bdate": "2023-06-07T17:06:32",
-      "Details": [
+    "menu": [
         {
-          "detailID": "4f595ab0-a256-439c-8bf2-a191114fbca9",
-          "orderID": "7abf4586-5c6d-4609-b451-6c8870a856dd",
-          "cover": "雙層牛肉吉士堡",
-          "name": "雙層牛肉吉士堡",
-          "category": "MM",
-          "price": 65,
-          "count": 1
+            "id": "1",
+            "cover": "大麥克",
+            "name": "大麥克",
+            "category": "MM",
+            "price": "100"
         },
         {
-          "detailID": "ee104387-4642-4508-8186-c6456836e854",
-          "orderID": "7abf4586-5c6d-4609-b451-6c8870a856dd",
-          "cover": "大麥克",
-          "name": "大麥克",
-          "category": "MM",
-          "price": 75,
-          "count": 1
+            "id": "2",
+            "cover": "勁辣鷄腿堡",
+            "name": "勁辣鷄腿堡",
+            "category": "MM",
+            "price": "80"
+        },
+        {
+            "id": "3",
+            "cover": "麥香鷄",
+            "name": "麥香鷄",
+            "category": "MM",
+            "price": "70"
+        },
+        {
+            "id": "4",
+            "cover": "雙層牛肉吉士堡",
+            "name": "雙層牛肉吉士堡",
+            "category": "MM",
+            "price": "90"
+        },
+        {
+            "id": "5",
+            "cover": "雙層麥香鷄",
+            "name": "雙層麥香鷄",
+            "category": "MM",
+            "price": "80"
+        },
+        {
+            "id": "6",
+            "cover": "可口可樂",
+            "name": "可口可樂",
+            "category": "DR",
+            "price": "30"
+        },
+        {
+            "id": "7",
+            "cover": "雪碧",
+            "name": "雪碧",
+            "category": "DR",
+            "price": "30"
+        },
+        {
+            "id": "8",
+            "cover": "熱奶茶",
+            "name": "熱奶茶",
+            "category": "DR",
+            "price": "35"
+        },
+        {
+            "id": "9",
+            "cover": "熱紅茶",
+            "name": "熱紅茶",
+            "category": "DR",
+            "price": "35"
+        },
+        {
+            "id": "10",
+            "cover": "蛋捲冰淇淋",
+            "name": "蛋捲冰淇淋",
+            "category": "SN",
+            "price": "40"
+        },
+        {
+            "id": "11",
+            "cover": "蘋果派",
+            "name": "蘋果派",
+            "category": "SN",
+            "price": "45"
+        },
+        {
+            "id": "12",
+            "cover": "OREO冰炫風",
+            "name": "OREO冰炫風",
+            "category": "SN",
+            "price": "50"
+        },
+        {
+            "id": "13",
+            "cover": "薯條",
+            "name": "薯條",
+            "category": "SM",
+            "price": "50"
         }
-      ]
-    },
-    {
-      "orderID": "933e5305-7a7a-48e7-9274-e93d221fbd78",
-      "customerID": "02bc95a5-2656-41d2-b917-6eb5e1a372c5",
-      "status": "A",
-      "Bdate": "2017-01-01T12:00:00",
-      "Details": [
+    ],
+    "category": [
         {
-          "detailID": "4d96eecc-4946-4c01-948e-c55573fab9a9",
-          "orderID": "933e5305-7a7a-48e7-9274-e93d221fbd78",
-          "cover": "雙層牛肉吉士堡",
-          "name": "雙層牛肉吉士堡",
-          "category": "MM",
-          "price": 65,
-          "count": 1
+            "id": "1",
+            "name": "AL"
         },
         {
-          "detailID": "5d7107c4-301b-4313-8c2e-e2e976599960",
-          "orderID": "933e5305-7a7a-48e7-9274-e93d221fbd78",
-          "cover": "大麥克",
-          "name": "大麥克",
-          "category": "MM",
-          "price": 75,
-          "count": 1
+            "id": "2",
+            "name": "MM"
+        },
+        {
+            "id": "3",
+            "name": "SM"
+        },
+        {
+            "id": "4",
+            "name": "DR"
+        },
+        {
+            "id": "5",
+            "name": "SN"
         }
-      ]
-    },
-    {
-      "orderID": "4a6d5f19-547e-4ad7-a665-d28d3e351453",
-      "customerID": "02bc95a5-2656-41d2-b917-6eb5e1a372c5",
-      "status": "A",
-      "Bdate": "2023-06-07T17:06:58",
-      "Details": [
+    ],
+    "order": [
         {
-          "detailID": "24b19c26-b1ea-4047-a8a7-3f727504daad",
-          "orderID": "4a6d5f19-547e-4ad7-a665-d28d3e351453",
-          "cover": "大麥克",
-          "name": "大麥克",
-          "category": "MM",
-          "price": 75,
-          "count": 1
+            "orderID": "7abf4586-5c6d-4609-b451-6c8870a856dd",
+            "customerID": "02bc95a5-2656-41d2-b917-6eb5e1a372c5",
+            "status": "B",
+            "Bdate": "2023-06-07T17:06:32",
+            "Details": [
+                {
+                    "detailID": "4f595ab0-a256-439c-8bf2-a191114fbca9",
+                    "orderID": "7abf4586-5c6d-4609-b451-6c8870a856dd",
+                    "cover": "雙層牛肉吉士堡",
+                    "name": "雙層牛肉吉士堡",
+                    "category": "MM",
+                    "price": 65,
+                    "count": 1
+                },
+                {
+                    "detailID": "ee104387-4642-4508-8186-c6456836e854",
+                    "orderID": "7abf4586-5c6d-4609-b451-6c8870a856dd",
+                    "cover": "大麥克",
+                    "name": "大麥克",
+                    "category": "MM",
+                    "price": 75,
+                    "count": 1
+                }
+            ]
         },
         {
-          "detailID": "5931b212-b4cc-43fb-89f8-80cbfb2295cb",
-          "orderID": "4a6d5f19-547e-4ad7-a665-d28d3e351453",
-          "cover": "雙層牛肉吉士堡",
-          "name": "雙層牛肉吉士堡",
-          "category": "MM",
-          "price": 65,
-          "count": 1
+            "orderID": "933e5305-7a7a-48e7-9274-e93d221fbd78",
+            "customerID": "02bc95a5-2656-41d2-b917-6eb5e1a372c5",
+            "status": "A",
+            "Bdate": "2017-01-01T12:00:00",
+            "Details": [
+                {
+                    "detailID": "4d96eecc-4946-4c01-948e-c55573fab9a9",
+                    "orderID": "933e5305-7a7a-48e7-9274-e93d221fbd78",
+                    "cover": "雙層牛肉吉士堡",
+                    "name": "雙層牛肉吉士堡",
+                    "category": "MM",
+                    "price": 65,
+                    "count": 1
+                },
+                {
+                    "detailID": "5d7107c4-301b-4313-8c2e-e2e976599960",
+                    "orderID": "933e5305-7a7a-48e7-9274-e93d221fbd78",
+                    "cover": "大麥克",
+                    "name": "大麥克",
+                    "category": "MM",
+                    "price": 75,
+                    "count": 1
+                }
+            ]
+        },
+        {
+            "orderID": "4a6d5f19-547e-4ad7-a665-d28d3e351453",
+            "customerID": "02bc95a5-2656-41d2-b917-6eb5e1a372c5",
+            "status": "A",
+            "Bdate": "2023-06-07T17:06:58",
+            "Details": [
+                {
+                    "detailID": "24b19c26-b1ea-4047-a8a7-3f727504daad",
+                    "orderID": "4a6d5f19-547e-4ad7-a665-d28d3e351453",
+                    "cover": "大麥克",
+                    "name": "大麥克",
+                    "category": "MM",
+                    "price": 75,
+                    "count": 1
+                },
+                {
+                    "detailID": "5931b212-b4cc-43fb-89f8-80cbfb2295cb",
+                    "orderID": "4a6d5f19-547e-4ad7-a665-d28d3e351453",
+                    "cover": "雙層牛肉吉士堡",
+                    "name": "雙層牛肉吉士堡",
+                    "category": "MM",
+                    "price": 65,
+                    "count": 1
+                }
+            ]
         }
-      ]
-    }
-  ],
-  "details": [
-    {
-      "id": "1",
-      "list": [
+    ],
+    "details": [
         {
-          "id": "1",
-          "name": "漢堡",
-          "category": "MM",
-          "price": "100"
-        },
-        {
-          "id": "2",
-          "name": "薯條",
-          "category": "MM",
-          "price": "50"
-        },
-        {
-          "id": "3",
-          "name": "可樂",
-          "category": "DR",
-          "price": "30"
+            "id": "1",
+            "list": [
+                {
+                    "id": "1",
+                    "name": "漢堡",
+                    "category": "MM",
+                    "price": "100"
+                },
+                {
+                    "id": "2",
+                    "name": "薯條",
+                    "category": "MM",
+                    "price": "50"
+                },
+                {
+                    "id": "3",
+                    "name": "可樂",
+                    "category": "DR",
+                    "price": "30"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "orderID": "933e5305-7a7a-48e7-9274-e93d221fbd78",
-      "id": "OBwIid4"
-    },
-    {
-      "orderID": "4a6d5f19-547e-4ad7-a665-d28d3e351453",
-      "id": "YSKpCuB"
-    },
-    {
-      "orderID": "933e5305-7a7a-48e7-9274-e93d221fbd78",
-      "id": "uPRq19T"
-    },
-    {
-      "orderID": "933e5305-7a7a-48e7-9274-e93d221fbd78",
-      "id": "UfEGlzB"
-    },
-    {
-      "orderID": "933e5305-7a7a-48e7-9274-e93d221fbd78",
-      "id": "2KuC-29"
-    },
-    {
-      "orderID": "933e5305-7a7a-48e7-9274-e93d221fbd78",
-      "id": "v4x_YMn"
-    },
-    {
-      "orderID": "933e5305-7a7a-48e7-9274-e93d221fbd78",
-      "id": "eqv-hp5"
-    },
-    {
-      "orderID": "933e5305-7a7a-48e7-9274-e93d221fbd78",
-      "id": "g96YnUg"
-    },
-    {
-      "orderID": "4a6d5f19-547e-4ad7-a665-d28d3e351453",
-      "id": "vkTAPJr"
-    },
-    {
-      "orderID": "4a6d5f19-547e-4ad7-a665-d28d3e351453",
-      "id": "PUaOXJn"
-    },
-    {
-      "orderID": "933e5305-7a7a-48e7-9274-e93d221fbd78",
-      "id": "rApcpuZ"
-    },
-    {
-      "customerID": "73ce1f00-5d23-428b-a850-651efad7e62c",
-      "status": "AB",
-      "id": "DbBhFhp"
-    },
-    {
-      "customerID": "73ce1f00-5d23-428b-a850-651efad7e62c",
-      "orderID": "485b33f0-1895-482f-ba61-0759687f7655",
-      "id": "9wa2A0i"
-    },
-    {
-      "customerID": "73ce1f00-5d23-428b-a850-651efad7e62c",
-      "status": "AB",
-      "id": "_UB7ouZ"
-    },
-    {
-      "customerID": "73ce1f00-5d23-428b-a850-651efad7e62c",
-      "orderID": "485b33f0-1895-482f-ba61-0759687f7655",
-      "id": "IRutIau"
-    },
-    {
-      "customerID": "73ce1f00-5d23-428b-a850-651efad7e62c",
-      "status": "AB",
-      "id": "BMzGWfd"
-    },
-    {
-      "customerID": "73ce1f00-5d23-428b-a850-651efad7e62c",
-      "orderID": "933e5305-7a7a-48e7-9274-e93d221fbd78",
-      "id": "x4eotYV"
-    },
-    {
-      "customerID": "73ce1f00-5d23-428b-a850-651efad7e62c",
-      "orderID": "933e5305-7a7a-48e7-9274-e93d221fbd78",
-      "id": "VQ6-UWd"
-    },
-    {
-      "customerID": "73ce1f00-5d23-428b-a850-651efad7e62c",
-      "orderID": "933e5305-7a7a-48e7-9274-e93d221fbd78",
-      "id": "m2UDd-P"
-    },
-    {
-      "customerID": "73ce1f00-5d23-428b-a850-651efad7e62c",
-      "orderID": "933e5305-7a7a-48e7-9274-e93d221fbd78",
-      "id": "RYhqHCC"
-    },
-    {
-      "customerID": "73ce1f00-5d23-428b-a850-651efad7e62c",
-      "orderID": "933e5305-7a7a-48e7-9274-e93d221fbd78",
-      "id": "lKDO5w_"
-    },
-    {
-      "customerID": "73ce1f00-5d23-428b-a850-651efad7e62c",
-      "orderID": "933e5305-7a7a-48e7-9274-e93d221fbd78",
-      "id": "RVBvldc"
-    },
-    {
-      "customerID": "73ce1f00-5d23-428b-a850-651efad7e62c",
-      "orderID": "933e5305-7a7a-48e7-9274-e93d221fbd78",
-      "id": "b6JR9-y"
-    },
-    {
-      "customerID": "73ce1f00-5d23-428b-a850-651efad7e62c",
-      "orderID": "933e5305-7a7a-48e7-9274-e93d221fbd78",
-      "id": "aEEwSj1"
-    },
-    {
-      "customerID": "73ce1f00-5d23-428b-a850-651efad7e62c",
-      "orderID": "933e5305-7a7a-48e7-9274-e93d221fbd78",
-      "id": "ODFnCRt"
-    },
-    {
-      "customerID": "73ce1f00-5d23-428b-a850-651efad7e62c",
-      "status": "AB",
-      "id": "QdoQjfU"
-    },
-    {
-      "customerID": "73ce1f00-5d23-428b-a850-651efad7e62c",
-      "orderID": "933e5305-7a7a-48e7-9274-e93d221fbd78",
-      "id": "oXbmRK8"
-    },
-    {
-      "customerID": "73ce1f00-5d23-428b-a850-651efad7e62c",
-      "orderID": "933e5305-7a7a-48e7-9274-e93d221fbd78",
-      "id": "sEqvJvx"
-    },
-    {
-      "customerID": "73ce1f00-5d23-428b-a850-651efad7e62c",
-      "orderID": "933e5305-7a7a-48e7-9274-e93d221fbd78",
-      "id": "FSa5HkS"
-    },
-    {
-      "customerID": "73ce1f00-5d23-428b-a850-651efad7e62c",
-      "orderID": "933e5305-7a7a-48e7-9274-e93d221fbd78",
-      "id": "XBxu6eM"
-    },
-    {
-      "customerID": "73ce1f00-5d23-428b-a850-651efad7e62c",
-      "orderID": "933e5305-7a7a-48e7-9274-e93d221fbd78",
-      "id": "RVW2HIq"
-    },
-    {
-      "customerID": "73ce1f00-5d23-428b-a850-651efad7e62c",
-      "orderID": "933e5305-7a7a-48e7-9274-e93d221fbd78",
-      "id": "QLhtuDn"
-    },
-    {
-      "customerID": "73ce1f00-5d23-428b-a850-651efad7e62c",
-      "orderID": "933e5305-7a7a-48e7-9274-e93d221fbd78",
-      "id": "ZYcutyp"
-    },
-    {
-      "customerID": "73ce1f00-5d23-428b-a850-651efad7e62c",
-      "orderID": "933e5305-7a7a-48e7-9274-e93d221fbd78",
-      "id": "XxE8T7X"
-    },
-    {
-      "customerID": "73ce1f00-5d23-428b-a850-651efad7e62c",
-      "orderID": "4a6d5f19-547e-4ad7-a665-d28d3e351453",
-      "id": "XTC0p1k"
-    },
-    {
-      "customerID": "73ce1f00-5d23-428b-a850-651efad7e62c",
-      "orderID": "4a6d5f19-547e-4ad7-a665-d28d3e351453",
-      "id": "a1odaX-"
-    },
-    {
-      "customerID": "73ce1f00-5d23-428b-a850-651efad7e62c",
-      "orderID": "4a6d5f19-547e-4ad7-a665-d28d3e351453",
-      "id": "ChM5AR3"
-    },
-    {
-      "customerID": "73ce1f00-5d23-428b-a850-651efad7e62c",
-      "orderID": "4a6d5f19-547e-4ad7-a665-d28d3e351453",
-      "id": "0vornb_"
-    },
-    {
-      "customerID": "73ce1f00-5d23-428b-a850-651efad7e62c",
-      "orderID": "4a6d5f19-547e-4ad7-a665-d28d3e351453",
-      "id": "7GVXML6"
-    },
-    {
-      "customerID": "73ce1f00-5d23-428b-a850-651efad7e62c",
-      "orderID": "4a6d5f19-547e-4ad7-a665-d28d3e351453",
-      "id": "JIdltmz"
-    },
-    {
-      "customerID": "73ce1f00-5d23-428b-a850-651efad7e62c",
-      "orderID": "4a6d5f19-547e-4ad7-a665-d28d3e351453",
-      "id": "sPw_U2p"
-    },
-    {
-      "customerID": "73ce1f00-5d23-428b-a850-651efad7e62c",
-      "orderID": "4a6d5f19-547e-4ad7-a665-d28d3e351453",
-      "id": "YGPD21V"
-    },
-    {
-      "customerID": "73ce1f00-5d23-428b-a850-651efad7e62c",
-      "orderID": "4a6d5f19-547e-4ad7-a665-d28d3e351453",
-      "id": "N9A6zp9"
-    },
-    {
-      "customerID": "73ce1f00-5d23-428b-a850-651efad7e62c",
-      "orderID": "4a6d5f19-547e-4ad7-a665-d28d3e351453",
-      "id": "MBL3JsG"
-    },
-    {
-      "customerID": "73ce1f00-5d23-428b-a850-651efad7e62c",
-      "orderID": "933e5305-7a7a-48e7-9274-e93d221fbd78",
-      "id": "H5f3umH"
-    },
-    {
-      "customerID": "73ce1f00-5d23-428b-a850-651efad7e62c",
-      "orderID": "933e5305-7a7a-48e7-9274-e93d221fbd78",
-      "id": "79kijDO"
-    },
-    {
-      "customerID": "73ce1f00-5d23-428b-a850-651efad7e62c",
-      "orderID": "4a6d5f19-547e-4ad7-a665-d28d3e351453",
-      "id": "dzFgT-1"
-    },
-    {
-      "customerID": "73ce1f00-5d23-428b-a850-651efad7e62c",
-      "orderID": "4a6d5f19-547e-4ad7-a665-d28d3e351453",
-      "id": "cKokwkE"
-    },
-    {
-      "customerID": "73ce1f00-5d23-428b-a850-651efad7e62c",
-      "orderID": "4a6d5f19-547e-4ad7-a665-d28d3e351453",
-      "id": "PgKXv2k"
-    },
-    {
-      "customerID": "73ce1f00-5d23-428b-a850-651efad7e62c",
-      "orderID": "4a6d5f19-547e-4ad7-a665-d28d3e351453",
-      "id": "M5oD9pO"
-    },
-    {
-      "customerID": "73ce1f00-5d23-428b-a850-651efad7e62c",
-      "orderID": "4a6d5f19-547e-4ad7-a665-d28d3e351453",
-      "id": "rsHAgcR"
-    }
-  ]
+    ]
 }
