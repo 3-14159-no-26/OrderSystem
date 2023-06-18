@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { IconUserCircle, IconLock, IconExclamationCircle } from "@tabler/icons-react"
+import { ToastContainer, toast } from "react-toastify"
 import Cookies from "js-cookie"
 import clsx from "clsx"
 import URL from "@/url"
@@ -53,6 +54,14 @@ const Login = ({ status }: { status: (status: string) => void }) => {
                 // 2. 跳轉頁面
                 window.location.href = "/"
                 // 3. 關閉登入視窗
+            } else {
+                toast.error(
+                    <div>
+                        登入失敗
+                        <br />
+                        請檢查帳號密碼是否正確
+                    </div>
+                )
             }
         } else {
             if (username.length === 0) {
@@ -66,6 +75,18 @@ const Login = ({ status }: { status: (status: string) => void }) => {
 
     return (
         <>
+            <ToastContainer
+                position='top-right'
+                autoClose={1000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme='light'
+            />
             <div className='m-2 flex flex-col items-center justify-center rounded-lg bg-white p-2 shadow dark:bg-neutral-800 dark:text-white/60'>
                 <div className='p-2 text-xl font-semibold'>歡迎使用！線上點餐系統</div>
                 <div className='p-2'>請選擇登入/註冊方式，註冊後即可使用</div>
@@ -118,7 +139,7 @@ const Login = ({ status }: { status: (status: string) => void }) => {
                     >
                         <IconLock className='px-2' size={40} />
                         <input
-                            type='text'
+                            type='password'
                             className='box-border w-full rounded-r-full p-1 focus-visible:outline-none'
                             onChange={(e) => {
                                 setPassword(e.target.value)

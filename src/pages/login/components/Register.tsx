@@ -192,7 +192,7 @@ const Register = ({ status }: { status: (status: string) => void }) => {
                 toast.success("註冊成功")
                 status("login")
             } else {
-                toast.error("註冊失敗")
+                toast.error(data.message)
             }
         } catch (error) {
             toast.error("註冊失敗")
