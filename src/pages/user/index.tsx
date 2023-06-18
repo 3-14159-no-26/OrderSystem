@@ -12,7 +12,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component"
 import Cookies from "js-cookie"
 import gravatar from "gravatar"
 import Container from "@/components/Container"
-import EditUser from "./components/edituser"
+import EditUser from "./components/Edit"
 
 const User = () => {
     const go = useNavigate()
