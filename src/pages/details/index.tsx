@@ -122,7 +122,7 @@ const Details = () => {
 
     useEffect(() => {
         const fetchOneData = async () => {
-            // setOneDataLoading(true)
+            setOneDataLoading(true)
             // const token = Cookies.get("token")
             // const res = await fetch(`${URL}/details`, {
             //     method: "POST",
@@ -138,9 +138,6 @@ const Details = () => {
             // setOneData(responseData.message)
             // setOneData(detailsOneData)
             // setOneDataLoading(false)
-            setTimeout(() => {
-                setOneDataLoading(false)
-            }, 500)
             const token = Cookies.get("token")
             const fetchData = fetch(`${URL}/details`, {
                 method: "POST",
@@ -160,7 +157,11 @@ const Details = () => {
                     }
                 })
                 .then((data) => {
-                    setOneData(data.message)
+                    if (data.message === "查無此訂單") {
+                        throw new Error(`查無此訂單`)
+                    } else {
+                        setOneData(data.message)
+                    }
                     setOneData(detailsOneData)
                     setOneDataLoading(false)
                 })
@@ -171,6 +172,7 @@ const Details = () => {
             toast.promise(fetchData, {
                 pending: "資料載入中...",
                 success: "資料載入成功",
+                // 顯示完成跳轉頁面
                 error: {
                     render({ data }: ToastContentProps<{ message: string }>) {
                         return (
@@ -185,7 +187,7 @@ const Details = () => {
         }
 
         const fetchAllData = async () => {
-            // setAllDataLoading(true)
+            setAllDataLoading(true)
             // let status = "AB"
             // if (location.state?.orderStatus === "C") {
             //     status = "C"
@@ -205,9 +207,6 @@ const Details = () => {
             // setAllData(responseData.message)
             // setAllData(detailsAllData)
             // setAllDataLoading(false)
-            setTimeout(() => {
-                setAllDataLoading(true)
-            }, 500)
             let status = "AB"
             if (location.state?.orderStatus === "C") {
                 status = "C"
