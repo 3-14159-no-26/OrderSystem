@@ -37,28 +37,32 @@ const Admin = () => {
         fetchData()
     }, [])
 
-    useEffect(() => {
-        const postData = async () => {
-            const arr = ["todo", "doing", "done"]
-            for (let i = 0; i < arr.length; i++) {
-                await fetch(URL + "/order/" + arr[i], {
-                    method: "DELETE",
-                })
-            }
+    // useEffect(() => {
+    //     const postData = async () => {
+    //         const arr = ["todo", "doing", "done"]
+    //         for (let i = 0; i < arr.length; i++) {
+    //             await fetch(URL + "/order/" + arr[i], {
+    //                 method: "DELETE",
+    //             })
+    //         }
 
-            for (let i = 0; i < data.length; i++) {
-                await fetch(URL + "/order", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(data[i]), // data[0] = todo
-                })
-            }
-        }
-        if (data.length > 0) {
-            postData()
-        }
+    //         for (let i = 0; i < data.length; i++) {
+    //             await fetch(URL + "/order", {
+    //                 method: "POST",
+    //                 headers: {
+    //                     "Content-Type": "application/json",
+    //                 },
+    //                 body: JSON.stringify(data[i]), // data[0] = todo
+    //             })
+    //         }
+    //     }
+    //     if (data.length > 0) {
+    //         postData()
+    //     }
+    // }, [data])
+
+    useEffect(() => {
+        console.log("data: ", data)
     }, [data])
 
     const onDragEnd = (result: DropResult) => {
