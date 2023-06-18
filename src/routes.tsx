@@ -5,6 +5,7 @@ import Cart from "@/pages/cart"
 import Details from "@/pages/details"
 import User from "@/pages/user"
 import Login from "@/pages/login"
+import AdminLogin from "@/pages/admin/components/Login"
 import Admin from "@/pages/admin"
 import API from "@/pages/api"
 import NotFound from "@/pages/notFound"
@@ -38,6 +39,11 @@ const routes: RouteObject[] = [
     {
         path: "/login",
         element: <Login />,
+        children: [],
+    },
+    {
+        path: "/admin/login",
+        element: <AdminLogin />,
         children: [],
     },
     {
