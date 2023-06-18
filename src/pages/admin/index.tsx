@@ -508,11 +508,6 @@ const Admin = () => {
                                                         >
                                                             <Select.ScrollUpButton />
                                                             <Select.Viewport>
-                                                                {/* <Select.Item>
-                                                                    <Select.ItemText />
-                                                                    <Select.ItemIndicator />
-                                                                </Select.Item> */}
-
                                                                 <Select.Item
                                                                     value='A'
                                                                     className='cursor-pointer rounded-md p-1 outline-none hover:bg-gray-200 hover:outline-none dark:hover:bg-neutral-700'
