@@ -8,33 +8,6 @@ import { MenuItemType as OrderItem } from "@/types"
 import URL from "@/url"
 import Container from "@/components/Container"
 
-// {
-//     "orderID": "7abf4586-5c6d-4609-b451-6c8870a856dd",
-//     "customerID": "02bc95a5-2656-41d2-b917-6eb5e1a372c5",
-//     "status": "B",
-//     "Bdate": "2023-06-07T17:06:32",
-//     "Details": [
-//         {
-//             "detailID": "4f595ab0-a256-439c-8bf2-a191114fbca9",
-//             "orderID": "7abf4586-5c6d-4609-b451-6c8870a856dd",
-//             "cover": "雙層牛肉吉士堡",
-//             "name": "雙層牛肉吉士堡",
-//             "category": "MM",
-//             "price": 65.0,
-//             "count": 1.0
-//         },
-//         {
-//             "detailID": "ee104387-4642-4508-8186-c6456836e854",
-//             "orderID": "7abf4586-5c6d-4609-b451-6c8870a856dd",
-//             "cover": "大麥克",
-//             "name": "大麥克",
-//             "category": "MM",
-//             "price": 75.0,
-//             "count": 1.0
-//         }
-//     ]
-// },
-
 type OrderList = {
     orderID: string
     customerID: string
