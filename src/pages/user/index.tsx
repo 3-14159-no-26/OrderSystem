@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import {
     IconUser,
@@ -13,15 +13,48 @@ import Cookies from "js-cookie"
 import gravatar from "gravatar"
 import Container from "@/components/Container"
 import EditUser from "./components/Edit"
+import URL from "@/url"
+
+type UserInfo = {
+    username: string
+    name: string
+    email: string
+    phone: string
+    address: string
+}
 
 const User = () => {
     const go = useNavigate()
+    const [avatar, setAvatar] = useState("")
+    const [userInfo, setUserInfo] = useState<UserInfo>({
+        username: "",
+        name: "",
+        email: "",
+        phone: "",
+        address: "",
+    })
     const token = Cookies.get("token")
-    const avatar = gravatar.url("xxx911209@gmail.com", { s: "100", r: "g", d: "mm" })
 
     useEffect(() => {
         if (!token) {
             go("/login")
+        } else {
+            const fetchData = async () => {
+                const res = await fetch(URL + "/info", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        customerID: token,
+                    }),
+                })
+                const data = (await res.json()) as UserInfo
+                setAvatar(gravatar.url(data.email, { s: "100", r: "g", d: "mm" }))
+                setUserInfo(data)
+                console.log(data)
+            }
+            fetchData()
         }
     }, [])
 
@@ -38,9 +71,9 @@ const User = () => {
                             />
                         </div>
                         <div className=''>
-                            <div className='text-center text-4xl'>only</div>
+                            <div className='text-center text-4xl'>{userInfo.username}</div>
                             <div className='pt-3 text-center'>
-                                <EditUser />
+                                {token && <EditUser token={token} />}
                             </div>
                         </div>
                     </div>
@@ -71,7 +104,7 @@ const User = () => {
                             <IconUser size={24} />
                             <div className='pl-2 text-2xl'>姓名</div>
                         </div>
-                        <div className='text-2xl'>XXX</div>
+                        <div className='text-2xl'>{userInfo.name}</div>
                     </div>
                     <div className='border-b-2 dark:border-neutral-800'></div>
                     <div className='my-2 flex w-full items-center justify-between rounded-2xl p-2 hover:bg-gray-100 dark:hover:bg-neutral-800'>
@@ -79,7 +112,7 @@ const User = () => {
                             <IconMail size={24} />
                             <div className='pl-2 text-2xl'>Email</div>
                         </div>
-                        <div className='text-2xl'>XXX</div>
+                        <div className='text-2xl'>{userInfo.email}</div>
                     </div>
                     <div className='border-b-2 dark:border-neutral-800'></div>
                     <div className='my-2 flex w-full items-center justify-between rounded-2xl p-2 hover:bg-gray-100 dark:hover:bg-neutral-800'>
@@ -87,9 +120,16 @@ const User = () => {
                             <IconPhone size={24} />
                             <div className='pl-2 text-2xl'>電話</div>
                         </div>
-                        <div className='text-2xl'>XXX</div>
+                        <div className='text-2xl'>{userInfo.phone}</div>
                     </div>
                     <div className='border-b-2 dark:border-neutral-800'></div>
+                    <div className='my-2 flex w-full items-center justify-between rounded-2xl p-2 hover:bg-gray-100 dark:hover:bg-neutral-800'>
+                        <div className='flex items-center'>
+                            <IconPhone size={24} />
+                            <div className='pl-2 text-2xl'>地址</div>
+                        </div>
+                        <div className='text-2xl'>{userInfo.address}</div>
+                    </div>
                     <div
                         id='order-api'
                         className='my-2 flex w-full cursor-pointer items-center justify-between rounded-2xl p-2 hover:bg-gray-100 dark:hover:bg-neutral-800'
