@@ -77,8 +77,8 @@ const Home = () => {
     useEffect(() => {
         setCategoryLoading(true)
         const fetchCategory = async () => {
-            const response = await fetch(URL + "/category")
-            const data = await response.json()
+            const res = await fetch(URL + "/category")
+            const data = await res.json()
             setCategory(data)
             setCategoryLoading(false)
             console.log(data)
