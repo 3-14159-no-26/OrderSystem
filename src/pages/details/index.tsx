@@ -134,7 +134,7 @@ const Details = () => {
             //         orderID: id,
             //     }),
             // })
-            // const responseData = await res.json()
+            // const resData = await res.json()
             // setOneData(responseData.message)
             // setOneData(detailsOneData)
             // setOneDataLoading(false)
@@ -162,7 +162,7 @@ const Details = () => {
                     } else {
                         setOneData(data.message)
                     }
-                    setOneData(detailsOneData)
+                    // setOneData(detailsOneData)
                     setOneDataLoading(false)
                 })
                 .catch((err) => {
@@ -203,7 +203,7 @@ const Details = () => {
             //         status: status,
             //     }),
             // })
-            // const responseData = await res.json()
+            // const resData = await res.json()
             // setAllData(responseData.message)
             // setAllData(detailsAllData)
             // setAllDataLoading(false)
@@ -239,7 +239,7 @@ const Details = () => {
                     } else {
                         setAllData(data.message)
                     }
-                    setAllData(detailsAllData)
+                    // setAllData(detailsAllData)
                     setAllDataLoading(false)
                 })
                 .catch((err) => {
