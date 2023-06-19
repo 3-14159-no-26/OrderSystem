@@ -7,7 +7,7 @@ import * as Select from "@radix-ui/react-select"
 import { MenuItemType as OrderItem } from "@/types"
 import URL from "@/url"
 import Container from "@/components/Container"
-import SelectItem from "./components/SelectItem"
+// import SelectItem from "./components/SelectItem"
 
 type OrderList = {
     orderID: string
