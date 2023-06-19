@@ -39,7 +39,7 @@ const Cart = () => {
         if (token) {
             // 送出訂單
             console.log("送出訂單", menuList)
-            const response = await fetch(URL + "/order", {
+            const res = await fetch(URL + "/order", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -60,7 +60,7 @@ const Cart = () => {
                     }),
                 }),
             })
-            const data = await response.json()
+            const data = await res.json()
             console.log("訂單編號", data.id)
             // 清空購物車
             resetToCart()
