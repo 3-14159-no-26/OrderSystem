@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react"
 import { IconUser, IconPhone, IconMail, IconX } from "@tabler/icons-react"
 import * as Dialog from "@radix-ui/react-dialog"
+import URL from "@/url"
 
-const EditUser = () => {
+const EditUser = ({ token }: { token: string }) => {
     const [open, setOpen] = useState(false)
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
@@ -11,11 +12,27 @@ const EditUser = () => {
     // const [errorPhone, setErrorPhone] = useState(false)
 
     useEffect(() => {
-        // 打開清空資料
+        // 打開寫入預設資料
+        const fetchData = async () => {
+            const res = await fetch(URL + "/info", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    customerID: token,
+                }),
+            })
+            const data = await res.json()
+            setName(data.name)
+            setEmail(data.email)
+            setPhone(data.phone)
+        }
         if (open) {
-            setName("")
+            fetchData()
+            // setName("")
             // setEmail('')
-            setPhone("")
+            // setPhone("")
             // setErrorName(false)
             // setErrorPhone(false)
         }
