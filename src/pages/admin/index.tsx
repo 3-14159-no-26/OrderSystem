@@ -153,8 +153,8 @@ const Admin = () => {
 
     const updateStatus = (mode: number) => {
         if (mode === 1) {
-            const newData = SortStatusOut(data)
-            console.log("更新後的資料: ", newData)
+            setData1(SortStatusOut(data))
+            console.log("更新後的資料: ", data1)
         } else if (mode === 2) {
             console.log("更新後的資料: ", data1)
         }
