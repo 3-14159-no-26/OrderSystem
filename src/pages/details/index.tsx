@@ -162,7 +162,7 @@ const Details = () => {
                     } else {
                         setOneData(data.message)
                     }
-                    // setOneData(detailsOneData)
+                    setOneData(detailsOneData)
                     setOneDataLoading(false)
                 })
                 .catch((err) => {
@@ -239,7 +239,7 @@ const Details = () => {
                     } else {
                         setAllData(data.message)
                     }
-                    // setAllData(detailsAllData)
+                    setAllData(detailsAllData)
                     setAllDataLoading(false)
                 })
                 .catch((err) => {
