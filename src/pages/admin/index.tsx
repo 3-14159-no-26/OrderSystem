@@ -7,6 +7,7 @@ import * as Select from "@radix-ui/react-select"
 import { MenuItemType as OrderItem } from "@/types"
 import URL from "@/url"
 import Container from "@/components/Container"
+import SelectItem from "./components/SelectItem"
 
 type OrderList = {
     orderID: string
@@ -137,9 +138,17 @@ const Admin = () => {
     }
 
     const SortStatusOut1 = (item: OrderList, itemStatus: string) => {
-        item.status = itemStatus
-        setData1([...data1, item])
-        // console.log("data1: ", data1)
+        // 把分類todo, doing, done list 裡的訂單 status 分別修改對應 A, B, C
+        // SortStatusOut(data)
+        const newData = SortStatusOut(data)
+        // 迴圈newData找出要修改訂單 status 的那筆資料
+        for (let i = 0; i < newData.length; i++) {
+            if (newData[i].orderID === item.orderID) {
+                newData[i].status = itemStatus
+                break
+            }
+        }
+        setData1(newData)
     }
 
     const updateStatus = (mode: number) => {
@@ -307,6 +316,10 @@ const Admin = () => {
                                         <div className='flex items-center justify-between max-md:flex-col'>
                                             <div className='flex items-center p-1'>
                                                 <div className='text-xl'>狀態:</div>
+                                                {/* <SelectItem
+                                                    item={item}
+                                                    SortStatusOut1={SortStatusOut1}
+                                                /> */}
                                                 <Select.Root
                                                     defaultValue={item.status}
                                                     required
@@ -324,6 +337,7 @@ const Admin = () => {
                                                         <Select.Content
                                                             className='w-full min-w-[--radix-select-trigger-width] rounded-lg border border-gray-300 bg-white p-1 shadow-md dark:border-gray-700 dark:bg-neutral-800 dark:text-white/60'
                                                             position='popper'
+                                                            side='right'
                                                         >
                                                             <Select.ScrollUpButton />
                                                             <Select.Viewport>
@@ -540,7 +554,7 @@ const Admin = () => {
                     <button
                         className='w-full rounded-lg bg-amber-300 p-4'
                         onClick={() => {
-                            updateStatus(2)
+                            updateStatus(1)
                         }}
                     >
                         更新
