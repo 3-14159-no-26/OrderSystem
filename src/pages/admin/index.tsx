@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { DragDropContext, Droppable, Draggable, DropResult } from "react-beautiful-dnd"
 import { IconChevronDown } from "@tabler/icons-react"
+import Cookies from "js-cookie"
 import * as Tabs from "@radix-ui/react-tabs"
 import * as Select from "@radix-ui/react-select"
 import { MenuItemType as OrderItem } from "@/types"
@@ -28,13 +29,45 @@ const Admin = () => {
     const [data, setData] = useState<Order[]>([])
     const [data1, setData1] = useState<OrderList[]>([])
 
+    useEffect(() => {
+        const token = Cookies.get("token")
+        const fetchData = async () => {
+            const res = await fetch(URL + "/admin/authorization", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    AdminID: token,
+                }),
+            })
+            const data = await res.json()
+            if (data.status != "success") {
+                go("/admin/login")
+            }
+        }
+        if (token) {
+            fetchData()
+        } else {
+            go("/admin/login")
+        }
+    }, [])
+
     // const [items, setItems] = useState(["AA", "BB", "CC"])
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch(URL + "/order")
-            let data = await response.json()
+            const res = await fetch(URL + "/details", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    customerID: Cookies.get("token"),
+                }),
+            })
+            let data = await res.json()
             // 根據 data status 來分類
-            data = SortStatusIn(data)
+            data = SortStatusIn(data.message)
             console.log("data: ", data)
             setData(data)
         }
