@@ -32,73 +32,73 @@ type DetailsItemType = {
     Details: MenuItemType[]
 }
 
-const detailsOneData: DetailsItemType = {
-    orderID: "485b33f0-1895-482f-ba61-0759687f7655",
-    customerID: "c400bfb6-b476-46de-8d1b-20108121f8bf",
-    status: "B",
-    Bdate: "2023-06-13T15:48:16",
-    Details: [
-        {
-            id: 1,
-            cover: "嫩煎鷄腿堡",
-            name: "嫩煎鷄腿堡",
-            category: "MM",
-            price: 80.0,
-            count: 4.0,
-        },
-        {
-            id: 2,
-            cover: "大麥克",
-            name: "大麥克",
-            category: "MM",
-            price: 75.0,
-            count: 3.0,
-        },
-    ],
-}
+// const detailsOneData: DetailsItemType = {
+//     orderID: "485b33f0-1895-482f-ba61-0759687f7655",
+//     customerID: "c400bfb6-b476-46de-8d1b-20108121f8bf",
+//     status: "B",
+//     Bdate: "2023-06-13T15:48:16",
+//     Details: [
+//         {
+//             id: 1,
+//             cover: "嫩煎鷄腿堡",
+//             name: "嫩煎鷄腿堡",
+//             category: "MM",
+//             price: 80.0,
+//             count: 4.0,
+//         },
+//         {
+//             id: 2,
+//             cover: "大麥克",
+//             name: "大麥克",
+//             category: "MM",
+//             price: 75.0,
+//             count: 3.0,
+//         },
+//     ],
+// }
 
-const detailsAllData: DetailsItemType[] = [
-    {
-        orderID: "471e5ef6-7712-4c1f-9177-6198abfa8676",
-        customerID: "c400bfb6-b476-46de-8d1b-20108121f8bf",
-        status: "A",
-        Bdate: "2023-06-13T15:48:16",
-        Details: [
-            {
-                id: 1,
-                cover: "嫩煎鷄腿堡",
-                name: "嫩煎鷄腿堡",
-                category: "MM",
-                price: 80.0,
-                count: 4.0,
-            },
-        ],
-    },
-    {
-        orderID: "485b33f0-1895-482f-ba61-0759687f7655",
-        customerID: "c400bfb6-b476-46de-8d1b-20108121f8bf",
-        status: "B",
-        Bdate: "2023-06-13T17:40:19",
-        Details: [
-            {
-                id: 1,
-                cover: "大麥克",
-                name: "大麥克",
-                category: "MM",
-                price: 75.0,
-                count: 3.0,
-            },
-            {
-                id: 2,
-                cover: "嫩煎鷄腿堡",
-                name: "嫩煎鷄腿堡",
-                category: "MM",
-                price: 80.0,
-                count: 4.0,
-            },
-        ],
-    },
-]
+// const detailsAllData: DetailsItemType[] = [
+//     {
+//         orderID: "471e5ef6-7712-4c1f-9177-6198abfa8676",
+//         customerID: "c400bfb6-b476-46de-8d1b-20108121f8bf",
+//         status: "A",
+//         Bdate: "2023-06-13T15:48:16",
+//         Details: [
+//             {
+//                 id: 1,
+//                 cover: "嫩煎鷄腿堡",
+//                 name: "嫩煎鷄腿堡",
+//                 category: "MM",
+//                 price: 80.0,
+//                 count: 4.0,
+//             },
+//         ],
+//     },
+//     {
+//         orderID: "485b33f0-1895-482f-ba61-0759687f7655",
+//         customerID: "c400bfb6-b476-46de-8d1b-20108121f8bf",
+//         status: "B",
+//         Bdate: "2023-06-13T17:40:19",
+//         Details: [
+//             {
+//                 id: 1,
+//                 cover: "大麥克",
+//                 name: "大麥克",
+//                 category: "MM",
+//                 price: 75.0,
+//                 count: 3.0,
+//             },
+//             {
+//                 id: 2,
+//                 cover: "嫩煎鷄腿堡",
+//                 name: "嫩煎鷄腿堡",
+//                 category: "MM",
+//                 price: 80.0,
+//                 count: 4.0,
+//             },
+//         ],
+//     },
+// ]
 
 const Details = () => {
     const { id } = useParams()
@@ -162,7 +162,7 @@ const Details = () => {
                     } else {
                         setOneData(data.message)
                     }
-                    setOneData(detailsOneData)
+                    // setOneData(detailsOneData)
                     setOneDataLoading(false)
                 })
                 .catch((err) => {
@@ -239,7 +239,7 @@ const Details = () => {
                     } else {
                         setAllData(data.message)
                     }
-                    setAllData(detailsAllData)
+                    // setAllData(detailsAllData)
                     setAllDataLoading(false)
                 })
                 .catch((err) => {
